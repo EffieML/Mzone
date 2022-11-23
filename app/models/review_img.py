@@ -1,26 +1,26 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 
-class Product_Img(db.Model):
-    __tablename__ = 'product_imgs'
+class Review_Img(db.Model):
+    __tablename__ = 'review_imgs'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod('products.id')), nullable=False)
+    review_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('reviews.id')), nullable=False)
     url = db.Column(db.String, nullable=False)
     preview = db.Column(db.Boolean, default=False)
 
 # relation section ----------------------------------------------
-    product_pi = db.relationship(
-        "Product", back_populates="product_imgs_p")
+    review_ri = db.relationship(
+        "Review", back_populates="review_imgs_r")
 
     def to_dict_no_additions(self):
         return {
             'id': self.id,
-            'productId': self.product_id,
+            'reviewId': self.review_id,
             'url': self.url,
             'preview': self.preview,
         }
@@ -28,11 +28,11 @@ class Product_Img(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'productId': self.product_id,
+            'reviewId': self.review_id,
             'url': self.url,
             'preview': self.preview,
-            'product': self.product_pi.to_dict_no_additions(),
+            'review': self.review_ri.to_dict_no_additions(),
         }
 
     def __repr__(self):
-        return f'<Product Image model: id={self.id}, product_id={self.product_id}, url={self.url}, preview={self.preview}>'
+        return f'<Review Image model: id={self.id}, review_id={self.review_id}, url={self.url}, preview={self.preview}>'
