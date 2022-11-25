@@ -14,11 +14,10 @@ class Product(db.Model):
     category = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Float, nullable=False)
     brand = db.Column(db.String(255), nullable=False)
-    about = db.Column(db.String(1000), nullable=False)
-    detail = db.Column(db.String(1000), nullable=False)
+    about = db.Column(db.String(2000), nullable=False)
+    detail = db.Column(db.String(2000), nullable=False)
     dimension = db.Column(db.String(100), nullable=False)
     weight = db.Column(db.Float, nullable=False)
-    asin = db.Column(db.String(100), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
@@ -49,7 +48,6 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
@@ -67,7 +65,6 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,
@@ -86,7 +83,6 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
             "createdAt": self.created_at,
             "updatedAt": self.updated_at,

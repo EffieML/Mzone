@@ -14,7 +14,7 @@ class Review(db.Model):
         add_prefix_for_prod('products.id')), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(100), nullable=False)
-    review = db.Column(db.String(1000), nullable=False)
+    review = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
