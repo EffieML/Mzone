@@ -1,4 +1,5 @@
 from app.models import db, User, environment, SCHEMA
+from datetime import datetime
 
 
 # Adds a demo user, you can add other users here if you want
@@ -8,29 +9,28 @@ def seed_users():
         last_name='Ecommerce',
         user_name='Mzone',
         email='mzone@aa.io',
-        hashed_password='password')
+        hashed_password='password',
+        created_at=datetime.now(),
+        updated_at=datetime.now(),
+    )
     james = User(
         first_name='James',
         last_name='Nathan',
         user_name='James',
         email='james@aa.io',
         hashed_password='password',
-        street='6550 Comanche Trail',
-        city='Austin',
-        state='Texas',
-        zip='78732',
-        country='United State')
+        created_at=datetime.now(),
+        updated_at=datetime.now(),
+    )
     marnie = User(
         first_name='Marnie',
         last_name='Jones',
         user_name='Marnie',
         email='marnie@aa.io',
         hashed_password='password',
-        street='4501 Woodway Dr',
-        city='Houston',
-        state='Texas',
-        zip='77024',
-        country='United State')
+        created_at=datetime.now(),
+        updated_at=datetime.now(),
+    )
 
     db.session.add(mzone)
     db.session.add(james)

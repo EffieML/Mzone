@@ -1,5 +1,6 @@
 from .db import db
 from .user import User
+from .address import Address
 from .product import Product
 from .product_img import Product_Img
 from .cart import Cart
