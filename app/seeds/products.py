@@ -15,8 +15,8 @@ def seed_products():
         dimension='3.9"W x 3.9"D x 3.5"H',
         weight=0.67,
         quantity=100,
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
 
     product_002 = Product(
@@ -30,8 +30,8 @@ def seed_products():
         dimension='15.8"W x 9.9"H x 1.4"D',
         weight=4.88,
         quantity=100,
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
 
     # mzone home
@@ -46,8 +46,8 @@ def seed_products():
         dimension='31.5"D x 31.5"W x 14.2"H',
         weight=33.51,
         quantity=10,
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
 
     product_004 = Product(
@@ -61,8 +61,8 @@ def seed_products():
         dimension='47"D x 16"W x 22"H',
         weight=57,
         quantity=10,
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
 
     db.session.add(product_001)

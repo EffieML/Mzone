@@ -60,7 +60,7 @@ def upgrade():
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('user_id', sa.Integer(), nullable=False),
                     sa.Column('created_at', sa.DateTime(), nullable=False),
-                    sa.Column('updated_at', sa.DateTime(), nullable=False),
+                    # sa.Column('updated_at', sa.DateTime(), nullable=False),
                     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
@@ -82,8 +82,8 @@ def upgrade():
                         length=100), nullable=False),
                     sa.Column('weight', sa.Float(), nullable=False),
                     sa.Column('quantity', sa.Integer(), nullable=False),
-                    sa.Column('created_at', sa.DateTime(), nullable=False),
-                    sa.Column('updated_at', sa.DateTime(), nullable=False),
+                    # sa.Column('created_at', sa.DateTime(), nullable=False),
+                    # sa.Column('updated_at', sa.DateTime(), nullable=False),
                     sa.ForeignKeyConstraint(['seller_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
@@ -145,7 +145,7 @@ def upgrade():
                     sa.Column('review', sa.String(
                         length=2000), nullable=False),
                     sa.Column('created_at', sa.DateTime(), nullable=False),
-                    sa.Column('updated_at', sa.DateTime(), nullable=False),
+                    # sa.Column('updated_at', sa.DateTime(), nullable=False),
                     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
                     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
