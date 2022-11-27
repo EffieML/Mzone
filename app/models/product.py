@@ -14,14 +14,13 @@ class Product(db.Model):
     category = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Float, nullable=False)
     brand = db.Column(db.String(255), nullable=False)
-    about = db.Column(db.String(1000), nullable=False)
-    detail = db.Column(db.String(1000), nullable=False)
+    about = db.Column(db.String(2000), nullable=False)
+    detail = db.Column(db.String(2000), nullable=False)
     dimension = db.Column(db.String(100), nullable=False)
     weight = db.Column(db.Float, nullable=False)
-    asin = db.Column(db.String(100), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    updated_at = db.Column(db.DateTime, nullable=False)
+    # created_at = db.Column(db.DateTime, nullable=False)
+    # updated_at = db.Column(db.DateTime, nullable=False)
 
     # relation section ----------------------------------------------
     user_p = db.relationship(
@@ -49,10 +48,9 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
-            "createdAt": self.created_at,
-            "updatedAt": self.updated_at,
+            # "createdAt": self.created_at,
+            # "updatedAt": self.updated_at,
         }
 
     def to_dict_product_images(self):
@@ -67,10 +65,9 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
-            "createdAt": self.created_at,
-            "updatedAt": self.updated_at,
+            # "createdAt": self.created_at,
+            # "updatedAt": self.updated_at,
             "images": [image.to_dict_no_additions() for image in self.product_imgs_p],
         }
 
@@ -86,10 +83,9 @@ class Product(db.Model):
             "detail": self.detail,
             "dimension": self.dimension,
             "weight": self.weight,
-            "asin": self.asin,
             "quantity": self.quantity,
-            "createdAt": self.created_at,
-            "updatedAt": self.updated_at,
+            # "createdAt": self.created_at,
+            # "updatedAt": self.updated_at,
             "user": self.user_p.to_dict_no_additions(),
             "carts": [cart.to_dict_no_additions() for cart in self.carts_p],
             "orderItems": [orderitem.to_dict_no_additions() for orderitem in self.order_items_p],

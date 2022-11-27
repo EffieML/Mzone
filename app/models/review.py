@@ -14,9 +14,9 @@ class Review(db.Model):
         add_prefix_for_prod('products.id')), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(100), nullable=False)
-    review = db.Column(db.String(1000), nullable=False)
+    review = db.Column(db.String(2000), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
-    updated_at = db.Column(db.DateTime, nullable=False)
+    # updated_at = db.Column(db.DateTime, nullable=False)
 
     # relation section ----------------------------------------------
     user_r = db.relationship(
@@ -35,7 +35,7 @@ class Review(db.Model):
             'title': self.title,
             'review': self.review,
             'createdAt': self.created_at,
-            'updatedAt': self.updated_at
+            # 'updatedAt': self.updated_at
         }
 
     def to_dict(self):
@@ -47,7 +47,7 @@ class Review(db.Model):
             'title': self.title,
             'review': self.review,
             'createdAt': self.created_at,
-            'updatedAt': self.updated_at,
+            # 'updatedAt': self.updated_at,
             'user': self.user_r.to_dict_no_additions(),
             'product': self.product_r.to_dict_product_images(),
             "images": [image.to_dict_no_additions() for image in self.review_imgs_r],

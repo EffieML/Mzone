@@ -1,18 +1,40 @@
 from app.models import db, User, environment, SCHEMA
+from datetime import datetime
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+    mzone = User(
+        firstname='Mzone',
+        lastname='Ecommerce',
+        username='Mzone',
+        email='mzone@aa.io',
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
+    )
+    james = User(
+        firstname='James',
+        lastname='Nathan',
+        username='James',
+        email='james@aa.io',
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
+    )
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        firstname='Marnie',
+        lastname='Jones',
+        username='Marnie',
+        email='marnie@aa.io',
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
+    )
 
-    db.session.add(demo)
+    db.session.add(mzone)
+    db.session.add(james)
     db.session.add(marnie)
-    db.session.add(bobbie)
     db.session.commit()
 
 
@@ -24,8 +46,9 @@ def seed_users():
 # it will reset the primary keys for you as well.
 def undo_users():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM users")
-        
+
     db.session.commit()
