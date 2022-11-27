@@ -5,31 +5,31 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     mzone = User(
-        first_name='Mzone',
-        last_name='Ecommerce',
-        user_name='Mzone',
+        firstname='Mzone',
+        lastname='Ecommerce',
+        username='Mzone',
         email='mzone@aa.io',
-        hashed_password='password',
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
     james = User(
-        first_name='James',
-        last_name='Nathan',
-        user_name='James',
+        firstname='James',
+        lastname='Nathan',
+        username='James',
         email='james@aa.io',
-        hashed_password='password',
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
     marnie = User(
-        first_name='Marnie',
-        last_name='Jones',
-        user_name='Marnie',
+        firstname='Marnie',
+        lastname='Jones',
+        username='Marnie',
         email='marnie@aa.io',
-        hashed_password='password',
-        created_at=datetime.now(),
-        updated_at=datetime.now(),
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
     )
 
     db.session.add(mzone)

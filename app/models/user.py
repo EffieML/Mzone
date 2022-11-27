@@ -10,13 +10,13 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
-    user_name = db.Column(db.String(50), nullable=False, unique=True)
+    firstname = db.Column(db.String(50), nullable=False)
+    lastname = db.Column(db.String(50), nullable=False)
+    username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    updated_at = db.Column(db.DateTime, nullable=False)
+    # created_at = db.Column(db.DateTime, nullable=False)
+    # updated_at = db.Column(db.DateTime, nullable=False)
 
 
 # relation section ----------------------------------------------
@@ -47,23 +47,23 @@ class User(db.Model, UserMixin):
     def to_dict_no_additions(self):
         return {
             'id': self.id,
-            'firstName': self.first_name,
-            'lastName': self.last_name,
-            'userName': self.user_name,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'username': self.username,
             'email': self.email,
-            'createdAt': self.created_at,
-            'updatedAt': self.updated_at,
+            # 'createdAt': self.created_at,
+            # 'updatedAt': self.updated_at,
         }
 
     def to_dict(self):
         return {
             'id': self.id,
-            'firstName': self.first_name,
-            'lastName': self.last_name,
-            'userName': self.user_name,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'username': self.username,
             'email': self.email,
-            'createdAt': self.created_at,
-            'updatedAt': self.updated_at,
+            # 'createdAt': self.created_at,
+            # 'updatedAt': self.updated_at,
             'addresses': [address.to_dict_no_additions() for address in self.addresses_u],
             'products': [product.to_dict_no_additions() for product in self.products_u],
             'carts': [cart.to_dict_no_additions() for cart in self.carts_u],
@@ -73,4 +73,4 @@ class User(db.Model, UserMixin):
         }
 
     def __repr__(self):
-        return f'<User model: id={self.id}, first_name={self.first_name}, last_name={self.last_name}, user_name={self.user_name}, email={self.email}>'
+        return f'<User model: id={self.id}, firstname={self.firstname}, lastname={self.lastname}, username={self.username}, email={self.email}>'
