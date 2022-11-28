@@ -32,9 +32,9 @@ class ProductForm(FlaskForm):
     quantity = IntegerField('quantity', validators=[DataRequired('Quantity is required.'), NumberRange(
         min=1, max=9999, message='Quantity should be between 1 to 9999.')])
 
-    url1 = StringField('url1', validators=[DataRequired(
+    img = StringField('img', validators=[DataRequired(
         'One product image is required.')])
-    url2 = StringField('url2')
-    url3 = StringField('url3')
-    url4 = StringField('url4')
-    url5 = StringField('url5')
+    img2 = StringField('img2')
+    img3 = StringField('img3')
+    img4 = StringField('img4')
+    img5 = StringField('img5')

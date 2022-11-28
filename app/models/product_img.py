@@ -11,7 +11,7 @@ class Product_Img(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('products.id')), nullable=False)
     url = db.Column(db.String, nullable=False)
-    preview = db.Column(db.Boolean, default=False)
+    # preview = db.Column(db.Boolean, default=False)
 
 # relation section ----------------------------------------------
     product_pi = db.relationship(
@@ -22,7 +22,7 @@ class Product_Img(db.Model):
             'id': self.id,
             'productId': self.product_id,
             'url': self.url,
-            'preview': self.preview,
+            # 'preview': self.preview,
         }
 
     def to_dict(self):
@@ -30,9 +30,9 @@ class Product_Img(db.Model):
             'id': self.id,
             'productId': self.product_id,
             'url': self.url,
-            'preview': self.preview,
+            # 'preview': self.preview,
             'product': self.product_pi.to_dict_no_additions(),
         }
 
     def __repr__(self):
-        return f'<Product Image model: id={self.id}, product_id={self.product_id}, url={self.url}, preview={self.preview}>'
+        return f'<Product Image model: id={self.id}, product_id={self.product_id}, url={self.url}>'
