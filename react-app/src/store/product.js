@@ -79,63 +79,64 @@ export const listUserProductsThunk = () => async (dispatch) => {
         return response;
     }
 };
-// thunk: add one spot for current user
-export const addSpot = (spot) => async dispatch => {
+// thunk: add one product for current user
+export const addProductThunk = (product) => async dispatch => {
     try {
-        const response = await csrfFetch('/api/spots', {
+        // const { name, category, price, brand, about, detail, dimension, weight, quantity, img, img2, img3, img4, img5 } = product;
+        const response = await fetch('/api/products', {
             method: 'POST',
             headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(spot)
+            body: JSON.stringify(product)
+            // body: JSON.stringify({
+            //     name,
+            //     category,
+            //     price,
+            //     brand,
+            //     about,
+            //     detail,
+            //     dimension,
+            //     weight,
+            //     quantity,
+            //     img,
+            //     img2,
+            //     img3,
+            //     img4,
+            //     img5
+            // })
         })
 
         if (response.ok) {
             const data = await response.json();
-            // console.log("store spots thunk add one spot step1: ", data)
-            //data is obj list {address:.., lat: ..., ...}
-            //do actioin addOneSpot to create newSpot which will generate data.id
-            dispatch(addOneSpot(data));
-            // console.log("store spots thunk add one spot step2: ", newSpot)
-            const { url } = spot;
-            const imageRes = await csrfFetch(`/api/spots/${data.id}/images`, {
-                method: 'POST',
-                body: JSON.stringify(
-                    {
-                        url,
-                        preview: true
-                    }
-                )
-            });
-
-            if (imageRes.ok) {
-                const imageData = await imageRes.json();
-                // console.log("imgdata and spot data", data, imageData);
-                dispatch(addSpotImage(data, imageData));
-                return data;
-            }
+            // console.log("store products thunk add one product step1: ", data)
+            //data is obj list {name:.., category: ..., ...}
+            //do actioin addOneProductAction to create newProduct which will generate data.id
+            dispatch(addOneProductAction(data));
+            // console.log("store products thunk add one product step2: ", data)
+            return data;
         }
     } catch (err) {
         console.log(err);
         throw err;
     }
 }
-// thunk: edit one spot for current user
-export const editSpot = (spot, spotId) => async dispatch => {
+// thunk: edit one product for current user
+export const editProductThunk = (product, productId) => async dispatch => {
     try {
-        // console.log("spots spot", spot)
-        // console.log("spots spotId", spotId)
-        const response = await csrfFetch(`/api/spots/${spotId}`, {
+        // console.log("products product", product)
+        // console.log("products productId", productId)
+        const response = await fetch(`/api/products/${productId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(spot)
+            body: JSON.stringify(product)
         })
 
         if (response.ok) {
             const data = await response.json();
-            // console.log("store spots thunk edit one spot step1: ", data)
+            // console.log("store products thunk edit one product step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
-            //do actioin addOneSpot to create newSpot which will generate data.id
-            dispatch(editOneSpot(data));
-            // console.log("store spots thunk edit one spot step2: ", editSpot)
+            //do actioin editOneProductAction to create newProduct which will generate data.id
+            dispatch(editOneProductAction(data));
+            // console.log("store products thunk edit one product step2: ", data)
             return data
         }
     } catch (err) {
@@ -144,16 +145,16 @@ export const editSpot = (spot, spotId) => async dispatch => {
     }
 }
 
-// thunk: delete one spot for current user
-export const deleteSpot = (spotId) => async dispatch => {
-    console.log("spots thunk delete spot spotId : ", spotId);
-    console.log(typeof spotId);
+// thunk: delete one product for current user
+export const deleteProductThunk = (productId) => async dispatch => {
+    // console.log("products thunk delete product productId : ", productId);
+    // console.log(typeof productId);
     try {
-        const response = await csrfFetch(`/api/spots/${spotId}`, {
+        const response = await fetch(`/api/products/${productId}`, {
             method: 'DELETE',
         })
         if (response.ok) {
-            dispatch(deleteOneSpot(spotId));
+            dispatch(deleteOneProductAction(productId));
             return response;
         }
     } catch (err) {
@@ -188,6 +189,33 @@ const productsReducer = (state = initialState, action) => {
             newState.singleProduct = singleProduct;
             return newState;
 
+        case ADD_ONE_PRODUCT:
+            newState = { ...state, allProducts: { ...state.allProducts }, singleProduct: {} };
+            const addProduct = { ...action.product };
+            newState.allProducts[action.product.id] = addProduct;
+            newState.singleProduct = addProduct;
+            // console.log("products reducer add one product newState: ", newState)
+            return newState;
+
+        case EDIT_ONE_PRODUCT:
+            // console.log("update payload:", action.product)
+            newState = { ...state };
+            newState.allProducts = { ...state.allProducts, [action.product.id]: { ...state.allProducts[action.product.id], ...action.product } }
+            newState.singleProduct = { ...state.singleProduct, ...action.product }
+            // console.log("products newState:", newState)
+            return newState;
+
+        case DELETE_ONE_PRODUCT:
+            newState = { allProducts: { ...state.allProducts }, singleProduct: { ...state.singleProduct } };
+            delete newState.allProducts[action.productId];
+            // console.log('singleProduct and action product id: ', newState.singleProduct.id, action.productId)
+            if (action.productId == newState.singleProduct.id) { newState.singleProduct = {} }
+            return newState;
+
+        default:
+            return state;
 
     }
 }
+
+export default productsReducer;

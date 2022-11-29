@@ -9,12 +9,16 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+import AllProductsPage from './components/AllProductsPage';
+import OneProductPage from './components/OneProductPage';
+import AddProductPage from './components/AddProductPage';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -35,14 +39,29 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+        <Route exact path="/products/current">
+          <AddProductPage />
+        </Route>
+
+        <Route path='/products/:productId' exact={true} >
+          <OneProductPage />
+        </Route>
+
+        <Route path='/products' exact={true} >
+          <AllProductsPage />
+        </Route>
+
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+          <AllProductsPage />
         </Route>
+
       </Switch>
     </BrowserRouter>
   );
