@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user
+from app.models import User, Product
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +23,18 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/products')
+@login_required
+def user_products():
+    """
+    get all products by user
+    """
+    return current_user.to_dict_products()
+    # products = Product.query.filter(
+    #     Product.seller_id == current_user.id).all()
+    # if products:
+    #     return {'products': [product.to_dict_product_images() for product in products]}
+    # else:
+    #     return {'User id': current_user.id, 'message': 'Current user has no product listing yet.'}, 404
