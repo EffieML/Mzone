@@ -9,9 +9,12 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
-import AllProductsPage from './components/AllProductsPage';
-import OneProductPage from './components/OneProductPage';
+import EditProductPage from './components/EditProductPage';
 import AddProductPage from './components/AddProductPage';
+import OneProductPage from './components/OneProductPage';
+import AllProductsPage from './components/AllProductsPage';
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,7 +48,12 @@ function App() {
           <User />
         </ProtectedRoute>
 
-        <Route exact path="/products/current">
+
+        <Route path="/products/:productId/edit" exact={true}>
+          <EditProductPage />
+        </Route>
+
+        <Route path='/products/current/create' exact={true}>
           <AddProductPage />
         </Route>
 
