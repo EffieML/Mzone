@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import EditProductForm from '../EditProductPage/index';
-import { listUserProductsThunk } from '../../store/product';
+import { listUserProductsThunk, deleteProductThunk } from '../../store/product';
 import './UserListingPage.css'
 
 function UserListingPage() {
@@ -25,7 +25,14 @@ function UserListingPage() {
     //if user don't have post spots, showing empty message
     if (products.length == 0) return (<h2>No listings yet.</h2>);
 
-    console.log(products)
+    // console.log(products)
+
+    const handleDelete = async (productId) => {
+        if (window.confirm('Do you want to delete this product?')) {
+            await dispatch(deleteProductThunk(productId))
+            // .then(() => history.push('/spots/current'))
+        }
+    }
 
     return (
         <div>
@@ -49,7 +56,7 @@ function UserListingPage() {
                                 Edit
                             </NavLink>
                         </div>
-                        <div>delete product button</div>
+                        <button onClick={() => handleDelete(product.id)}> Delete product </button>
                     </div>
                 ))}
             </div>
