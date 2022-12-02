@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 
 import EditProductPage from './components/EditProductPage';
 import AddProductPage from './components/AddProductPage';
+import UserListingPage from './components/UserListingPage';
 import OneProductPage from './components/OneProductPage';
 import AllProductsPage from './components/AllProductsPage';
 
@@ -49,12 +50,16 @@ function App() {
         </ProtectedRoute>
 
 
-        <Route path="/products/:productId/edit" exact={true}>
+        <Route path="/products/:productId/edit">
           <EditProductPage />
         </Route>
 
         <Route path='/products/current/create' exact={true}>
           <AddProductPage />
+        </Route>
+
+        <Route path='/products/current' exact={true}>
+          <UserListingPage />
         </Route>
 
         <Route path='/products/:productId' exact={true} >

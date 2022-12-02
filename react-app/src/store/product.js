@@ -122,8 +122,8 @@ export const addProductThunk = (product) => async dispatch => {
 // thunk: edit one product for current user
 export const editProductThunk = (product, productId) => async dispatch => {
     try {
-        // console.log("products product", product)
-        // console.log("products productId", productId)
+        console.log("products product", product)
+        console.log("products productId", productId)
         const response = await fetch(`/api/products/${productId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
