@@ -11,12 +11,17 @@ function EditProductPage() {
     const history = useHistory();
     const { productId } = useParams();
 
-    // const product = useSelector(state => state.products.singleProduct)
     const products = useSelector(state => state.products.allProducts)
     const productArr = Object.values(products)
 
     const product = productArr.filter(x => x.id == productId)[0]
-    console.log(product)
+
+    let images
+    if (product) {
+        images = product.images;
+    }
+    // console.log("image length", images.length)
+
     const user = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -32,16 +37,21 @@ function EditProductPage() {
     const [quantity, setQuantity] = useState(product?.quantity);
 
     const [img, setImg] = useState(product ? product.images[0].url : '');
-    const [img2, setImg2] = useState(product ? product.images[1].url : '');
-    // const [img3, setImg3] = useState(product ? product.images[2].url : '');
-    // const [img4, setImg4] = useState(product ? product.images[3].url : '');
-    // const [img5, setImg5] = useState(product ? product.images[4].url : '');
-
+    const [img2, setImg2] = useState("");
+    const [img3, setImg3] = useState("");
+    const [img4, setImg4] = useState("");
+    const [img5, setImg5] = useState("");
     const [errors, setErrors] = useState([]);
 
-    // useEffect(() => {
-    //     dispatch(listAllProductsThunk(productId)).then(() => setIsLoaded(true));
-    // }, [dispatch, productId]);
+    // console.log("images----------", images)
+    // console.log("!!!!!!!!!!!!!!!!!!", img2)
+    useEffect(() => {
+        if (images.length >= 2) { setImg2(images[1].url) };
+        if (images.length >= 3) { setImg3(images[2].url) };
+        if (images.length >= 4) { setImg3(images[4].url) };
+        if (images.length >= 5) { setImg3(images[5].url) };
+    }, [dispatch, productId]);
+
 
     if (!product) return null;
 
@@ -61,9 +71,9 @@ function EditProductPage() {
             quantity,
             img,
             img2,
-            // img3,
-            // img4,
-            // img5
+            img3,
+            img4,
+            img5
         }
 
         const editedProduct = await dispatch(editProductThunk(updateProduct, productId))
@@ -75,7 +85,7 @@ function EditProductPage() {
         if (editedProduct) {
             setErrors([]);
             // setShowModal(false);
-            // history.push(`/products/${productId}`)
+            history.push(`/products/${productId}`)
         }
     }
 
@@ -213,7 +223,7 @@ function EditProductPage() {
                             required
                         />
                     </div>
-                    <div>
+                    {img2 && (<div>
                         <label >
                             Product Image2
                         </label>
@@ -222,8 +232,8 @@ function EditProductPage() {
                             value={img2}
                             onChange={(e) => setImg2(e.target.value)}
                         />
-                    </div>
-                    {/* <div>
+                    </div>)}
+                    {img3 && (<div>
                         <label >
                             Product Image3
                         </label>
@@ -232,8 +242,8 @@ function EditProductPage() {
                             value={img3}
                             onChange={(e) => setImg3(e.target.value)}
                         />
-                    </div>
-                    <div>
+                    </div>)}
+                    {img4 && (<div>
                         <label >
                             Product Image4
                         </label>
@@ -242,8 +252,8 @@ function EditProductPage() {
                             value={img4}
                             onChange={(e) => setImg4(e.target.value)}
                         />
-                    </div>
-                    <div>
+                    </div>)}
+                    {img5 && (<div>
                         <label >
                             Product Image5
                         </label>
@@ -252,7 +262,7 @@ function EditProductPage() {
                             value={img5}
                             onChange={(e) => setImg5(e.target.value)}
                         />
-                    </div> */}
+                    </div>)}
                     <div>
                         <button type="submit">Submit</button>
                     </div>

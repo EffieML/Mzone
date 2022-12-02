@@ -144,6 +144,14 @@ def edit_product(id):
         product.quantity = form.data['quantity']
 
         images[0].url = form.data['img']
+        if len(images) >= 2:
+            images[1].url = form.data['img2']
+        if len(images) >= 3:
+            images[2].url = form.data['img3']
+        if len(images) >= 4:
+            images[3].url = form.data['img4']
+        if len(images) >= 5:
+            images[4].url = form.data['img5']
         # images[1].url = form.data['img2']
         # images[2].url = form.data['img3']
         # images[3].url = form.data['img4']
