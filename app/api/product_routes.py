@@ -116,17 +116,11 @@ def edit_product(id):
     """
     Edit a product by id
     """
-
-    # images = Product_Img.query.filter(
-    #     Product_Img.product_id == id).all()
-    # print("----------------------------", images[0])
-
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     # product = Product.query.get(id)
     # print("---------------------------", product)
-
     # images = Product_Img.query.filter(Product_Img.product_id == id).all()
 
     if form.validate_on_submit():
@@ -152,10 +146,7 @@ def edit_product(id):
             images[3].url = form.data['img4']
         if len(images) >= 5:
             images[4].url = form.data['img5']
-        # images[1].url = form.data['img2']
-        # images[2].url = form.data['img3']
-        # images[3].url = form.data['img4']
-        # images[4].url = form.data['img5']
+
         db.session.commit()
         return product.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
