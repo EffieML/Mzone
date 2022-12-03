@@ -9,21 +9,21 @@ const DELETE_ONE_PRODUCT = 'products/deleteOneProduct';
 
 //todo: define action creators
 //action: get all products
-const getAllProductsAction = (products) => {
+const listAllProductsAction = (products) => {
     return {
         type: GET_ALL_PRODUCTS,
         products,
     }
 }
 //action: get one product
-const getOneProductAction = (product) => {
+const listOneProductAction = (product) => {
     return {
         type: GET_ONE_PRODUCT,
         product,
     }
 }
 //action: add one product
-const addOneProductAction = (product) => {
+const addProductAction = (product) => {
     return {
         type: ADD_ONE_PRODUCT,
         product
@@ -32,14 +32,14 @@ const addOneProductAction = (product) => {
 //action: add image to product
 
 //action: edit one product
-const editOneProductAction = (product) => {
+const editProductAction = (product) => {
     return {
         type: EDIT_ONE_PRODUCT,
         product
     }
 }
 //action: delete one product
-const deleteOneProductAction = (productId) => {
+const deleteProductAction = (productId) => {
     return {
         type: DELETE_ONE_PRODUCT,
         productId
@@ -54,7 +54,7 @@ export const listAllProductsThunk = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         // console.log("store products thunk products data: ", data)
-        dispatch(getAllProductsAction(data.products));
+        dispatch(listAllProductsAction(data.products));
         return data;
     }
 };
@@ -65,7 +65,7 @@ export const listOneProductThunk = (productId) => async (dispatch) => {
     if (response.ok) {
         const singleProduct = await response.json();
         // console.log("store products thunk one product data:", singleProduct)
-        dispatch(getOneProductAction(singleProduct));
+        dispatch(listOneProductAction(singleProduct));
         return response;
     }
 };
@@ -75,7 +75,7 @@ export const listUserProductsThunk = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         // console.log("store products thunk user products data: ", data)
-        dispatch(getAllProductsAction(data.products));
+        dispatch(listAllProductsAction(data.products));
         return response;
     }
 };
@@ -110,7 +110,7 @@ export const addProductThunk = (product) => async dispatch => {
             // console.log("store products thunk add one product step1: ", data)
             //data is obj list {name:.., category: ..., ...}
             //do actioin addOneProductAction to create newProduct which will generate data.id
-            dispatch(addOneProductAction(data));
+            dispatch(addProductAction(data));
             // console.log("store products thunk add one product step2: ", data)
             return data;
         }
@@ -122,8 +122,8 @@ export const addProductThunk = (product) => async dispatch => {
 // thunk: edit one product for current user
 export const editProductThunk = (product, productId) => async dispatch => {
     try {
-        // console.log("products product", product)
-        // console.log("products productId", productId)
+        console.log("products product", product)
+        console.log("products productId", productId)
         const response = await fetch(`/api/products/${productId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
@@ -135,7 +135,7 @@ export const editProductThunk = (product, productId) => async dispatch => {
             // console.log("store products thunk edit one product step1: ", data)
             //data is obj list {address:.., lat: ..., ...}
             //do actioin editOneProductAction to create newProduct which will generate data.id
-            dispatch(editOneProductAction(data));
+            dispatch(editProductAction(data));
             // console.log("store products thunk edit one product step2: ", data)
             return data
         }
@@ -154,7 +154,7 @@ export const deleteProductThunk = (productId) => async dispatch => {
             method: 'DELETE',
         })
         if (response.ok) {
-            dispatch(deleteOneProductAction(productId));
+            dispatch(deleteProductAction(productId));
             return response;
         }
     } catch (err) {

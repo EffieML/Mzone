@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, DecimalField, IntegerField
+from wtforms import StringField, SelectField, FloatField, IntegerField
 from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
 
 
@@ -17,7 +17,7 @@ class ProductForm(FlaskForm):
         min=1, max=255, message='Name should be between 1 to 255 characters.')])
     category = SelectField('category', validators=[DataRequired(
         'Category is required.')], choices=CATEGORY_CHOICES)
-    price = DecimalField('price', validators=[DataRequired('Price is required.'), NumberRange(
+    price = FloatField('price', validators=[DataRequired('Price is required.'), NumberRange(
         min=0.01, max=9999.99, message='Price should be between $0.01 to $9,999.99.')])
     brand = StringField('brand', validators=[DataRequired('Brand is required.'), Length(
         min=1, max=255, message='Brand should be between 1 to 255 characters.')])
@@ -27,8 +27,10 @@ class ProductForm(FlaskForm):
         min=1, max=2000, message='Detail should be between 1 to 2000 characters.')])
     dimension = StringField('dimension', validators=[DataRequired('Dimension is required.'), Length(
         min=1, max=100, message='Dimension should be between 1 to 100 characters.')])
-    weight = DecimalField('weight', validators=[DataRequired('Weight is required.'), NumberRange(
-        min=0.01, max=500, message='Weight should be between 0.01 to 500 pounds.')])
+    # weight = FloatField('weight', validators=[DataRequired('Weight is required.'), NumberRange(
+    #     min=0.01, max=500, message='Weight should be between 0.01 to 500 pounds.')])
+    weight = FloatField('weight', validators=[
+                        DataRequired('Weight is required.')])
     quantity = IntegerField('quantity', validators=[DataRequired('Quantity is required.'), NumberRange(
         min=1, max=9999, message='Quantity should be between 1 to 9999.')])
 

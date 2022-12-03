@@ -1,43 +1,64 @@
 import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { addProductThunk } from '../../store/product';
-import './AddProductPage.css'
+import { listAllProductsThunk } from '../../store/product';
+import { editProductThunk } from '../../store/product';
+import './EditProductPage.css'
 
-function AddProductPage() {
+function EditProductPage() {
+
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(state => state.session.user);
+    const { productId } = useParams();
 
-    const [name, setName] = useState('');
-    const [category, setCategory] = useState('');
-    const [price, setPrice] = useState('');
-    const [brand, setBrand] = useState('');
-    const [about, setAbout] = useState('');
-    const [detail, setDetail] = useState('');
-    const [dimension, setDimension] = useState('');
-    const [weight, setWeight] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [img, setImg] = useState('');
-    const [img2, setImg2] = useState('');
-    const [img3, setImg3] = useState('');
-    const [img4, setImg4] = useState('');
-    const [img5, setImg5] = useState('');
-    // const [images, setImages] = useState('');
+    const products = useSelector(state => state.products.allProducts)
+    const productArr = Object.values(products)
+
+    const product = productArr.filter(x => x.id == productId)[0]
+
+    let images
+    if (product) {
+        images = product.images;
+    }
+    // console.log("image length", images.length)
+
+    const user = useSelector(state => state.session.user);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const [name, setName] = useState(product?.name);
+    const [category, setCategory] = useState(product?.category);
+    // const [price, setPrice] = useState(product ? product.price : '');
+    const [price, setPrice] = useState(product?.price);
+    const [brand, setBrand] = useState(product?.brand);
+    const [about, setAbout] = useState(product?.about);
+    const [detail, setDetail] = useState(product?.detail);
+    const [dimension, setDimension] = useState(product?.dimension);
+    const [weight, setWeight] = useState(product?.weight);
+    const [quantity, setQuantity] = useState(product?.quantity);
+
+    const [img, setImg] = useState(product ? product.images[0].url : '');
+    const [img2, setImg2] = useState("");
+    const [img3, setImg3] = useState("");
+    const [img4, setImg4] = useState("");
+    const [img5, setImg5] = useState("");
     const [errors, setErrors] = useState([]);
 
+    // console.log("images----------", images)
+    // console.log("!!!!!!!!!!!!!!!!!!", img2)
+    useEffect(() => {
+        if (images.length >= 2) { setImg2(images[1].url) };
+        if (images.length >= 3) { setImg3(images[2].url) };
+        if (images.length >= 4) { setImg3(images[4].url) };
+        if (images.length >= 5) { setImg3(images[5].url) };
+    }, [dispatch, productId]);
 
 
-    // useEffect(() => {
-    //     dispatch(addProductThunk(productId)).then(() => setIsLoaded(true));
-    // }, [dispatch, productId]);
+    if (!product) return null;
 
-    // if (!product) return null;
-
-    const addProductSubmit = async (e) => {
+    const editProductSubmit = async (e) => {
         e.preventDefault();
 
-        const newProduct = {
+        const updateProduct = {
             // seller_id: user.id,
             name,
             category,
@@ -55,23 +76,23 @@ function AddProductPage() {
             img5
         }
 
-        const addedProduct = await dispatch(addProductThunk(newProduct))
+        const editedProduct = await dispatch(editProductThunk(updateProduct, productId))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             })
 
-        if (addedProduct) {
+        if (editedProduct) {
             setErrors([]);
             // setShowModal(false);
-            history.push(`/products/${addedProduct.id}`)
+            history.push(`/products/${productId}`)
         }
     }
 
     return (
         <div>
-            <h1>Create new product</h1>
-            <form onSubmit={addProductSubmit}>
+            <h1>Update product information</h1>
+            <form onSubmit={editProductSubmit}>
                 <div className='add-product-form-container'>
                     <ul className="form-errors">
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -202,7 +223,7 @@ function AddProductPage() {
                             required
                         />
                     </div>
-                    <div>
+                    {img2 && (<div>
                         <label >
                             Product Image2
                         </label>
@@ -211,8 +232,8 @@ function AddProductPage() {
                             value={img2}
                             onChange={(e) => setImg2(e.target.value)}
                         />
-                    </div>
-                    <div>
+                    </div>)}
+                    {img3 && (<div>
                         <label >
                             Product Image3
                         </label>
@@ -221,8 +242,8 @@ function AddProductPage() {
                             value={img3}
                             onChange={(e) => setImg3(e.target.value)}
                         />
-                    </div>
-                    <div>
+                    </div>)}
+                    {img4 && (<div>
                         <label >
                             Product Image4
                         </label>
@@ -231,8 +252,8 @@ function AddProductPage() {
                             value={img4}
                             onChange={(e) => setImg4(e.target.value)}
                         />
-                    </div>
-                    <div>
+                    </div>)}
+                    {img5 && (<div>
                         <label >
                             Product Image5
                         </label>
@@ -241,9 +262,9 @@ function AddProductPage() {
                             value={img5}
                             onChange={(e) => setImg5(e.target.value)}
                         />
-                    </div>
+                    </div>)}
                     <div>
-                        <button type="submit">Add Product</button>
+                        <button type="submit">Submit</button>
                     </div>
                 </div>
             </form>
@@ -252,4 +273,4 @@ function AddProductPage() {
     )
 }
 
-export default AddProductPage;
+export default EditProductPage;

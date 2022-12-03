@@ -112,23 +112,40 @@ def create_product():
 
 @product_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def edit_product():
+def edit_product(id):
     """
     Edit a product by id
     """
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    # product = Product.query.get(id)
+    # print("---------------------------", product)
+    # images = Product_Img.query.filter(Product_Img.product_id == id).all()
+
     if form.validate_on_submit():
         product = Product.query.get(id)
-        product.name = form.data['name'],
-        product.category = form.data['category'],
-        product.price = form.data['price'],
-        product.brand = form.data['brand'],
-        product.about = form.data['about'],
-        product.detail = form.data['detail'],
-        product.dimension = form.data['dimension'],
-        product.weight = form.data['weight'],
-        product.quantity = form.data['quantity'],
+        images = Product_Img.query.filter(Product_Img.product_id == id).all()
+        print(len(images))
+        product.name = form.data["name"]
+        product.category = form.data['category']
+        product.price = form.data['price']
+        product.brand = form.data['brand']
+        product.about = form.data['about']
+        product.detail = form.data['detail']
+        product.dimension = form.data['dimension']
+        product.weight = form.data['weight']
+        product.quantity = form.data['quantity']
+
+        images[0].url = form.data['img']
+        if len(images) >= 2:
+            images[1].url = form.data['img2']
+        if len(images) >= 3:
+            images[2].url = form.data['img3']
+        if len(images) >= 4:
+            images[3].url = form.data['img4']
+        if len(images) >= 5:
+            images[4].url = form.data['img5']
 
         db.session.commit()
         return product.to_dict()
