@@ -82,11 +82,12 @@ export const addItemToCartThunk = (id, item) => async (dispatch) => {
 // thunk: edit item in cart
 export const editItemInCartThunk = (id, item) => async (dispatch) => {
     try {
-        const response = await fetch(`/api/carts/products/${id}`, {
+        const response = await fetch(`/api/carts/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(item),
         })
+        console.log("edit cart response", response)
         if (response.ok) {
             const data = await response.json();
             dispatch(editItemInCartAction(data));

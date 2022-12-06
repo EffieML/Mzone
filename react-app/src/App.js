@@ -15,6 +15,8 @@ import UserListingPage from './components/UserListingPage';
 import OneProductPage from './components/OneProductPage';
 import AllProductsPage from './components/AllProductsPage';
 
+import ShoppingCartPage from './components/ShoppingCartPage';
+
 
 
 function App() {
@@ -68,6 +70,10 @@ function App() {
 
         <Route path='/products' exact={true} >
           <AllProductsPage />
+        </Route>
+
+        <Route path='/cart' exact={true} >
+          <ShoppingCartPage />
         </Route>
 
         <Route path='/' exact={true} >

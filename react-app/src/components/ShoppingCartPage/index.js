@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllCartItemsThunk } from '../../store/cart';
-import { OneCartItem } from './OneCartItem';
+import OneCartItem from './OneCartItem.js';
 import './ShoppingCartPage.css';
 
 function ShoppingCartPage() {
     const dispatch = useDispatch();
-    const cartItems = useSelector(state => Object.values(state.carts.allCartItems))
+    const cartItems = useSelector(state => Object.values(state.cartItems.allCartItems))
+    console.log("cartItems", cartItems)
+
 
     useEffect(() => {
         dispatch(getAllCartItemsThunk());
@@ -15,7 +17,8 @@ function ShoppingCartPage() {
 
     const totalItem = (cartItems) => {
         let count = 0;
-        for (let item in cartItems) {
+        for (let i = 0; i < cartItems.length; i++) {
+            let item = cartItems[i];
             count += Number(item.quantity);
         }
         return count
@@ -23,11 +26,13 @@ function ShoppingCartPage() {
 
     const totalPrice = (cartItems) => {
         let price = 0;
-        for (let item in cartItems) {
-            price += Number(item.quantity) * Number(item.product.price);
+        for (let i = 0; i < cartItems.length; i++) {
+            let item = cartItems[i];
+            price += item.quantity * item.product.price;
         }
         return price;
     }
+
 
     return (
         <div>
