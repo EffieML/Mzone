@@ -80,7 +80,7 @@ export const listUserProductsThunk = () => async (dispatch) => {
     }
 };
 // thunk: add one product for current user
-export const addProductThunk = (product) => async dispatch => {
+export const addProductThunk = (product) => async (dispatch) => {
     try {
         // const { name, category, price, brand, about, detail, dimension, weight, quantity, img, img2, img3, img4, img5 } = product;
         const response = await fetch('/api/products', {

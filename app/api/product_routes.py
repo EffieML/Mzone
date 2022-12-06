@@ -164,4 +164,4 @@ def delete_product(id):
         db.session.commit()
         return {'message': "Successfully deleted"}
     else:
-        return {'message': "Product couldn't be found"}, 404
+        return {'message': "Product could not be found"}, 404
