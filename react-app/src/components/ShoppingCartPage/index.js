@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getAllCartItemsThunk } from '../../store/cart';
+import { useHistory } from 'react-router-dom';
+import { getAllCartItemsThunk, resetItemsInCartThunk } from '../../store/cart';
+import { createOrderThunk } from '../../store/order';
 import OneCartItem from './OneCartItem.js';
 import './ShoppingCartPage.css';
 
 function ShoppingCartPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const cartItems = useSelector(state => Object.values(state.cartItems.allCartItems))
     console.log("cartItems", cartItems)
 
@@ -33,6 +36,13 @@ function ShoppingCartPage() {
         return price;
     }
 
+    const placeOrder = async (e) => {
+        e.preventDefault();
+        const newOrder = await dispatch(createOrderThunk());
+        await dispatch(resetItemsInCartThunk());
+        return history.push(`/orders/${newOrder.id}`);
+    }
+
 
     return (
         <div>
@@ -53,7 +63,7 @@ function ShoppingCartPage() {
                 <div>${cartItems ? totalPrice(cartItems) : 0.00}</div>
             </div>
             <div>
-                Proceed to checkout button
+                <button onClick={placeOrder}>Place Order</button>
             </div>
         </div>
     )

@@ -34,7 +34,7 @@ class Order(db.Model):
             'createdAt': self.created_at,
             # 'updatedAt': self.updated_at,
             'user': self.user_o.to_dict_no_additions(),
-            'orderItems': [orderitem.to_dict_no_additions() for orderitem in self.order_items_o]
+            'orderItems': [orderitem.to_dict() for orderitem in self.order_items_o]
         }
 
     def __repr__(self):

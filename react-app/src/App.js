@@ -17,7 +17,7 @@ import AllProductsPage from './components/AllProductsPage';
 
 import ShoppingCartPage from './components/ShoppingCartPage';
 
-
+import AllOrdersPage from './components/AllOrdersPage/Index';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -74,6 +74,10 @@ function App() {
 
         <Route path='/cart' exact={true} >
           <ShoppingCartPage />
+        </Route>
+
+        <Route path='/orders' exact={true} >
+          <AllOrdersPage />
         </Route>
 
         <Route path='/' exact={true} >
