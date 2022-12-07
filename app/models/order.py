@@ -33,7 +33,7 @@ class Order(db.Model):
             'userId': self.user_id,
             'createdAt': self.created_at,
             # 'updatedAt': self.updated_at,
-            'user': self.user_o.to_dict_no_additions(),
+            'user': self.user_o.to_dict_addresses(),
             'orderItems': [orderitem.to_dict() for orderitem in self.order_items_o]
         }
 

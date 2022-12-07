@@ -24,9 +24,14 @@ function AllOrdersPage() {
     }
 
     const totalPrice = (orderItems) => {
-        let count
-
+        let price = 0;
+        for (let i = 0; i < orderItems.length; i++) {
+            let item = orderItems[i];
+            price += item.quantity * item.product.price;
+        }
+        return price;
     }
+
     return (
         <div>
             <h1>all orders</h1>
@@ -37,34 +42,37 @@ function AllOrdersPage() {
                 {orders?.map(order => (
                     <div key={order.id}>
                         <hr></hr>
-
-                        {/* <div>
-                                <img className='home-product-img' src={product.images[0].url} alt='Preview image' />
-                            </div> */}
-                        <div>{order.userId}</div>
-                        <div>{convertDate(order.createdAt)}</div>
-
-                        <div>total price</div>
-                        <div>ship to user.name</div>
-                        <div>order number</div>
-                        <NavLink to={`/orders/${order?.id}`}>
-                            <div>view order detail</div>
-                        </NavLink>
-
+                        <div>
+                            <div>ORDER PLACED</div>
+                            <div>{convertDate(order.createdAt)}</div>
+                        </div>
+                        <div>
+                            <div>TOTAL</div>
+                            <div>$ {totalPrice(order.orderItems)}</div>
+                        </div>
+                        <div>
+                            <div>SHIP TO</div>
+                            <div>{order.user.firstname} {order.user.lastname}</div>
+                        </div>
+                        <div>
+                            <div>ORDER # {order.id}</div>
+                        </div>
                         <div>
                             <hr></hr>
                             {order?.orderItems.map(item => (
-                                <div>{item.product.price}</div>
+                                <div>
+                                    <NavLink to={`/products/${item.product?.id}`}>
+                                        <img src={item?.product.images[0].url} alt='Preview image' />
+                                    </NavLink>
+                                    <div>{item?.product.about}</div>
+                                    <NavLink to={`/products/${item?.product.id}`}>
+                                        <button>View your item</button>
+                                    </NavLink>
+                                    <div>write a review</div>
+                                    <hr></hr>
+                                </div>
                             ))}
-                            <div>link to each item page</div>
-                            <div>each item img</div>
-                            <div>each item name</div>
-                            <div>write a review</div>
-                            <hr></hr>
                         </div>
-
-
-
 
                     </div>
                 ))}
