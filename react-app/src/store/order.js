@@ -19,6 +19,7 @@ const getAllOrdersAction = (orders) => {
 
 //action: get one order
 const getOneOrderAction = (order) => {
+    // console.log("getone action -------------------------")
     return {
         type: GET_ONE_ORDER,
         order,
@@ -68,12 +69,17 @@ export const getAllOrdersThunk = () => async (dispatch) => {
     }
 };
 
+
 // thunk: get one order
-export const getOneOrderThunk = (id) => async (dispatch) => {
-    const response = await fetch(`/api/orders/${id}`);
+// thunk prams match backend route prams
+export const getOneOrderThunk = (orderId) => async (dispatch) => {
+    // console.log("getonethunk order id----------------", orderId)
+    // console.log("getone thunk running-------------------")
+    const response = await fetch(`/api/orders/${orderId}`);
+    // console.log("thunk response ------------------", response)
     if (response.ok) {
-        const singleOrder = await response.json();
-        dispatch(getOneOrderAction(singleOrder));
+        const order = await response.json();
+        dispatch(getOneOrderAction(order));
         return response;
     }
 };
@@ -88,7 +94,7 @@ export const createOrderThunk = () => async (dispatch) => {
         })
         if (response.ok) {
             const data = await response.json();
-            dispatch(createOrderAction(data));
+            await dispatch(createOrderAction(data));
             return data;
         }
     } catch (err) {
@@ -170,8 +176,9 @@ const ordersReducer = (state = initialState, action) => {
 
         case GET_ONE_ORDER:
             newState = { ...state };
-            let singleOrder = { ...action.order }
-            newState.singleOrder = singleOrder;
+            // let singleOrder = { ...action.order }
+            // console.log("action order", action.order)
+            newState.singleOrder = action.order;
             return newState;
 
         case CREATE_ORDER:
@@ -197,7 +204,7 @@ const ordersReducer = (state = initialState, action) => {
         case DELETE_ORDER:
             newState = { ...state, allOrders: { ...state.allOrders }, singleOrder: { ...state.singleOrder } };
             delete newState.allOrders[action.id]
-            if (action.id == newState.singleOrder.id) { newState.singleOrder = {} }
+            if (action.id === newState.singleOrder.id) { newState.singleOrder = {} }
             return newState;
 
         default:

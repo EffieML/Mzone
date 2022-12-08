@@ -77,7 +77,7 @@ function App() {
           <ShoppingCartPage />
         </Route>
 
-        <Route path='/orders/:orderId' exact={true} >
+        <Route path='/orders/:orderId' >
           <OneOrderPage />
         </Route>
 

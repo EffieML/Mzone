@@ -58,9 +58,14 @@ function AllOrdersPage() {
                             <div>ORDER # {order.id}</div>
                         </div>
                         <div>
+                            <NavLink to={`/orders/${order.id}`}>
+                                <button>View order details</button>
+                            </NavLink>
+                        </div>
+                        <div>
                             <hr></hr>
                             {order?.orderItems.map(item => (
-                                <div>
+                                <div key={item.id}>
                                     <NavLink to={`/products/${item.product?.id}`}>
                                         <img src={item?.product.images[0].url} alt='Preview image' />
                                     </NavLink>

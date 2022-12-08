@@ -10,7 +10,7 @@ function ShoppingCartPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const cartItems = useSelector(state => Object.values(state.cartItems.allCartItems))
-    console.log("cartItems", cartItems)
+    // console.log("cartItems", cartItems)
 
 
     useEffect(() => {
@@ -39,6 +39,7 @@ function ShoppingCartPage() {
     const placeOrder = async (e) => {
         e.preventDefault();
         const newOrder = await dispatch(createOrderThunk());
+        // console.log('newOrder-------------', newOrder)
         await dispatch(resetItemsInCartThunk());
         return history.push(`/orders/${newOrder.id}`);
     }

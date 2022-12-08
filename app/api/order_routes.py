@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Cart, Product, Order, Order_Item, db
+from datetime import datetime
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms import CartForm
 
@@ -17,16 +18,19 @@ def get_all_orders():
     return {'orders': [order.to_dict() for order in orders]}
 
 
-@order_routes.route('/<int:id>')
-def get_one_order(id):
+@order_routes.route('/<int:order_id>', methods=['GET'])
+def get_one_order(order_id):
     """
     get one order by id
     """
-    order = Order.query.get(id)
-    if order:
-        return order.to_dict()
-    else:
-        return {'order id': id, 'message': 'product not found'}, 404
+    order = Order.query.get(order_id)
+    print("order-----------------", order)
+    return order.to_dict()
+    # if order:
+    #     print("order-----------------", order.to_dict())
+    #     return order.to_dict()
+    # else:
+    #     return {'order id': order_id, 'message': 'product not found'}, 404
 
 
 @order_routes.route('', methods=['POST'])
@@ -35,12 +39,17 @@ def checkout_create_order():
     """
     Creates a new order
     """
-    new_order = Order(user_id=current_user.id)
+    new_order = Order(
+        user_id=current_user.id,
+        # created_at=datetime.now(),
+    )
+    print('python new order', new_order)
     db.session.add(new_order)
     db.session.commit()
 
     # add all cart items as order items
     cart_items = Cart.query.filter(Cart.user_id == current_user.id)
+    print("cart item", cart_items)
     for item in cart_items:
         order_item = Order_Item(
             order_id=new_order.id,
