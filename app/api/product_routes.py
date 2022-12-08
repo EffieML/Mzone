@@ -126,7 +126,7 @@ def edit_product(id):
     if form.validate_on_submit():
         product = Product.query.get(id)
         images = Product_Img.query.filter(Product_Img.product_id == id).all()
-        print(len(images))
+        # print(len(images))
         product.name = form.data["name"]
         product.category = form.data['category']
         product.price = form.data['price']
