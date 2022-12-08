@@ -52,7 +52,7 @@ function App() {
           <User />
         </ProtectedRoute>
 
-
+        {/* Product components --------------------------------------------- */}
         <Route path="/products/:productId/edit">
           <EditProductPage />
         </Route>
@@ -73,10 +73,12 @@ function App() {
           <AllProductsPage />
         </Route>
 
+        {/* Cart components --------------------------------------------- */}
         <Route path='/cart' exact={true} >
           <ShoppingCartPage />
         </Route>
 
+        {/* Order components --------------------------------------------- */}
         <Route path='/orders/:orderId' >
           <OneOrderPage />
         </Route>
