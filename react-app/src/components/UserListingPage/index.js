@@ -12,7 +12,7 @@ function UserListingPage() {
     const [showModal, setShowModal] = useState(false);
 
     const products = useSelector(state => Object.values(state.products.allProducts))
-    console.log("userListingPage products: ", products)
+    // console.log("userListingPage products: ", products)
     const currUser = useSelector(state => state.session.user)
 
     useEffect(() => {

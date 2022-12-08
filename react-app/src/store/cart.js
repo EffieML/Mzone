@@ -87,7 +87,7 @@ export const editItemInCartThunk = (id, item) => async (dispatch) => {
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(item),
         })
-        console.log("edit cart response", response)
+        // console.log("edit cart response", response)
         if (response.ok) {
             const data = await response.json();
             dispatch(editItemInCartAction(data));

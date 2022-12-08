@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+import datetime
 
 
 class Order(db.Model):
@@ -10,8 +11,8 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
-    # updated_at = db.Column(db.DateTime, nullable=False)
+    # default can pass in a function as utcnow below, which dont need () to call it
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     # relation section ----------------------------------------------
     user_o = db.relationship(
@@ -33,8 +34,8 @@ class Order(db.Model):
             'userId': self.user_id,
             'createdAt': self.created_at,
             # 'updatedAt': self.updated_at,
-            'user': self.user_o.to_dict_no_additions(),
-            'orderItems': [orderitem.to_dict_no_additions() for orderitem in self.order_items_o]
+            'user': self.user_o.to_dict_addresses(),
+            'orderItems': [orderitem.to_dict() for orderitem in self.order_items_o]
         }
 
     def __repr__(self):

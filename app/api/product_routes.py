@@ -18,7 +18,7 @@ def get_all_products():
 
 
 @product_routes.route('/<int:id>')
-def get_one_products(id):
+def get_one_product(id):
     """
     get one product by id
     """

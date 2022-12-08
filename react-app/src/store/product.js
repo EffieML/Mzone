@@ -122,8 +122,8 @@ export const addProductThunk = (product) => async (dispatch) => {
 // thunk: edit one product for current user
 export const editProductThunk = (product, productId) => async dispatch => {
     try {
-        console.log("products product", product)
-        console.log("products productId", productId)
+        // console.log("products product", product)
+        // console.log("products productId", productId)
         const response = await fetch(`/api/products/${productId}`, {
             method: 'PUT',
             headers: { 'Content-Type': "application/json" },
@@ -209,7 +209,7 @@ const productsReducer = (state = initialState, action) => {
             newState = { allProducts: { ...state.allProducts }, singleProduct: { ...state.singleProduct } };
             delete newState.allProducts[action.productId];
             // console.log('singleProduct and action product id: ', newState.singleProduct.id, action.productId)
-            if (action.productId == newState.singleProduct.id) { newState.singleProduct = {} }
+            if (action.productId === newState.singleProduct.id) { newState.singleProduct = {} }
             return newState;
 
         default:

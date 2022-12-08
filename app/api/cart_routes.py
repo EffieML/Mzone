@@ -60,6 +60,7 @@ def add_cart_item(id):
 @cart_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_cart_item(id):
+
     form = CartForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
