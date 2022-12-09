@@ -15,7 +15,7 @@ def get_user_reviews():
     """
     reviews = Review.query.filter(
         Review.user_id == current_user.id).all()
-    return {'reviews': [review.to_dict_reivew_images() for review in reviews]}
+    return {'reviews': [review.to_dict() for review in reviews]}
 
 
 @review_routes.route('/products/<int:id>')
@@ -25,7 +25,7 @@ def get_product_reviews(id):
     """
     reviews = Review.query.filter(
         Review.product_id == id).all()
-    return {'reviews': [review.to_dict_reivew_images() for review in reviews]}
+    return {'reviews': [review.to_dict() for review in reviews]}
 
 
 @review_routes.route('/products/<int:id>', methods=['POST'])

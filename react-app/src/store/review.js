@@ -111,7 +111,7 @@ export const editReviewThunk = (reivew, reviewId) => async (dispatch) => {
     }
 }
 
-// thunk: delete whole order by order id
+// thunk: delete review
 export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     try {
         const response = await fetch(`/api/reviews/${reviewId}`, {
@@ -171,10 +171,8 @@ const reviewsReducer = (state = initialState, action) => {
             if (action.reviewId === newState.singleReview.id) { newState.singleReview = {} }
             return newState;
 
-
         default:
             return state;
-
     }
 }
 
