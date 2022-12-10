@@ -47,11 +47,12 @@ def create_review(id):
         db.session.add(review)
         db.session.commit()
 
-        img = Review_Img(
-            review_id=review.id,
-            url=form.data['img'],
-        )
-        db.session.add(img)
+        if form.data['img']:
+            img = Review_Img(
+                review_id=review.id,
+                url=form.data['img'],
+            )
+            db.session.add(img)
         if form.data['img2']:
             img2 = Review_Img(
                 review_id=review.id,
@@ -98,7 +99,8 @@ def edit_review(id):
         review.title = form.data['title']
         review.review = form.data['review']
 
-        images[0].url = form.data['img']
+        if len(images) >= 1:
+            images[0].url = form.data['img']
         if len(images) >= 2:
             images[1].url = form.data['img2']
         if len(images) >= 3:

@@ -34,6 +34,15 @@ function ProductReview({ productId }) {
         <div>
             <hr></hr>
             <div>product review page</div>
+            <div>
+                <hr></hr>
+                <div>Review this product</div>
+                <div>Share your thoughts with other customers</div>
+                <NavLink to={`/products/${productId}/addreview`}>
+                    <button>Write a customer review</button>
+                </NavLink>
+                <hr></hr>
+            </div>
             {reviews.length && (
                 <div>
                     <div>
@@ -41,12 +50,7 @@ function ProductReview({ productId }) {
                         <div>{avgRating(reviews)} out of 5</div>
                         <div>{reviews.length} global ratings</div>
                     </div>
-                    <div>
-                        <hr></hr>
-                        <div>Review this product</div>
-                        <div>Share your thoughts with other customers</div>
-                        <button>Write a customer review</button>
-                    </div>
+
                     <div>
                         <div>Top reviews from the United States</div>
                         <div>
@@ -58,7 +62,7 @@ function ProductReview({ productId }) {
                                     <div>{review.stars}</div>
                                     <div>{review.title}</div>
                                     <div>Reviewed in the United States on {convertDate(review.createdAt)}</div>
-                                    <div>? Verified Purchase</div>
+                                    <div>??? Verified Purchase</div>
                                     <div>{review.review}</div>
                                 </div>
                             ))}

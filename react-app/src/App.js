@@ -20,6 +20,8 @@ import ShoppingCartPage from './components/ShoppingCartPage';
 import AllOrdersPage from './components/AllOrdersPage/Index';
 import OneOrderPage from './components/OneOrderPage';
 
+import AddReviewPage from './components/AddReviewPage';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -51,6 +53,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+
+        {/* Review components --------------------------------------------- */}
+        <Route path='/products/:productId/addreview' exact={true} >
+          <AddReviewPage />
+        </Route>
 
         {/* Product components --------------------------------------------- */}
         <Route path="/products/:productId/edit">
@@ -86,6 +93,8 @@ function App() {
         <Route path='/orders' exact={true} >
           <AllOrdersPage />
         </Route>
+
+
 
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>

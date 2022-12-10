@@ -10,8 +10,8 @@ class ReviewForm(FlaskForm):
         min=1, max=255, message='Title should be between 1 to 255 characters.')])
     review = StringField('review', validators=[DataRequired('Review content is required.'), Length(
         min=1, max=2000, message='Review should be between 1 to 2000 characters.')])
-    img = StringField('img', validators=[
-                      DataRequired('One product image is required.')])
+
+    img = StringField('img')
     img2 = StringField('img2')
     img3 = StringField('img3')
     img4 = StringField('img4')
