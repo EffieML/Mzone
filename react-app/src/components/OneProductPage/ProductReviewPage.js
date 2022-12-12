@@ -65,8 +65,8 @@ function ProductReview({ productId }) {
                                 <div key={reviewE.id}>
                                     <hr></hr>
                                     <div>user logo</div>
-                                    <div>{reviewE.user.firstname} {reviewE.user.lastname}</div>
-                                    {user.id == reviewE.user.id && (
+                                    <div>{reviewE?.user.firstname} {reviewE?.user.lastname}</div>
+                                    {user?.id == reviewE?.user.id && (
                                         <div>
                                             <div>
                                                 <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
