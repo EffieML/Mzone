@@ -1,7 +1,7 @@
 import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
-import { getProductReviewsThunk } from '../../store/review';
+import { getProductReviewsThunk, deleteReviewThunk } from '../../store/review';
 import EditReviewModal from '../EditReviewModal';
 import './ProductReviewPage.css';
 
@@ -29,6 +29,12 @@ function ProductReview({ productId }) {
         const day = date.getDate();
         const yr = date.getFullYear();
         return `${month} ${day}, ${yr}`;
+    }
+
+    const handleReviewDelete = async (reviewId) => {
+        if (window.confirm('Do you want to delete this review?')) {
+            await dispatch(deleteReviewThunk(reviewId))
+        }
     }
 
     return (
@@ -65,7 +71,7 @@ function ProductReview({ productId }) {
                                             <div>
                                                 <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
                                             </div>
-                                            <div>delete</div>
+                                            <button onClick={() => handleReviewDelete(reviewE.id)}> delete review</button>
                                         </div>
                                     )}
                                     {/* <button onClick={() => handleDelete(spot.id)}> Delete Listing </button> */}
