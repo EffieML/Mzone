@@ -2,7 +2,7 @@ import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { addProductThunk } from '../../store/product';
-import './AddProductPage.css'
+import './AddProductPage.css';
 
 function AddProductPage() {
     const dispatch = useDispatch();

@@ -41,7 +41,6 @@ def checkout_create_order():
     """
     new_order = Order(
         user_id=current_user.id,
-        # created_at=datetime.now(),
     )
     print('python new order', new_order)
     db.session.add(new_order)

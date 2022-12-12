@@ -20,6 +20,9 @@ import ShoppingCartPage from './components/ShoppingCartPage';
 import AllOrdersPage from './components/AllOrdersPage/Index';
 import OneOrderPage from './components/OneOrderPage';
 
+import AddReviewPage from './components/AddReviewPage';
+// import EditReviewForm2 from './components/EditReview2';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -52,7 +55,16 @@ function App() {
           <User />
         </ProtectedRoute>
 
+        {/* Review components --------------------------------------------- */}
+        <Route path='/products/:productId/addreview' exact={true} >
+          <AddReviewPage />
+        </Route>
 
+        {/* <Route path='/products/:productId/editreview' exact={true} >
+          <EditReviewForm2 />
+        </Route> */}
+
+        {/* Product components --------------------------------------------- */}
         <Route path="/products/:productId/edit">
           <EditProductPage />
         </Route>
@@ -73,10 +85,12 @@ function App() {
           <AllProductsPage />
         </Route>
 
+        {/* Cart components --------------------------------------------- */}
         <Route path='/cart' exact={true} >
           <ShoppingCartPage />
         </Route>
 
+        {/* Order components --------------------------------------------- */}
         <Route path='/orders/:orderId' >
           <OneOrderPage />
         </Route>
@@ -84,6 +98,8 @@ function App() {
         <Route path='/orders' exact={true} >
           <AllOrdersPage />
         </Route>
+
+
 
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>

@@ -14,7 +14,7 @@ function EditProductPage() {
     const products = useSelector(state => state.products.allProducts)
     const productArr = Object.values(products)
 
-    const product = productArr.filter(x => x.id == productId)[0]
+    const product = productArr.filter(product => product.id == productId)[0]
 
     let images
     if (product) {
@@ -48,8 +48,8 @@ function EditProductPage() {
     useEffect(() => {
         if (images.length >= 2) { setImg2(images[1].url) };
         if (images.length >= 3) { setImg3(images[2].url) };
-        if (images.length >= 4) { setImg3(images[4].url) };
-        if (images.length >= 5) { setImg3(images[5].url) };
+        if (images.length >= 4) { setImg4(images[3].url) };
+        if (images.length >= 5) { setImg5(images[4].url) };
     }, [dispatch, productId]);
 
 

@@ -1,0 +1,236 @@
+import { useParams, NavLink, useHistory, Redirect } from 'react-router-dom';
+
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { editReviewThunk } from "../../store/review";
+import { listOneProductThunk } from '../../store/product';
+import './EditReview2.css';
+
+function EditReviewForm2({ productId, reviewE, reviewId }) {
+    console.log("form review", reviewE)
+    console.log("form reviewid-------------------------", reviewId)
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    let images;
+    if (reviewE.images.length > 0) {
+        images = reviewE.images;
+    }
+    console.log('review img', images);
+
+    const [stars, setStars] = useState(reviewE?.stars);
+    const [title, setTitle] = useState(reviewE?.title);
+    const [review, setReview] = useState(reviewE?.review);
+    const [img, setImg] = useState('');
+    const [img2, setImg2] = useState('');
+    const [img3, setImg3] = useState('');
+    const [img4, setImg4] = useState('');
+    const [img5, setImg5] = useState('');
+    const [errors, setErrors] = useState([]);
+
+    /////////////////////////////////////////////////////////////
+    const [showMenu, setShowMenu] = useState(false);
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = (e) => {
+            if (e.target.className.includes('reveiw-ef-visible')) return;
+            setShowMenu(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
+    /////////////////////////////////////////////////////////////////
+
+    if (images) {
+        if (images.length >= 1) {
+            setImg(images[0].url)
+        };
+
+        if (images.length >= 2) {
+            setImg2(images[1].url)
+        };
+        if (images.length >= 3) {
+            setImg3(images[2].url)
+        };
+        if (images.length >= 4) {
+            setImg4(images[3].url)
+        };
+        if (images.length >= 5) {
+            setImg5(images[4].url)
+        };
+    }
+
+
+
+
+    useEffect(() => {
+        dispatch(listOneProductThunk(productId));
+    }, [dispatch, productId]);
+
+    const editReviewSubmit = async (e) => {
+        e.preventDefault();
+        setErrors([]);
+        const updateReview = {
+            stars,
+            title,
+            review,
+            img,
+            img2,
+            img3,
+            img4,
+            img5
+        }
+
+        const editedReview = await dispatch(editReviewThunk(updateReview, reviewId))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            })
+
+        if (editedReview) {
+            setErrors([]);
+            setShowMenu(false);
+            history.push(`/products/${productId}`)
+        }
+    }
+
+    // if (!reviewE) return null;
+
+    return (
+        <>
+            <button className="profile-buttons" onClick={openMenu}>
+                edit review3
+            </button>
+            {showMenu &&
+                <div className='review-form reveiw-ef-visible' >
+                    <h1 className='reveiw-ef-visible'>Update your reviews</h1>
+                    <form className='reveiw-ef-visible' onSubmit={editReviewSubmit}>
+                        <div className='add-product-form-container reveiw-ef-visible'>
+                            <ul className="form-errors reveiw-ef-visible">
+                                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                            </ul>
+                            <div className='reveiw-ef-visible'>
+                                <label className='reveiw-ef-visible'>
+                                    Overall rating
+                                </label>
+                                <input
+                                    className='reveiw-ef-visible'
+                                    type="number"
+                                    value={stars}
+                                    onChange={(e) => setStars(e.target.value)}
+                                    min="1"
+                                    max="5"
+                                    step='1'
+                                    required
+                                />
+                            </div>
+                            <div className='reveiw-ef-visible'>
+                                <label className='reveiw-ef-visible'>
+                                    Add a headline
+                                </label>
+                                <input
+                                    className='reveiw-ef-visible'
+                                    type="text"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className='reveiw-ef-visible'>
+                                <label className='reveiw-ef-visible'>
+                                    Add a written review
+                                </label>
+                                <input
+                                    className='reveiw-ef-visible'
+                                    type="text"
+                                    value={review}
+                                    onChange={(e) => setReview(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className='reveiw-ef-visible'>
+                                <p className='reveiw-ef-visible'>Please select your image file and click "Upload" to successfully add your image one by one. </p>
+                                <p className='reveiw-ef-visible'>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
+                                <p className='reveiw-ef-visible'>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
+                                {img && (<div className='reveiw-ef-visible'>
+                                    <label className='reveiw-ef-visible'>
+                                        Product Image
+                                    </label>
+                                    <input
+                                        className='reveiw-ef-visible'
+                                        type="text"
+                                        value={img}
+                                        onChange={(e) => setImg(e.target.value)}
+                                    />
+                                </div>)}
+                                {img2 && (<div className='reveiw-ef-visible'>
+                                    <label className='reveiw-ef-visible'>
+                                        Product Image2
+                                    </label>
+                                    <input
+                                        className='reveiw-ef-visible'
+                                        type="text"
+                                        value={img2}
+                                        onChange={(e) => setImg2(e.target.value)}
+                                    />
+                                </div>)}
+                                {img3 && (<div className='reveiw-ef-visible'>
+                                    <label className='reveiw-ef-visible'>
+                                        Product Image3
+                                    </label>
+                                    <input
+                                        className='reveiw-ef-visible'
+                                        type="text"
+                                        value={img3}
+                                        onChange={(e) => setImg3(e.target.value)}
+                                    />
+                                </div>)}
+                                {img4 && (<div className='reveiw-ef-visible'>
+                                    <label className='reveiw-ef-visible'>
+                                        Product Image4
+                                    </label>
+                                    <input
+                                        className='reveiw-ef-visible'
+                                        type="text"
+                                        value={img4}
+                                        onChange={(e) => setImg4(e.target.value)}
+                                    />
+                                </div>)}
+                                {img5 && (<div className='reveiw-ef-visible'>
+                                    <label className='reveiw-ef-visible'>
+                                        Product Image5
+                                    </label>
+                                    <input
+                                        className='reveiw-ef-visible'
+                                        type="text"
+                                        value={img5}
+                                        onChange={(e) => setImg5(e.target.value)}
+                                    />
+                                </div>)}
+                                <div className='reveiw-ef-visible'>
+                                    <button className='reveiw-ef-visible' type="submit">Submit</button>
+                                </div>
+                                <div onClick={() => setShowMenu(false)}>
+                                    Cancel
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </>
+
+    )
+
+}
+
+export default EditReviewForm2;
