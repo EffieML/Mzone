@@ -21,6 +21,7 @@ import AllOrdersPage from './components/AllOrdersPage/Index';
 import OneOrderPage from './components/OneOrderPage';
 
 import AddReviewPage from './components/AddReviewPage';
+// import EditReviewForm2 from './components/EditReview2';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -58,6 +59,10 @@ function App() {
         <Route path='/products/:productId/addreview' exact={true} >
           <AddReviewPage />
         </Route>
+
+        {/* <Route path='/products/:productId/editreview' exact={true} >
+          <EditReviewForm2 />
+        </Route> */}
 
         {/* Product components --------------------------------------------- */}
         <Route path="/products/:productId/edit">

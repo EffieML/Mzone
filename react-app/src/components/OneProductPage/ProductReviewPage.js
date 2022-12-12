@@ -2,11 +2,13 @@ import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getProductReviewsThunk } from '../../store/review';
+import EditReviewModal from '../EditReviewModal';
+import EditReviewForm2 from '../EditReview2';
 import './ProductReviewPage.css';
 
 function ProductReview({ productId }) {
     const dispatch = useDispatch();
-
+    const user = useSelector(state => state.session.user);
     const reviews = useSelector(state => Object.values(state.reviews.allReviews));
 
     useEffect(() => {
@@ -54,16 +56,28 @@ function ProductReview({ productId }) {
                     <div>
                         <div>Top reviews from the United States</div>
                         <div>
-                            {reviews?.map(review => (
-                                <div key={review.id}>
+                            {reviews?.map(reviewE => (
+                                <div key={reviewE.id}>
                                     <hr></hr>
                                     <div>user logo</div>
-                                    <div>{review.user.firstname} {review.user.lastname}</div>
-                                    <div>{review.stars}</div>
-                                    <div>{review.title}</div>
-                                    <div>Reviewed in the United States on {convertDate(review.createdAt)}</div>
+                                    <div>{reviewE.user.firstname} {reviewE.user.lastname}</div>
+                                    {user.id == reviewE.user.id && (
+                                        <div>
+                                            <div>
+                                                <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
+                                            </div>
+                                            {/* <div>
+                                                <EditReviewForm2 reviewE={reviewE} reviewId={reviewE.id} />
+                                            </div> */}
+                                            <div>delete</div>
+                                        </div>
+                                    )}
+                                    {/* <button onClick={() => handleDelete(spot.id)}> Delete Listing </button> */}
+                                    <div>{reviewE.stars}</div>
+                                    <div>{reviewE.title}</div>
+                                    <div>Reviewed in the United States on {convertDate(reviewE.createdAt)}</div>
                                     <div>??? Verified Purchase</div>
-                                    <div>{review.review}</div>
+                                    <div>{reviewE.review}</div>
                                 </div>
                             ))}
                         </div>
