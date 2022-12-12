@@ -24,11 +24,22 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        if (images.length >= 1) { setImg(images[0].url) };
-        if (images.length >= 2) { setImg2(images[1].url) };
-        if (images.length >= 3) { setImg3(images[2].url) };
-        if (images.length >= 4) { setImg4(images[3].url) };
-        if (images.length >= 5) { setImg5(images[4].url) };
+        if (images) {
+            if (images.length >= 1) {
+                setImg(images[0].url)
+            } else if (images.length >= 2) {
+                setImg(images[1].url)
+            } else if (images.length >= 3) {
+                setImg(images[2].url)
+            } else if (images.length >= 4) {
+                setImg(images[3].url)
+            }
+            else if (images.length >= 5) {
+                setImg(images[4].url)
+            }
+        } else {
+            setImg("")
+        }
     }, [dispatch, reviewId])
 
     const editReviewSubmit = async (e) => {

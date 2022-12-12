@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getProductReviewsThunk } from '../../store/review';
 import EditReviewModal from '../EditReviewModal';
-import EditReviewForm2 from '../EditReview2';
 import './ProductReviewPage.css';
 
 function ProductReview({ productId }) {
@@ -66,9 +65,6 @@ function ProductReview({ productId }) {
                                             <div>
                                                 <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
                                             </div>
-                                            {/* <div>
-                                                <EditReviewForm2 reviewE={reviewE} reviewId={reviewE.id} />
-                                            </div> */}
                                             <div>delete</div>
                                         </div>
                                     )}
