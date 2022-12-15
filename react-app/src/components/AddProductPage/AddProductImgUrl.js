@@ -26,6 +26,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
 
             const formData = new FormData();
             formData.append("image", image);
+            console.log("formData image-=-----------------", image)
 
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
@@ -57,7 +58,9 @@ const AddProductImgUrl = ({ images, setImages }) => {
     }
     const updateImage = (e) => {
         const file = e.target.files[0];
+        console.log("updateImage image", file)
         setImage(file);
+        console.log("updateimage setimage", image)
     }
 
     const handleRemove = (url) => {
@@ -66,7 +69,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
         setImages(newUrls);
         setUrlValidationErrors([]);
     }
-
+    console.log("addproduct images-----------", images)
     return (
         <div>
             <div>
@@ -87,7 +90,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
                 {urls.map((url, index) =>
                     <div key={index}>
                         <button onClick={() => handleRemove(url)}>X</button>
-                        <img alt='uploaded-images' src={url} />
+                        <img alt='uploaded-images' className="edit-product-img-small" src={url} />
                     </div>
                 )}
             </div>

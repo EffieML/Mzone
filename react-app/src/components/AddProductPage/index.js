@@ -2,7 +2,7 @@ import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { addProductThunk } from '../../store/product';
-import ProductImgUrl from './ProductImgUrl';
+import AddProductImgUrl from './AddProductImgUrl';
 import './AddProductPage.css';
 
 function AddProductPage() {
@@ -215,7 +215,7 @@ function AddProductPage() {
                         <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
                         <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
                         <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
-                        <ProductImgUrl images={images} setImages={setImages} />
+                        <AddProductImgUrl images={images} setImages={setImages} />
                     </div>
                     {/* <div>
                         <label >

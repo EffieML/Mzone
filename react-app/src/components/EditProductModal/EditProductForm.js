@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { listOneProductThunk } from '../../store/product';
 import { editProductThunk } from '../../store/product';
+import EditProductImgUrl from './EditProductImgUrl';
 import './EditProductModal.css'
 
 function EditProductForm({ product, productId, setShowModal }) {
@@ -10,10 +11,7 @@ function EditProductForm({ product, productId, setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    let images
-    if (product) {
-        images = product.images;
-    }
+    // console.log("image------------------", images)
     // console.log("image length", images.length)
 
     const user = useSelector(state => state.session.user);
@@ -35,7 +33,13 @@ function EditProductForm({ product, productId, setShowModal }) {
     const [img3, setImg3] = useState("");
     const [img4, setImg4] = useState("");
     const [img5, setImg5] = useState("");
+    // const [images, setImages] = useState([]);
     const [errors, setErrors] = useState([]);
+
+    let images;
+    if (product) {
+        images = product.images;
+    }
 
 
     // console.log("images----------", images)
@@ -46,6 +50,11 @@ function EditProductForm({ product, productId, setShowModal }) {
     //     if (images?.length >= 4) { setImg4(images[3].url) };
     //     if (images?.length >= 5) { setImg5(images[4].url) };
     // }, [dispatch, productId]);
+    // useEffect(() => {
+    //     if (product) {
+    //         setImages(product.images);
+    //     }
+    // })
 
     useEffect(() => {
         if (images) {
@@ -235,6 +244,17 @@ function EditProductForm({ product, productId, setShowModal }) {
                         <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
                         <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
                         <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
+                    </div>
+                    <EditProductImgUrl origImages={images} />
+                    {/* <div>
+                        {images.map((image) =>
+                            <div key={image.id}>
+                                <button onClick={() => handleRemove(url)}>X</button>
+                                <img alt='uploaded-images' className="edit-product-img-small" src={image.url} />
+                            </div>
+                        )}
+                    </div> */}
+                    {/* <div>
                         <label >
                             Product Image1
                         </label>
@@ -284,7 +304,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                             value={img5}
                             onChange={(e) => setImg5(e.target.value)}
                         />
-                    </div>)}
+                    </div>)} */}
                     <div>
                         <button type="submit">Submit</button>
                     </div>

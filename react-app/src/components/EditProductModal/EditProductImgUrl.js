@@ -1,20 +1,39 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 
-const ProductImgUrl = ({ images, setImages }) => {
+const EditProductImgUrl = ({ origImages }) => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    // console.log("images==============", images);
+    const [images, setImages] = useState([]);
+    const [urls, setUrls] = useState([]);
 
-    const [urls, setUrls] = useState([])
     const [urlValidationErrors, setUrlValidationErrors] = useState([]);
     const [showImagesErrors, setShowImagesErrors] = useState(false);
+
+    useEffect(() => {
+        if (origImages?.length >= 1) {
+            let origUrls = [...urls];
+            for (let i = 0; i < origImages.length; i++) {
+                origUrls.push(origImages[i].url)
+            }
+            setUrls(origUrls);
+            setImages(origUrls)
+        } else {
+            setUrls([]);
+            setImages([]);
+        }
+    }, [origImages])
+    // console.log("urls==============", urls);
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log("images2==============", images);
         setUrlValidationErrors([]);
 
         if (images.length >= 5) {
@@ -26,6 +45,7 @@ const ProductImgUrl = ({ images, setImages }) => {
 
             const formData = new FormData();
             formData.append("image", image);
+            console.log("formData image------------", image)
 
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
@@ -57,7 +77,9 @@ const ProductImgUrl = ({ images, setImages }) => {
     }
     const updateImage = (e) => {
         const file = e.target.files[0];
+        // console.log("updateImage image", file)
         setImage(file);
+        // console.log("updateimage setimage", image)
     }
 
     const handleRemove = (url) => {
@@ -87,13 +109,19 @@ const ProductImgUrl = ({ images, setImages }) => {
                 {urls.map((url, index) =>
                     <div key={index}>
                         <button onClick={() => handleRemove(url)}>X</button>
-                        <img alt='uploaded-images' src={url} />
+                        <img alt='uploaded-images' className="edit-product-img-small" src={url} />
                     </div>
                 )}
+                {/* {images.map((image) =>
+                    <div key={image.id}>
+                        <button onClick={() => handleRemove(image.url)}>X</button>
+                        <img alt='uploaded-images' className="edit-product-img-small" src={image.url} />
+                    </div>
+                )} */}
             </div>
         </div>
 
     )
 }
 
-export default ProductImgUrl;
+export default EditProductImgUrl;
