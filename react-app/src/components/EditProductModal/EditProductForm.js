@@ -1,21 +1,18 @@
-import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
+// import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { listOneProductThunk } from '../../store/product';
 import { editProductThunk } from '../../store/product';
-import EditProductImgUrl from './EditProductImgUrl';
+import { getProductImagesThunk } from '../../store/productimg';
+import UploadProductImg from './EditProductImgUrl';
 import './EditProductModal.css'
 
 function EditProductForm({ product, productId, setShowModal }) {
 
     const dispatch = useDispatch();
-    const history = useHistory();
-
-    // console.log("image------------------", images)
-    // console.log("image length", images.length)
+    // const history = useHistory();
 
     const user = useSelector(state => state.session.user);
-    const [isLoaded, setIsLoaded] = useState(false);
+    // const [isLoaded, setIsLoaded] = useState(false);
 
     const [name, setName] = useState(product?.name);
     const [category, setCategory] = useState(product?.category);
@@ -27,34 +24,19 @@ function EditProductForm({ product, productId, setShowModal }) {
     const [dimension, setDimension] = useState(product?.dimension);
     const [weight, setWeight] = useState(product?.weight);
     const [quantity, setQuantity] = useState(product?.quantity);
-
     const [img, setImg] = useState(product ? product?.images[0].url : '');
     const [img2, setImg2] = useState("");
     const [img3, setImg3] = useState("");
     const [img4, setImg4] = useState("");
     const [img5, setImg5] = useState("");
-    // const [images, setImages] = useState([]);
     const [errors, setErrors] = useState([]);
 
-    let images;
-    if (product) {
-        images = product.images;
-    }
+    const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
 
-
+    useEffect(() => {
+        dispatch(getProductImagesThunk(product.id))
+    }, [dispatch, product.id]);
     // console.log("images----------", images)
-    // console.log("!!!!!!!!!!!!!!!!!!", img2)
-    // useEffect(() => {
-    //     if (images?.length >= 2) { setImg2(images[1].url) };
-    //     if (images?.length >= 3) { setImg3(images[2].url) };
-    //     if (images?.length >= 4) { setImg4(images[3].url) };
-    //     if (images?.length >= 5) { setImg5(images[4].url) };
-    // }, [dispatch, productId]);
-    // useEffect(() => {
-    //     if (product) {
-    //         setImages(product.images);
-    //     }
-    // })
 
     useEffect(() => {
         if (images) {
@@ -90,7 +72,6 @@ function EditProductForm({ product, productId, setShowModal }) {
         e.preventDefault();
 
         const updateProduct = {
-            // seller_id: user.id,
             name,
             category,
             price,
@@ -116,13 +97,18 @@ function EditProductForm({ product, productId, setShowModal }) {
         if (editedProduct) {
             setErrors([]);
             setShowModal(false);
-            // history.push(`/products/${productId}`)
         }
     }
 
     return (
         <div>
             <h1>Update product information</h1>
+            <div>
+                <div>management product image</div>
+                <UploadProductImg productId={productId} />
+                <hr></hr>
+            </div>
+
             <form onSubmit={editProductSubmit}>
                 <div className='add-product-form-container'>
                     <ul className="form-errors">
@@ -241,70 +227,10 @@ function EditProductForm({ product, productId, setShowModal }) {
                         />
                     </div>
                     <div>
-                        <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
+                        <p>Please select your image file and click "Upload" to successfully add your image one by one. </p>
                         <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
                         <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
                     </div>
-                    <EditProductImgUrl origImages={images} />
-                    {/* <div>
-                        {images.map((image) =>
-                            <div key={image.id}>
-                                <button onClick={() => handleRemove(url)}>X</button>
-                                <img alt='uploaded-images' className="edit-product-img-small" src={image.url} />
-                            </div>
-                        )}
-                    </div> */}
-                    {/* <div>
-                        <label >
-                            Product Image1
-                        </label>
-                        <input
-                            type="text"
-                            value={img}
-                            onChange={(e) => setImg(e.target.value)}
-                            required
-                        />
-                    </div>
-                    {img2 && (<div>
-                        <label >
-                            Product Image2
-                        </label>
-                        <input
-                            type="text"
-                            value={img2}
-                            onChange={(e) => setImg2(e.target.value)}
-                        />
-                    </div>)}
-                    {img3 && (<div>
-                        <label >
-                            Product Image3
-                        </label>
-                        <input
-                            type="text"
-                            value={img3}
-                            onChange={(e) => setImg3(e.target.value)}
-                        />
-                    </div>)}
-                    {img4 && (<div>
-                        <label >
-                            Product Image4
-                        </label>
-                        <input
-                            type="text"
-                            value={img4}
-                            onChange={(e) => setImg4(e.target.value)}
-                        />
-                    </div>)}
-                    {img5 && (<div>
-                        <label >
-                            Product Image5
-                        </label>
-                        <input
-                            type="text"
-                            value={img5}
-                            onChange={(e) => setImg5(e.target.value)}
-                        />
-                    </div>)} */}
                     <div>
                         <button type="submit">Submit</button>
                     </div>

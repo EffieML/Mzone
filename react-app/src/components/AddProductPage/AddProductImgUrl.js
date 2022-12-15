@@ -58,9 +58,9 @@ const AddProductImgUrl = ({ images, setImages }) => {
     }
     const updateImage = (e) => {
         const file = e.target.files[0];
-        console.log("updateImage image", file)
+        // console.log("updateImage image", file)
         setImage(file);
-        console.log("updateimage setimage", image)
+        // console.log("updateimage setimage", image)
     }
 
     const handleRemove = (url) => {
@@ -69,7 +69,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
         setImages(newUrls);
         setUrlValidationErrors([]);
     }
-    console.log("addproduct images-----------", images)
+    // console.log("addproduct images-----------", images)
     return (
         <div>
             <div>
