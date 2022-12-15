@@ -11,7 +11,7 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
     if (reviewE.images.length > 0) {
         images = reviewE.images;
     }
-    console.log('review img', images);
+    // console.log('review img', images);
 
     const [stars, setStars] = useState(reviewE?.stars);
     const [title, setTitle] = useState(reviewE?.title);

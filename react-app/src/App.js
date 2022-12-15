@@ -9,7 +9,6 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
-import EditProductPage from './components/EditProductPage';
 import AddProductPage from './components/AddProductPage';
 import UserListingPage from './components/UserListingPage';
 import OneProductPage from './components/OneProductPage';
@@ -21,7 +20,6 @@ import AllOrdersPage from './components/AllOrdersPage/Index';
 import OneOrderPage from './components/OneOrderPage';
 
 import AddReviewPage from './components/AddReviewPage';
-// import EditReviewForm2 from './components/EditReview2';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -65,10 +63,10 @@ function App() {
         </Route> */}
 
         {/* Product components --------------------------------------------- */}
-        <Route path="/products/:productId/edit">
+        {/* <Route path="/products/:productId/edit">
           <EditProductPage />
-          {/* not work, has to click through the current projects page */}
-        </Route>
+          not work, switcht to modal, has to click through the current projects page
+        </Route> */}
 
         <Route path='/products/current/create' exact={true}>
           <AddProductPage />
