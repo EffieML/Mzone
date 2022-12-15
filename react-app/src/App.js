@@ -67,6 +67,7 @@ function App() {
         {/* Product components --------------------------------------------- */}
         <Route path="/products/:productId/edit">
           <EditProductPage />
+          {/* not work, has to click through the current projects page */}
         </Route>
 
         <Route path='/products/current/create' exact={true}>

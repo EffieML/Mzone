@@ -25,17 +25,26 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
 
     useEffect(() => {
         if (images) {
-            if (images.length >= 1) {
+            if (images.length === 1) {
                 setImg(images[0].url)
-            } else if (images.length >= 2) {
-                setImg(images[1].url)
-            } else if (images.length >= 3) {
-                setImg(images[2].url)
-            } else if (images.length >= 4) {
-                setImg(images[3].url)
-            }
-            else if (images.length >= 5) {
-                setImg(images[4].url)
+            } else if (images.length === 2) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+            } else if (images.length === 3) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+            } else if (images.length === 4) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+                setImg4(images[3].url)
+            } else if (images.length === 5) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+                setImg4(images[3].url)
+                setImg5(images[4].url)
             }
         } else {
             setImg("")
