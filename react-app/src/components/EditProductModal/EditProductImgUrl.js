@@ -1,68 +1,50 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import { getProductImagesThunk, deleteProductImageThunk } from '../../store/productimg';
 
 
-const EditProductImgUrl = ({ origImages }) => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
+const UploadProductImg = ({ productId }) => {
+    const dispatch = useDispatch();
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    // console.log("images==============", images);
-    const [images, setImages] = useState([]);
-    const [urls, setUrls] = useState([]);
-
     const [urlValidationErrors, setUrlValidationErrors] = useState([]);
     const [showImagesErrors, setShowImagesErrors] = useState(false);
 
+    const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
+
     useEffect(() => {
-        if (origImages?.length >= 1) {
-            let origUrls = [...urls];
-            for (let i = 0; i < origImages.length; i++) {
-                origUrls.push(origImages[i].url)
-            }
-            setUrls(origUrls);
-            setImages(origUrls)
-        } else {
-            setUrls([]);
-            setImages([]);
-        }
-    }, [origImages])
-    // console.log("urls==============", urls);
-
-
+        dispatch(getProductImagesThunk(productId))
+    }, [dispatch, productId, image]);
+    // console.log("images----------", images)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("images2==============", images);
         setUrlValidationErrors([]);
 
         if (images.length >= 5) {
+            setShowImagesErrors(true);
             const errors = [...urlValidationErrors];
             errors.push('Maximum 5 images allowed.')
             setUrlValidationErrors(errors);
+            // console.log("urlerrors==============", urlValidationErrors)
         } else {
-            setShowImagesErrors(true);
-
+            setShowImagesErrors(false);
             const formData = new FormData();
             formData.append("image", image);
-            console.log("formData image------------", image)
+            // console.log("formData image------------", image)
 
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
             setImageLoading(true);
 
-            const res = await fetch('/api/products/addProductImgUrl', {
+            const res = await fetch(`/api/products/${productId}/addProductImg`, {
                 method: "POST",
                 body: formData,
             });
             if (res.ok) {
                 const data = await res.json();
                 setImageLoading(false);
-                // history.push("/images");
-                const updateUrls = [...urls];
-                updateUrls.push(data.url);
-                setUrls(updateUrls);
-                setImages(updateUrls);
                 setImage(null);
             }
             else {
@@ -82,11 +64,11 @@ const EditProductImgUrl = ({ origImages }) => {
         // console.log("updateimage setimage", image)
     }
 
-    const handleRemove = (url) => {
-        const newUrls = urls.filter(ele => ele !== url);
-        setUrls(newUrls);
-        setImages(newUrls);
-        setUrlValidationErrors([]);
+    const handleProductimgDelete = async (productimgId) => {
+        if (window.confirm('Do you want to delete this image?')) {
+            await dispatch(deleteProductImageThunk(productimgId))
+            setUrlValidationErrors([]);
+        }
     }
 
     return (
@@ -97,6 +79,14 @@ const EditProductImgUrl = ({ origImages }) => {
                 ))}
             </div>
             <div>
+                {images.map((image) =>
+                    <div key={image.id}>
+                        <button onClick={() => handleProductimgDelete(image.id)}>X</button>
+                        <img alt='product-image' className="edit-product-img-small" src={image.url} />
+                    </div>
+                )}
+            </div>
+            <div>
                 <input
                     type="file"
                     accept="image/*"
@@ -105,23 +95,8 @@ const EditProductImgUrl = ({ origImages }) => {
                 <button onClick={handleSubmit}>Upload</button>
                 {(imageLoading) && <p>Loading...</p>}
             </div>
-            <div>
-                {urls.map((url, index) =>
-                    <div key={index}>
-                        <button onClick={() => handleRemove(url)}>X</button>
-                        <img alt='uploaded-images' className="edit-product-img-small" src={url} />
-                    </div>
-                )}
-                {/* {images.map((image) =>
-                    <div key={image.id}>
-                        <button onClick={() => handleRemove(image.url)}>X</button>
-                        <img alt='uploaded-images' className="edit-product-img-small" src={image.url} />
-                    </div>
-                )} */}
-            </div>
         </div>
-
     )
 }
 
-export default EditProductImgUrl;
+export default UploadProductImg;
