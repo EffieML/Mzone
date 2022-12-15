@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import EditProductForm from '../EditProductPage/index';
+import EditProductModal from '../EditProductModal';
 import { listUserProductsThunk, deleteProductThunk } from '../../store/product';
 import './UserListingPage.css'
 
@@ -52,9 +53,7 @@ function UserListingPage() {
                         <div>{product.price}</div>
                         <div>{product.id}</div>
                         <div>
-                            <NavLink to={`/products/${product?.id}/edit`}>
-                                Edit
-                            </NavLink>
+                            <EditProductModal product={product} productId={product?.id} />
                         </div>
                         <button onClick={() => handleDelete(product.id)}> Delete product </button>
                     </div>

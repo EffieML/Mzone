@@ -2,6 +2,7 @@ import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { addProductThunk } from '../../store/product';
+import AddProductImgUrl from './AddProductImgUrl';
 import './AddProductPage.css';
 
 function AddProductPage() {
@@ -23,10 +24,32 @@ function AddProductPage() {
     const [img3, setImg3] = useState('');
     const [img4, setImg4] = useState('');
     const [img5, setImg5] = useState('');
-    // const [images, setImages] = useState('');
+    const [images, setImages] = useState([]);
     const [errors, setErrors] = useState([]);
 
-
+    useEffect(() => {
+        if (images && images.length === 1) {
+            setImg(images[0]);
+        } else if (images && images.length === 2) {
+            setImg(images[0]);
+            setImg2(images[1]);
+        } else if (images && images.length === 3) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+        } else if (images && images.length === 4) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+            setImg4(images[3]);
+        } else if (images && images.length >= 5) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+            setImg4(images[3]);
+            setImg5(images[4]);
+        }
+    }, [images]);
 
     // useEffect(() => {
     //     dispatch(addProductThunk(productId)).then(() => setIsLoaded(true));
@@ -192,6 +215,9 @@ function AddProductPage() {
                         <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
                         <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
                         <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
+                        <AddProductImgUrl images={images} setImages={setImages} />
+                    </div>
+                    {/* <div>
                         <label >
                             Product Image1
                         </label>
@@ -241,7 +267,8 @@ function AddProductPage() {
                             value={img5}
                             onChange={(e) => setImg5(e.target.value)}
                         />
-                    </div>
+                    </div> */}
+                    <br></br>
                     <div>
                         <button type="submit">Add Product</button>
                     </div>
