@@ -32,7 +32,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
             // some sort of loading message is a good idea
             setImageLoading(true);
 
-            const res = await fetch('/api/products/addProductImg', {
+            const res = await fetch('/api/products/addProductImgUrl', {
                 method: "POST",
                 body: formData,
             });

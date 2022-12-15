@@ -50,7 +50,7 @@ def get_category_products(category):
 
 # AWS upload product images ------------------------------------------------------------------------
 # upload form url to aws, and return the aws url
-@product_routes.route("/addProductImg", methods=["POST"])
+@product_routes.route("/addProductImgUrl", methods=["POST"])
 @login_required
 def upload_product_image():
     if "image" not in request.files:
@@ -143,37 +143,6 @@ def create_product():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
-# AWS edit product images ------------------------------------------------------------------------
-# upload form url to aws, and return the aws url
-@product_routes.route("/addProductImg", methods=["PUT"])
-@login_required
-def edit_product_image():
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
-
-    image = request.files["image"]
-
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
-
-    image.filename = get_unique_filename(image.filename)
-
-    upload = upload_file_to_s3(image)
-
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
-
-    url = upload["url"]
-    # flask_login allows us to get the current user from the request
-    # new_image = Image(user=current_user, url=url)
-    # db.session.add(new_image)
-    # db.session.commit()
-    return {"url": url}
-
-
 @product_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_product(id):
@@ -214,6 +183,14 @@ def edit_product(id):
         db.session.commit()
         return product.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+@product_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_product(id):
+    """
+    Add a product image
+    """
 
 
 @product_routes.route('/<int:id>', methods=['DELETE'])
