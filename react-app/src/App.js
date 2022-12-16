@@ -58,16 +58,8 @@ function App() {
           <AddReviewPage />
         </Route>
 
-        {/* <Route path='/products/:productId/editreview' exact={true} >
-          <EditReviewForm2 />
-        </Route> */}
 
         {/* Product components --------------------------------------------- */}
-        {/* <Route path="/products/:productId/edit">
-          <EditProductPage />
-          not work, switcht to modal, has to click through the current projects page
-        </Route> */}
-
         <Route path='/products/current/create' exact={true}>
           <AddProductPage />
         </Route>
