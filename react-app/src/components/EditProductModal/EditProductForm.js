@@ -24,47 +24,47 @@ function EditProductForm({ product, productId, setShowModal }) {
     const [dimension, setDimension] = useState(product?.dimension);
     const [weight, setWeight] = useState(product?.weight);
     const [quantity, setQuantity] = useState(product?.quantity);
-    // const [img, setImg] = useState(product ? product?.images[0].url : '');
-    // const [img2, setImg2] = useState("");
-    // const [img3, setImg3] = useState("");
-    // const [img4, setImg4] = useState("");
-    // const [img5, setImg5] = useState("");
+    const [img, setImg] = useState(product ? product?.images[0].url : '');
+    const [img2, setImg2] = useState("");
+    const [img3, setImg3] = useState("");
+    const [img4, setImg4] = useState("");
+    const [img5, setImg5] = useState("");
     const [errors, setErrors] = useState([]);
 
-    // const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
+    const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
 
-    // useEffect(() => {
-    //     dispatch(getProductImagesThunk(product.id))
-    // }, [dispatch, product.id]);
+    useEffect(() => {
+        dispatch(getProductImagesThunk(product.id))
+    }, [dispatch, product.id]);
     // console.log("images----------", images)
 
-    // useEffect(() => {
-    //     if (images) {
-    //         if (images.length === 1) {
-    //             setImg(images[0].url)
-    //         } else if (images.length === 2) {
-    //             setImg(images[0].url)
-    //             setImg2(images[1].url)
-    //         } else if (images.length === 3) {
-    //             setImg(images[0].url)
-    //             setImg2(images[1].url)
-    //             setImg3(images[2].url)
-    //         } else if (images.length === 4) {
-    //             setImg(images[0].url)
-    //             setImg2(images[1].url)
-    //             setImg3(images[2].url)
-    //             setImg4(images[3].url)
-    //         } else if (images.length === 5) {
-    //             setImg(images[0].url)
-    //             setImg2(images[1].url)
-    //             setImg3(images[2].url)
-    //             setImg4(images[3].url)
-    //             setImg5(images[4].url)
-    //         }
-    //     } else {
-    //         setImg("")
-    //     }
-    // }, [dispatch, productId])
+    useEffect(() => {
+        if (images) {
+            if (images.length === 1) {
+                setImg(images[0].url)
+            } else if (images.length === 2) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+            } else if (images.length === 3) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+            } else if (images.length === 4) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+                setImg4(images[3].url)
+            } else if (images.length === 5) {
+                setImg(images[0].url)
+                setImg2(images[1].url)
+                setImg3(images[2].url)
+                setImg4(images[3].url)
+                setImg5(images[4].url)
+            }
+        } else {
+            setImg("")
+        }
+    }, [dispatch, productId])
 
     if (!product) return null;
 
@@ -81,11 +81,11 @@ function EditProductForm({ product, productId, setShowModal }) {
             dimension,
             weight,
             quantity,
-            // img,
-            // img2,
-            // img3,
-            // img4,
-            // img5
+            img,
+            img2,
+            img3,
+            img4,
+            img5
         }
 
         const editedProduct = await dispatch(editProductThunk(updateProduct, productId))

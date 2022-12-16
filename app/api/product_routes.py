@@ -158,7 +158,7 @@ def edit_product(id):
 
     if form.validate_on_submit():
         product = Product.query.get(id)
-        # images = Product_Img.query.filter(Product_Img.product_id == id).all()
+        images = Product_Img.query.filter(Product_Img.product_id == id).all()
         # print(len(images))
         product.name = form.data["name"]
         product.category = form.data['category']
@@ -170,15 +170,15 @@ def edit_product(id):
         product.weight = form.data['weight']
         product.quantity = form.data['quantity']
 
-        # images[0].url = form.data['img']
-        # if len(images) >= 2:
-        #     images[1].url = form.data['img2']
-        # if len(images) >= 3:
-        #     images[2].url = form.data['img3']
-        # if len(images) >= 4:
-        #     images[3].url = form.data['img4']
-        # if len(images) >= 5:
-        #     images[4].url = form.data['img5']
+        images[0].url = form.data['img']
+        if len(images) >= 2:
+            images[1].url = form.data['img2']
+        if len(images) >= 3:
+            images[2].url = form.data['img3']
+        if len(images) >= 4:
+            images[3].url = form.data['img4']
+        if len(images) >= 5:
+            images[4].url = form.data['img5']
 
         db.session.commit()
         return product.to_dict()
