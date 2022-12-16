@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 
-const AddProductImgUrl = ({ images, setImages }) => {
+const AddReviewImgUrl = ({ images, setImages }) => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
@@ -32,7 +32,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
             // some sort of loading message is a good idea
             setImageLoading(true);
 
-            const res = await fetch('/api/products/addProductImgUrl', {
+            const res = await fetch('/api/reviews/addReviewImgUrl', {
                 method: "POST",
                 body: formData,
             });
@@ -99,4 +99,4 @@ const AddProductImgUrl = ({ images, setImages }) => {
     )
 }
 
-export default AddProductImgUrl;
+export default AddReviewImgUrl;

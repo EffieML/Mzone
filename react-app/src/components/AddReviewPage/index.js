@@ -2,6 +2,7 @@ import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { createReviewThunk } from '../../store/review';
+import AddReviewImgUrl from './AddReviewImgUrl';
 import './AddReviewPage.css';
 
 function AddReviewPage() {
@@ -18,6 +19,7 @@ function AddReviewPage() {
     const [img3, setImg3] = useState('');
     const [img4, setImg4] = useState('');
     const [img5, setImg5] = useState('');
+    const [images, setImages] = useState([]);
     const [errors, setErrors] = useState([]);
 
     const addReviewSubmit = async (e) => {
@@ -97,8 +99,12 @@ function AddReviewPage() {
                             <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
                             <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
                             <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
+                            <p>Add a photo</p>
+                        </div>
+                        <AddReviewImgUrl images={images} setImages={setImages} />
+                        {/* <div>
                             <label >
-                                Add a photo
+                                Product Image
                             </label>
                             <input
                                 type="text"
@@ -145,7 +151,7 @@ function AddReviewPage() {
                                 value={img5}
                                 onChange={(e) => setImg5(e.target.value)}
                             />
-                        </div>
+                        </div> */}
                         <div>
                             <button type="submit">Submit</button>
                         </div>
