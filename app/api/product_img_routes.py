@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Product_Img, db
-from app.api.auth_routes import validation_errors_to_error_messages
-from app.forms import ProductForm, ProductImgForm
+# from app.api.auth_routes import validation_errors_to_error_messages
+# from app.forms import ProductForm, ProductImgForm
 
 product_img_routes = Blueprint('productimgs', __name__)
 

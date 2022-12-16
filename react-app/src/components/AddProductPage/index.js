@@ -217,57 +217,6 @@ function AddProductPage() {
                         <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
                         <AddProductImgUrl images={images} setImages={setImages} />
                     </div>
-                    {/* <div>
-                        <label >
-                            Product Image1
-                        </label>
-                        <input
-                            type="text"
-                            value={img}
-                            onChange={(e) => setImg(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Image2
-                        </label>
-                        <input
-                            type="text"
-                            value={img2}
-                            onChange={(e) => setImg2(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Image3
-                        </label>
-                        <input
-                            type="text"
-                            value={img3}
-                            onChange={(e) => setImg3(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Image4
-                        </label>
-                        <input
-                            type="text"
-                            value={img4}
-                            onChange={(e) => setImg4(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Image5
-                        </label>
-                        <input
-                            type="text"
-                            value={img5}
-                            onChange={(e) => setImg5(e.target.value)}
-                        />
-                    </div> */}
                     <br></br>
                     <div>
                         <button type="submit">Add Product</button>

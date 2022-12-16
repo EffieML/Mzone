@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Product, Product_Img, db
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.forms import ProductForm, ProductImgForm
+from app.forms import ProductForm
 from app.aws_s3_function import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -209,25 +209,6 @@ def get_product_imgs(productId):
     productimgs = Product_Img.query.filter(
         Product_Img.product_id == productId).all()
     return {'productimgs': [productimg.to_dict() for productimg in productimgs]}
-
-
-# @product_routes.route('/<int:productId>/addProductImg', methods=['POST'])
-# @login_required
-# def create_product_img(productId):
-#     """
-#     Add a product image
-#     """
-#     form = ProductImgForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         productimg = Product_Img(
-#             product_id=productId,
-#             url=form.data['img'],
-#         )
-#         db.session.add(productimg)
-#         db.session.commit()
-#         return productimg.to_dict()
-#     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
 # upload form url to aws, and return the aws url
