@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { editProductThunk } from '../../store/product';
 import { getProductImagesThunk } from '../../store/productimg';
-import UploadProductImg from './EditProductImgUrl';
+import UploadProductImg from './UploadProductImg';
 import './EditProductModal.css'
 
 function EditProductForm({ product, productId, setShowModal }) {

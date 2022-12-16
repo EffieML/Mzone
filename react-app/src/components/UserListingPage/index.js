@@ -2,7 +2,6 @@ import { NavLink, Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
-import EditProductForm from '../EditProductPage/index';
 import EditProductModal from '../EditProductModal';
 import { listUserProductsThunk, deleteProductThunk } from '../../store/product';
 import './UserListingPage.css'

@@ -5,8 +5,8 @@ import EditReviewForm from './EditReviewForm';
 
 function EditReviewModal({ reviewE, reviewId }) {
     const [showModal, setShowModal] = useState(false);
-    console.log('modal', reviewE);
-    console.log('modal', reviewId)
+    // console.log('modal', reviewE);
+    // console.log('modal', reviewId)
 
     const currUser = useSelector(state => state.session.user)
     if (!currUser) { return null }
