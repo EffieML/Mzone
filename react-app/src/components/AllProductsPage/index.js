@@ -15,7 +15,7 @@ function AllProductsPage() {
 
     return (
         <div>
-            <h1>all products</h1>
+            <h1 className='title'>all products m zone</h1>
             <div >
                 {products?.map(product => (
                     <div key={product.id}>
