@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../context/Modal';
 import AccountList from './AccountList';
+import OrderList from './OrderList';
+import CartList from './CartList';
 // import LoginFormModal from '../LoginFormModal';
 // import SignupFormModal from '../SignupFormModal';
 // import AddNewSpotModal from '../AddNewSpotModal/index.js';
@@ -60,13 +62,11 @@ function Navigation() {
                 </div>
                 <hr></hr>
                 <div>
-                    <div>orders section</div>
+                    <OrderList />
                 </div>
                 <hr></hr>
                 <div>
-                    <div>item number</div>
-                    <div>cart logo </div>
-                    <div>Cart </div>
+                    <CartList />
                 </div>
             </nav>
             <nav className='nav-bar-2'>
