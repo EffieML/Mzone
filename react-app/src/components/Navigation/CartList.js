@@ -50,7 +50,6 @@ function CartList() {
                         </div>
                         <div className='nav-bar1-cart-word'> Cart</div>
                     </div>
-
                 </NavLink>
             </div>}
         </div>
