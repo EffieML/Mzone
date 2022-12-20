@@ -10,64 +10,55 @@ import CartList from './CartList';
 // import AddNewSpotModal from '../AddNewSpotModal/index.js';
 // import AddNewSpotForm from '../AddNewSpotModal/AddNewSpotForm';
 import mzonelogo from '../../img/mzonelogo.png'
+import githublogo from '../../img/githublogo.png'
 import flag from '../../img/flag.png'
 import './Navigation.css';
 
 function Navigation() {
     const user = useSelector(state => state.session.user);
 
-    // let sessionLinks;
-    // if (sessionUser) {
-    //     sessionLinks = (
-    //         <AccountButton user={sessionUser} />
-    //     );
-    // } else {
-    //     sessionLinks = (
-    //         <div >
-    //             <div >
-    //                 {/* <LoginFormModal /> */}
-    //             </div>
-    //             <div >
-    //                 {/* <SignupFormModal /> */}
-    //             </div>
-    //             {/* <NavLink to="/signup">Sign Up</NavLink> */}
-    //         </div>
-    //     );
-    // }
-
     return (
         <div className='nav-bar-container'>
             <nav className='nav-bar-1'>
                 {/* left logo section */}
-                <div className='nav-bar1-logo'>
-                    <NavLink exact to='/'>
-                        <img src={mzonelogo} className='nav-bar1-logo-img' />
-                    </NavLink>
+                <div className='nav-bar1-left'>
+                    <div className='nav-bar1-logo'>
+                        <NavLink exact to='/'>
+                            <img src={mzonelogo} className='nav-bar1-logo-img' />
+                        </NavLink>
+                    </div>
+                    <div className='nav-bar1-developer-container'>
+                        <div className='nav-bar1-developer-name'>Developer: Ming Liu</div>
+                        <div className='nav-bar1-developer-logosec'>
+                            <img src={githublogo} />
+                            <div className='nav-bar1-developer-logoname'>GitHub</div>
+                        </div>
+                    </div>
                 </div>
-                <hr></hr>
-                <div>
-                    <div>Developer: Ming Liu</div>
-                    <div>links</div>
-                </div>
-                <hr></hr>
                 {/* <div>select your address section</div> */}
-                {/* <div>search section</div> */}
-                <div>
-                    <img src={flag} className='nav-bar1-logo-imgflag' />
-                    <div>EN</div>
+                <div className='nav-bar1-middle'>
+                    <div>search section</div>
                 </div>
-                <hr></hr>
-                <div>
-                    <AccountList />
+
+                <div className='nav-bar1-right'>
+                    <div className='nav-bar1-flag-container'>
+                        <img src={flag} className='nav-bar1-flag-img' />
+                        <div className='nav-bar1-flag-word' >EN</div>
+                    </div>
+
+                    <div>
+                        <AccountList />
+                    </div>
+
+                    <div>
+                        <OrderList />
+                    </div>
+
+                    <div>
+                        <CartList />
+                    </div>
                 </div>
-                <hr></hr>
-                <div>
-                    <OrderList />
-                </div>
-                <hr></hr>
-                <div>
-                    <CartList />
-                </div>
+
             </nav>
             <nav className='nav-bar-2'>
                 <div>second row different category</div>

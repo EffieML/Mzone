@@ -10,14 +10,14 @@ function OrderList() {
         <div className='nav-bar1-order-container'>
             {user && <div>
                 <NavLink to={`/orders`}>
-                    <div>Returns</div>
-                    <div>& Orders</div>
+                    <div className='nav-bar1-order-1'>Returns</div>
+                    <div className='nav-bar1-order-2'>& Orders</div>
                 </NavLink>
             </div>}
             {!user && <div>
                 <NavLink to={`/login`}>
-                    <div>Returns</div>
-                    <div>& Orders</div>
+                    <div className='nav-bar1-order-1'>Returns</div>
+                    <div className='nav-bar1-order-2'>& Orders</div>
                 </NavLink>
             </div>}
         </div>
