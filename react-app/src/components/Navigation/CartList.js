@@ -28,7 +28,7 @@ function CartList() {
             {!user && <div>
                 <NavLink to={`/login`}>
                     <div className='nav-bar1-cart-container-inner'>
-                        <div>
+                        <div className='nav-bar1-cart-wrap'>
                             <div className='nav-bar1-cart-num'>0</div>
                             <div>
                                 <img src={cartlogo} className="nav-bar1-cart-logo" />
@@ -41,9 +41,9 @@ function CartList() {
             {user && <div>
                 <NavLink to={`/cart`}>
                     <div className='nav-bar1-cart-container-inner'>
-                        <div className='nav-bar1-cart-num'>
-                            {carts && cartTotalItems(carts) > 99 && <div>99+</div>}
-                            {carts && cartTotalItems(carts) < 100 && <div>{cartTotalItems(carts)}</div>}
+                        <div className='nav-bar1-cart-wrap'>
+                            {carts && cartTotalItems(carts) > 99 && <div className='nav-bar1-cart-num'>99+</div>}
+                            {carts && cartTotalItems(carts) < 100 && <div className='nav-bar1-cart-num'>{cartTotalItems(carts)}</div>}
                             <div>
                                 <img src={cartlogo} className="nav-bar1-cart-logo" />
                             </div>
