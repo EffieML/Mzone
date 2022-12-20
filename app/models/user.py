@@ -67,6 +67,18 @@ class User(db.Model, UserMixin):
             'products': [product.to_dict_product_images() for product in self.products_u],
         }
 
+    def to_dict_addresses(self):
+        return {
+            'id': self.id,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'username': self.username,
+            'email': self.email,
+            # 'createdAt': self.created_at,
+            # 'updatedAt': self.updated_at,
+            'addresses': [address.to_dict_no_additions() for address in self.addresses_u],
+        }
+
     def to_dict(self):
         return {
             'id': self.id,

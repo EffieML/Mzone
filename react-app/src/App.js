@@ -4,14 +4,23 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
+import Navigation from './components/Navigation';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
-import AllProductsPage from './components/AllProductsPage';
-import OneProductPage from './components/OneProductPage';
 import AddProductPage from './components/AddProductPage';
+import UserListingPage from './components/UserListingPage';
+import OneProductPage from './components/OneProductPage';
+import AllProductsPage from './components/AllProductsPage';
+
+import ShoppingCartPage from './components/ShoppingCartPage';
+
+import AllOrdersPage from './components/AllOrdersPage/Index';
+import OneOrderPage from './components/OneOrderPage';
+
+import AddReviewPage from './components/AddReviewPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -45,8 +54,19 @@ function App() {
           <User />
         </ProtectedRoute>
 
-        <Route exact path="/products/current">
+        {/* Review components --------------------------------------------- */}
+        <Route path='/products/:productId/addreview' exact={true} >
+          <AddReviewPage />
+        </Route>
+
+
+        {/* Product components --------------------------------------------- */}
+        <Route path='/products/current/create' exact={true}>
           <AddProductPage />
+        </Route>
+
+        <Route path='/products/current' exact={true}>
+          <UserListingPage />
         </Route>
 
         <Route path='/products/:productId' exact={true} >
@@ -57,8 +77,24 @@ function App() {
           <AllProductsPage />
         </Route>
 
+        {/* Cart components --------------------------------------------- */}
+        <Route path='/cart' exact={true} >
+          <ShoppingCartPage />
+        </Route>
+
+        {/* Order components --------------------------------------------- */}
+        <Route path='/orders/:orderId' >
+          <OneOrderPage />
+        </Route>
+
+        <Route path='/orders' exact={true} >
+          <AllOrdersPage />
+        </Route>
+
+
+
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Navigation />
           <AllProductsPage />
         </Route>
 

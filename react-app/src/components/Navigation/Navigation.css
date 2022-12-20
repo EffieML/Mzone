@@ -1,0 +1,131 @@
+.nav-bar-container {
+    display: flex;
+    flex-direction: column;
+    /* position: fixed;
+    top: 0px;
+    z-index: 5; */
+    width: 100%;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+/* nav bar 1 ---------------------------------------------------------- */
+.nav-bar-1 {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    background-color: rgb(19, 25, 33);
+    color: #ffffff;
+}
+
+.nav-bar1-left {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 60px;
+}
+
+/* nav bar logo ------------------------------------------- */
+.nav-bar1-logo {
+    width: 113px;
+    height: 56px;
+    padding-top: 4px;
+    margin-left: 11px;
+}
+
+.nav-bar1-logo img {
+    width: 113px;
+    width: 99px;
+    height: 49px;
+    padding: 1px 8px 0px 2px;
+    margin: 1px;
+    border: 1px solid rgb(19, 25, 33);
+}
+
+.nav-bar1-logo img:hover {
+    border: 1px solid #ffffff;
+}
+
+/* nav bar developer ------------------------------------------- */
+.nav-bar1-developer-container {
+    width: 145.75px;
+    padding: 0px 9px;
+    margin: 5px 2px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgb(19, 25, 33);
+}
+
+.nav-bar1-developer-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-bar1-developer-container:hover {
+    border: 1px solid #ffffff;
+}
+
+.nav-bar1-developer-name {
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+}
+
+.nav-bar1-developer-logosec {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2px;
+}
+
+.nav-bar1-developer-logoname {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-bar1-developer-logosec img {
+    width: 16px;
+    height: 16px;
+    padding-right: 4px;
+}
+
+/* nav bar middle section ------------------------------------------- */
+.nav-bar1-middle {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw -300px - 400px);
+    align-items: center;
+}
+
+/* nav bar rigth section ------------------------------------------- */
+.nav-bar1-right {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0px;
+    width: 400px;
+    height: 55px;
+    padding-top: 3px;
+    margin-top: 2px;
+}
+
+/* nav bar flag ------------------------------------------- */
+.nav-bar1-flag-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 55.375px;
+    height: 45px;
+    padding: 6px 9px 5px 9px;
+    margin-left: 1px;
+}
+
+.nav-bar1-flag-img {
+    width: 24px;
+    height: 28px;
+    padding-right: 2px;
+    margin-bottom: 1px;
+}
+
+.nav-bar1-flag-word {
+    font-size: 14px;
+    font-weight: bold;
+}

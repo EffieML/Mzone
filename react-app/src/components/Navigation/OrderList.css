@@ -1,0 +1,26 @@
+.nav-bar1-order-container {
+    width: 59px;
+    height: 40px;
+    padding: 0px 9px 10px 9px;
+    margin-left: 6px;
+    border: 1px solid rgb(19, 25, 33);
+}
+
+.nav-bar1-order-container:hover {
+    border: 1px solid #ffffff;
+}
+
+.nav-bar1-order-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-bar1-order-1 {
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+.nav-bar1-order-2 {
+    font-size: 14px;
+    font-weight: bold;
+}
