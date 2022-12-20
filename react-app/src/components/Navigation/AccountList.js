@@ -14,7 +14,7 @@ function AccountList() {
         sessionLinks = (
             <div className='nav-bar1-account-dropdown'>
                 <div className='nav-bar1-account-dropdown-topu'>
-                    <div >
+                    <div>
                         {user.username} is shopping.
                     </div>
                 </div>
@@ -38,7 +38,7 @@ function AccountList() {
         sessionLinks = (
             <div className='nav-bar1-account-dropdown'>
                 <div className='nav-bar1-account-dropdown-top'>
-                    <div ><NavLink to={`/login`}><button className='nav-bar1-account-dropdown-top-button'>Sign In</button></NavLink></div>
+                    <div><NavLink to={`/login`}><button className='nav-bar1-account-dropdown-top-button'>Sign In</button></NavLink></div>
                     <div className='nav-bar1-account-dropdown-top-word'>
                         <div className='nav-bar1-account-dropdown-top-word1'>New customer?</div>
                         <NavLink to={`/sign-up`}> Start here.</NavLink>
@@ -59,27 +59,6 @@ function AccountList() {
                     </div>
                 </div>
             </div>
-            // <div className='nav-bar1-account-dropdown'>
-            //     <div>
-            //         <div><NavLink to={`/login`}><button>Sign In</button></NavLink></div>
-            //         <div>
-            //             New customer?
-            //             <NavLink to={`/sign-up`}> Start here.</NavLink>
-            //         </div>
-            //     </div>
-            //     <div>
-            //         <div>Your Selling Account</div>
-            //         <div><NavLink to={`/login`}>Products</NavLink></div>
-            //     </div>
-            //     <div>
-            //         <div>Your Account</div>
-            //         <div><NavLink to={`/login`}>Account</NavLink></div>
-            //         <div><NavLink to={`/login`}>Orders</NavLink></div>
-            //         {/* <div><NavLink to={`/login`}>My Favorites</NavLink></div> */}
-            //         {/* <div><NavLink to={`/login`}>My Reviews</NavLink></div> */}
-            //         <div><LogoutButton /></div>
-            //     </div>
-            // </div>
         );
     }
 
@@ -97,12 +76,20 @@ function AccountList() {
     return (
         <div className='nav-bar1-account-container'>
             <div className='nav-bar1-account-sec'>
-                {user && <div className='nav-bar1-account-1'>Hello, {name}</div>}
-                {!user && <div className='nav-bar1-account-1'>Hello, sign in</div>}
-                <div className='nav-bar1-account-2'>
-                    <div>Account & Lists</div>
-                    <img src={arrow} className='nav-bar1-account-2-arrow' />
-                </div>
+                {user && <NavLink to={`/users/${user.id}`}>
+                    <div className='nav-bar1-account-1'>Hello, {name}</div>
+                    <div className='nav-bar1-account-2'>
+                        <div>Account & Lists</div>
+                        <img src={arrow} className='nav-bar1-account-2-arrow' />
+                    </div>
+                </NavLink>}
+                {!user && <NavLink to={`/login`} >
+                    <div className='nav-bar1-account-1'>Hello, sign in</div>
+                    <div className='nav-bar1-account-2'>
+                        <div>Account & Lists</div>
+                        <img src={arrow} className='nav-bar1-account-2-arrow' />
+                    </div>
+                </NavLink>}
             </div>
             <div>
                 {sessionLinks}
