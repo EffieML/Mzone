@@ -56,6 +56,11 @@
     border: 1px solid rgb(19, 25, 33);
 }
 
+.nav-bar1-developer-container a {
+    color: white;
+    text-decoration: none;
+}
+
 .nav-bar1-developer-container:hover {
     border: 1px solid #ffffff;
 }

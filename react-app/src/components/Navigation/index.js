@@ -29,10 +29,13 @@ function Navigation() {
                     </div>
                     <div className='nav-bar1-developer-container'>
                         <div className='nav-bar1-developer-name'>Developer: Ming Liu</div>
-                        <div className='nav-bar1-developer-logosec'>
-                            <img src={githublogo} />
-                            <div className='nav-bar1-developer-logoname'>GitHub</div>
-                        </div>
+                        <a href='https://github.com/EffieML/Mzone'>
+                            <div className='nav-bar1-developer-logosec'>
+                                <img src={githublogo} />
+                                <div className='nav-bar1-developer-logoname'>GitHub</div>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
                 {/* <div>select your address section</div> */}
