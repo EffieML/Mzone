@@ -129,3 +129,14 @@
     font-size: 14px;
     font-weight: bold;
 }
+
+/* nav bar row2 ---------------------------------------------------------------- */
+.nav-bar-2 {
+    height: 39px;
+    background-color: #232f3e;
+    color: #ffffff;
+    padding-left: 11px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
