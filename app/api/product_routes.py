@@ -16,7 +16,7 @@ def get_all_products():
     get all products
     """
     products = Product.query.all()
-    return {'products': [product.to_dict_product_images() for product in products]}
+    return {'products': [product.to_dict() for product in products]}
 
 
 @product_routes.route('/<int:id>')
@@ -43,7 +43,7 @@ def get_category_products(category):
     if category in all_categories:
         products = Product.query.filter(
             Product.category == all_categories[category]).all()
-        return {'products': [product.to_dict_product_images() for product in products]}
+        return {'products': [product.to_dict() for product in products]}
     else:
         return {'category': category, 'message': 'product category not found'}, 404
 

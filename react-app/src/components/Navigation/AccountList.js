@@ -79,7 +79,7 @@ function AccountList() {
                 {user && <NavLink to={`/users/${user.id}`}>
                     <div className='nav-bar1-account-1'>Hello, {name}</div>
                     <div className='nav-bar1-account-2'>
-                        <div>Account & Lists</div>
+                        <div className='nav-bar1-account-2-word' >Account & Lists</div>
                         <img src={arrow} className='nav-bar1-account-2-arrow' />
                     </div>
                 </NavLink>}
