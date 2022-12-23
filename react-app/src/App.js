@@ -70,10 +70,12 @@ function App() {
         </Route>
 
         <Route path='/products/:productId' exact={true} >
+          <Navigation />
           <OneProductPage />
         </Route>
 
         <Route path='/products' exact={true} >
+          <Navigation />
           <AllProductsPage />
         </Route>
 
