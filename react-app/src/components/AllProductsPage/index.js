@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import StarRatings from 'react-star-ratings';
 import { listAllProductsThunk } from '../../store/product';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png'
 import './AllProductsPage.css'
@@ -39,8 +40,18 @@ function AllProductsPage() {
                                 </div>
                                 <div className='home-product-name'>{product.name.slice(0, 78)} ...</div>
                                 <div className='home-product-review-container'>
-                                    <div>{avgRating(product.reviews)} avg, </div>
-                                    <div> total {product.reviews.length} num reviews</div>
+                                    <StarRatings
+                                        rating={avgRating(product.reviews)}
+                                        starRatedColor='rgb(242, 201, 0)'
+                                        starEmptyColor='rgb(206, 212, 212)'
+                                        starDimension='16px'
+                                        starSpacing='0px'
+                                        numberOfStars={5}
+                                        name='rating'
+                                        className="home-product-review-star"
+                                    />
+                                    {/* <div>{avgRating(product.reviews)} avg, </div> */}
+                                    <div className="home-product-review-count">{product.reviews.length}</div>
                                 </div>
                                 <div className='home-product-price-container'>
                                     <div className='home-product-price-small'>$</div>

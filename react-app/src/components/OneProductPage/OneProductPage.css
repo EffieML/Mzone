@@ -1,0 +1,121 @@
+.one-prod-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
+}
+
+
+.one-prod-page {
+    width: 1464px;
+    padding: 0px 18px 18px 18px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* top image info add to cart section --------------------------- */
+.one-prod-page-top {
+    display: flex;
+    flex-direction: row;
+}
+
+/* top left image section ------------------------------------- */
+.one-prod-page-top-left {
+    display: flex;
+    flex-direction: row;
+    width: 658px;
+    height: 600px;
+}
+
+.one-prod-page-top-left-small {
+    display: flex;
+    flex-direction: column;
+}
+
+#img-small40 {
+    height: 40px;
+    width: 40px;
+    border: 1px solid gray;
+    border-radius: 5%;
+    margin: 1px;
+    object-fit: cover;
+}
+
+#img-small40:hover {
+    margin: 1px;
+    border: 1px solid rgb(231, 118, 0);
+    border-radius: 5%;
+    box-shadow: 0 0 10px rgba(231, 118, 0, 0.5);
+}
+
+.main-img-active-container {
+    display: none;
+}
+
+.main-img-active {
+    display: block;
+}
+
+#img-big {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    padding-left: 10px;
+}
+
+/* top middle section ------------------------------------------------- */
+.one-prod-page-top-middle {
+    display: flex;
+    flex-direction: column;
+    width: 484px;
+    height: 600px;
+    padding-left: 20px;
+}
+
+.one-prod-top-middle-name {
+    width: 450px;
+    font-size: 24px;
+    color: #0f1111;
+}
+
+.one-prod-top-middle-brand {
+    width: 450px;
+    font-size: 14px;
+    color: #007185;
+}
+
+
+.one-prod-top-middle-review {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 335px;
+    padding: 4px 0px;
+    color: black;
+}
+
+.one-prod-top-middle-review-star .star {
+    border-color: rgb(176, 106, 0);
+    border-width: 1px;
+}
+
+.one-prod-top-middle-review-count {
+    font-size: 16px;
+    padding-left: 14px;
+    color: #007185
+}
+
+.one-prod-top-middle-line {
+    margin: 4px;
+    border-top: 1px solid lightgrey;
+}
+
+/* top right add to cart section ---------------------------------------- */
+.one-prod-page-top-right {
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+    height: 600px;
+}

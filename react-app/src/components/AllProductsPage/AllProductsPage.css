@@ -7,7 +7,6 @@
 .all-products-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     background-color: #eaeded;
     height: 100vh;
@@ -19,12 +18,14 @@
 } */
 
 .all-products-list {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     justify-content: flex-start;
     flex-wrap: wrap;
-    width: auto;
+    width: auto; */
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     max-width: 1500px;
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
     color: black;
@@ -83,17 +84,27 @@
 .home-product-review-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 335px;
-    padding: 5px 20px;
+    padding: 2px 20px;
     color: black;
+}
 
+.home-product-review-star .star {
+    border-color: rgb(176, 106, 0);
+    border-width: 1px;
+}
+
+.home-product-review-count {
+    font-size: 14px;
+    padding-left: 4px;
 }
 
 .home-product-price-container {
     display: flex;
     flex-direction: row;
     width: 335px;
-    padding: 5px 20px 2px 20px;
+    padding: 2px 20px 2px 20px;
     color: black;
 }
 
