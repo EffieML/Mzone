@@ -69,7 +69,7 @@
 .one-prod-page-top-middle {
     display: flex;
     flex-direction: column;
-    width: 484px;
+    width: 463px;
     height: 600px;
     padding-left: 20px;
 }
@@ -108,14 +108,114 @@
 }
 
 .one-prod-top-middle-line {
-    margin: 4px;
+    margin: 4px 0px;
     border-top: 1px solid lightgrey;
 }
 
-/* top right add to cart section ---------------------------------------- */
-.one-prod-page-top-right {
+.one-prod-middle-price-container {
+    display: flex;
+    flex-direction: row;
+    width: 335px;
+    padding: 2px 0px 4px 0px;
+    color: black;
+}
+
+.one-prod-middle-price-small {
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+.one-prod-middle-price-big {
+    font-size: 28px;
+    padding: 0px 1px;
+}
+
+.one-prod-top-middle-instock {
+    color: #007600;
+    font-size: 18px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-middle-outstock {
+    color: rgb(191, 71, 38);
+    font-size: 18px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-middle-shipfrom {
+    color: #0f1111;
+    font-size: 14px;
+    padding-bottom: 12px;
+}
+
+.one-prod-top-middle-about-container {
     display: flex;
     flex-direction: column;
-    width: 275px;
+    align-items: flex-end;
+}
+
+.one-prod-top-middle-about {
+    width: 435px;
+    color: #0F1111;
+    text-indent: -20px;
+    font-size: 14px;
+    margin: 8px 0px 16px;
+}
+
+
+/* top right add to cart section ---------------------------------------- */
+.one-prod-page-top-right-container {
+    display: flex;
+    flex-direction: column;
+    width: 262px;
     height: 600px;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+    margin-left: 20px;
+    padding: 14px 18px;
+}
+
+.one-prod-rigth-price-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+}
+
+.one-prod-top-right-freedel {
+    font-size: 14px;
+    color: #007185;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-right-deliver {
+    display: flex;
+    flex-direction: row;
+}
+
+.one-prod-top-right-deliverlogo {
+    width: 11px;
+    height: 12px;
+    margin: 2px 5px 0px 0px;
+}
+
+.one-prod-top-right-deliverloc {
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #007185
+}
+
+.one-prod-top-right-cartbutton {
+    width: 260px;
+    height: 29px;
+    color: rgb(15, 17, 17);
+    background-color: rgb(255, 216, 20);
+    border-radius: 16px;
+    border: 1px solid rgb(242, 194, 0);
+    text-decoration: none;
+}
+
+.one-prod-top-right-cartbutton:hover {
+    background-color: rgb(247, 202, 0);
 }

@@ -5,6 +5,7 @@ import StarRatings from 'react-star-ratings';
 import { listOneProductThunk } from '../../store/product';
 import { addItemToCartThunk } from '../../store/cart';
 import ProductReview from './ProductReviewPage';
+import ptpin from '../../img/ptpin.png'
 import './OneProductPage.css'
 
 
@@ -96,8 +97,8 @@ function OneProductPage() {
                                         </div>)}
                                     {product.images.length && (
                                         product.images.map(image => (
-                                            <div>
-                                                <div key={image.id}
+                                            <div key={image.id}>
+                                                <div
                                                     className={`main-img-active-container ${selectImg === image.id && "main-img-active"}`}                                            >
                                                     <img src={image.url} id='img-big' />
                                                     {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
@@ -132,18 +133,57 @@ function OneProductPage() {
                                         <div className="one-prod-top-middle-review-count">{product.reviews.length} rating</div>
                                     )}
                                 </div>
-                                <div className='one-prod-top-middle-line'></div>
-                                <div>in {product.category}</div>
-                                <div>{product.price}</div>
 
-                                <div>{product.about}</div>
+                                <div className='one-prod-top-middle-line'></div>
+
+                                <div className='one-prod-middle-price-container'>
+                                    <div className='one-prod-middle-price-small'>$</div>
+                                    <div className='one-prod-middle-price-big'>{product.price.toFixed(2).split(".")[0]}</div>
+                                    <div className='one-prod-middle-price-small'>{product.price.toFixed(2).split(".")[1]}</div>
+                                </div>
+                                <div className='one-prod-top-middle-brand'>FREE Returns</div>
+                                {product.quantity > 0 && (
+                                    <div className='one-prod-top-middle-instock'>In Stock.</div>
+                                )}
+                                {product.quantity == 0 && (
+                                    <div className='one-prod-top-middle-outstock'>Temporarily out of stock.</div>
+                                )}
+                                <div className='one-prod-top-middle-shipfrom'>Ships from and sold by {product.user.username}.</div>
+
+                                <div className='one-prod-top-middle-line'></div>
+                                <div className='one-prod-top-middle-about-container'>
+                                    <li className='one-prod-top-middle-about'>{product.about}</li>
+                                </div>
                             </div>
-                            <div className='one-prod-page-top-right'>
-                                <div>{product.price}</div>
-                                <div>free deliver</div>
-                                <div>in stock</div>
+
+                            <div className='one-prod-page-top-right-container'>
+                                <div className='one-prod-rigth-price-container'>
+                                    <div className='one-prod-middle-price-small'>$</div>
+                                    <div className='one-prod-middle-price-big'>{product.price.toFixed(2).split(".")[0]}</div>
+                                    <div className='one-prod-middle-price-small'>{product.price.toFixed(2).split(".")[1]}</div>
+                                </div>
+                                <div className='one-prod-top-right-freedel'>FREE Returns.</div>
+                                <div className='one-prod-top-right-freedel'>FREE delivery.</div>
+                                <div className='one-prod-top-right-deliver'>
+                                    <img src={ptpin} className='one-prod-top-right-deliverlogo' />
+                                    {user && user.addresses.length && (
+                                        <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} - {user.addresses[0].city} {user.addresses[0].zip}</div>
+                                    )}
+                                    {user && !user.addresses.length && (
+                                        <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} </div>
+                                    )}
+                                    {!user && (
+                                        <div className='one-prod-top-right-deliverloc'>Delivery location.</div>
+                                    )}
+                                </div>
+                                {product.quantity > 0 && (
+                                    <div className='one-prod-top-middle-instock'>In Stock.</div>
+                                )}
+                                {product.quantity == 0 && (
+                                    <div className='one-prod-top-middle-outstock'>Temporarily out of stock.</div>
+                                )}
                                 {/* <div>{product.quantity}</div> */}
-                                <button onClick={addToCart}>
+                                <button onClick={addToCart} className='one-prod-top-right-cartbutton'>
                                     Add to Cart
                                 </button>
                             </div>
@@ -154,6 +194,7 @@ function OneProductPage() {
                             <div>{product.dimension}</div>
                             <div>{product.brand}</div>
                             <div>{product.weight}</div>
+                            <div>in {product.category}</div>
                         </div>
 
 
