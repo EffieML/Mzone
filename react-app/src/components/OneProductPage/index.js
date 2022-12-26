@@ -118,7 +118,7 @@ function OneProductPage() {
                                 <div className='one-prod-top-middle-review'>
                                     <StarRatings
                                         rating={avgRating(product.reviews)}
-                                        starRatedColor='rgb(242, 201, 0)'
+                                        starRatedColor='rgb(255, 164, 28)'
                                         starEmptyColor='rgb(206, 212, 212)'
                                         starDimension='16px'
                                         starSpacing='0px'
@@ -230,7 +230,7 @@ function OneProductPage() {
                                         <div className='one-prod-middle-td-star1'>
                                             <StarRatings
                                                 rating={avgRating(product.reviews)}
-                                                starRatedColor='rgb(242, 201, 0)'
+                                                starRatedColor='rgb(255, 164, 28)'
                                                 starEmptyColor='rgb(206, 212, 212)'
                                                 starDimension='16px'
                                                 starSpacing='0px'
