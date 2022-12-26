@@ -5,8 +5,9 @@ import StarRatings from 'react-star-ratings';
 import { listOneProductThunk } from '../../store/product';
 import { addItemToCartThunk } from '../../store/cart';
 import ProductReview from './ProductReviewPage';
-import ptpin from '../../img/ptpin.png'
-import './OneProductPage.css'
+import ptpin from '../../img/ptpin.png';
+import lock from '../../img/lock.png';
+import './OneProductPage.css';
 
 
 function OneProductPage() {
@@ -103,7 +104,6 @@ function OneProductPage() {
                                                     <img src={image.url} id='img-big' />
                                                     {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
                                                 </div>
-
                                             </div>
                                         ))
                                     )}
@@ -186,21 +186,74 @@ function OneProductPage() {
                                 <button onClick={addToCart} className='one-prod-top-right-cartbutton'>
                                     Add to Cart
                                 </button>
+                                <div className='one-prod-top-right-lockmessage-c'>
+                                    <img src={lock} id='lock' />
+                                    <div className='one-prod-top-right-lockmessage'>Secure transaction</div>
+                                </div>
+                                <div className='one-prod-top-right-ship-c'>
+                                    <div className='one-prod-top-right-ship-note'>Ships from</div>
+                                    <div className='one-prod-top-right-ship-seller'> {product.user.username}</div>
+                                </div>
+                                <div className='one-prod-top-right-sold-c'>
+                                    <div className='one-prod-top-right-ship-note'>Sold by</div>
+                                    <div className='one-prod-top-right-ship-seller'> {product.user.username}</div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <div>product info table</div>
-                            <div>{product.detail}</div>
-                            <div>{product.dimension}</div>
-                            <div>{product.brand}</div>
-                            <div>{product.weight}</div>
-                            <div>in {product.category}</div>
+                        <div className='one-prod-top-line'></div>
+                        <div className='one-prod-middle-proddes-container'>
+                            <h2 className='one-prod-middle-title'>Product Description</h2>
+                            <div className='one-prod-middle-title2'>Product Description</div>
+                            <div className='one-prod-middle-content'>{product.detail}</div>
+                            <div className='one-prod-top-line'></div>
+                            <h2 className='one-prod-middle-title'>Product information</h2>
+                            <table>
+                                <tr>
+                                    <th className='one-prod-middle-th'>Brand</th>
+                                    <td className='one-prod-middle-td'>{product.brand}</td>
+                                </tr>
+                                <tr>
+                                    <th className='one-prod-middle-th'>Product Dimensions</th>
+                                    <td className='one-prod-middle-td'>{product.dimension}</td>
+                                </tr>
+                                <tr>
+                                    <th className='one-prod-middle-th'>Item weight</th>
+                                    <td className='one-prod-middle-td'>{product.weight}</td>
+                                </tr>
+                                <tr>
+                                    <th className='one-prod-middle-th'>Domestic Shipping</th>
+                                    <td className='one-prod-middle-td'>Item can be shipped within U.S.</td>
+                                </tr>
+                                <tr>
+                                    <th className='one-prod-middle-th'>Customer Reviews</th>
+                                    <td className='one-prod-middle-td'>
+                                        <div className='one-prod-middle-td-star1'>
+                                            <StarRatings
+                                                rating={avgRating(product.reviews)}
+                                                starRatedColor='rgb(242, 201, 0)'
+                                                starEmptyColor='rgb(206, 212, 212)'
+                                                starDimension='16px'
+                                                starSpacing='0px'
+                                                numberOfStars={5}
+                                                name='rating'
+                                                className="one-prod-top-middle-review-star"
+                                            />
+                                            {product.reviews.length !== 0 && (
+                                                <div className="one-prod-middle-td-star1-count">{product.reviews.length} ratings</div>
+                                            )}
+                                            {product.reviews.length === 0 && (
+                                                <div className="one-prod-middle-td-star1-count">{product.reviews.length} rating</div>
+                                            )}
+                                        </div>
+                                        <div className='one-prod-middle-td-star2'>{avgRating(product.reviews)} out of 5 stars</div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
 
+                        <div className='one-prod-top-line'></div>
 
                         <div> <ProductReview reviews={reviews} productId={product.id} /></div>
-
-
                     </div>
                 </div>
             )}

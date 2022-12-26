@@ -1,0 +1,25 @@
+.one-prod-bttm-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* left section ------------------------------------------------- */
+.one-prod-bttm-left-container {
+    width: 300px;
+    height: 100px;
+    padding-top: 20px;
+}
+
+/* left top section -------------------------------------------------- */
+.one-prod-bttm-left1 #title {
+    font-size: 24px;
+    color: #0f1111;
+    margin: 0px;
+}
+
+.one-prod-bttm-right-container {
+    width: 1134px;
+    padding-left: 30px;
+    padding-top: 20px;
+
+}
