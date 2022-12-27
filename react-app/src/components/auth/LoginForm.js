@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
 import mzonelogo from '../../img/mzonelogowhite.png'
 import './LoginForm.css';
@@ -47,7 +47,9 @@ const LoginForm = () => {
   return (
     <div className='login-page-container'>
       <div className='login-page-container-inner'>
-        <img src={mzonelogo} className='login-page-logo' />
+        <NavLink to={`/`}>
+          <img src={mzonelogo} className='login-page-logo' />
+        </NavLink>
         <div className='login-page-form-container'>
           <form onSubmit={onLogin}>
             <div className='login-page-form-title'>Sign in</div>
@@ -57,7 +59,6 @@ const LoginForm = () => {
                   <div className='login-page-form-errors1'>!</div>
                   <div key={ind}>{error}</div>
                 </div>
-
               ))}
             </div>
             <div className='login-page-form-email-container'>
@@ -95,7 +96,9 @@ const LoginForm = () => {
             </div>
             <div className='login-page-new-to-mzone-line2'></div>
           </div>
-          <button type='submit' className='one-prod-bttm-left2-button'>Create your Mzone account</button>
+          <NavLink to={`/sign-up`}>
+            <button type='submit' className='one-prod-bttm-left2-button'>Create your Mzone account</button>
+          </NavLink>
         </div>
       </div>
     </div>
