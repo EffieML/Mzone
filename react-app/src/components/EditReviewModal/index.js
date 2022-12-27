@@ -13,7 +13,7 @@ function EditReviewModal({ reviewE, reviewId }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit Review</button>
+            <button onClick={() => setShowModal(true)} className='one-prod-bttm-right-button-del'>Edit</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >
                     < EditReviewForm reviewE={reviewE} reviewId={reviewId} setShowModal={setShowModal} />
