@@ -143,3 +143,52 @@
 .login-page-new-to-mzone-container button:hover {
     background: -webkit-linear-gradient(top, #e7eaf0, #d9dce1);
 }
+
+/* signup page css ------------------------------------------------------------ */
+.signup-page-form-password3 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+}
+
+.signup-page-form-password3icon {
+    padding-right: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    transform: skewX(-10deg);
+    color: rgb(70, 147, 193)
+}
+
+.signup-page-form-password3word {
+    color: #2b2b2b;
+    font-size: 12px;
+}
+
+.signup-page-line1 {
+    width: 276px;
+    margin: 24px 10px;
+    border-top: 1px solid rgb(231, 231, 231);
+}
+
+.signup-page-loginacct {
+    display: flex;
+    flex-direction: row;
+}
+
+.signup-page-haveacct {
+    font-size: 13px;
+}
+
+.signup-page-loginacct a {
+    text-decoration: none;
+    padding-left: 4px;
+    margin: 0px;
+    font-size: 13px;
+    color: #0066c0
+}
+
+
+.signup-page-loginacct a:hover {
+    text-decoration: underline;
+    color: rgb(196, 85, 0)
+}
