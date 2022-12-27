@@ -146,6 +146,9 @@
     cursor: pointer;
 }
 
+.nav-bar1-account-dropdown-top-button:hover {
+    background: -webkit-linear-gradient(top, rgb(244, 213, 136), rgb(239, 186, 54));
+}
 
 .nav-bar1-account-dropdown-top-word {
     display: flex;
