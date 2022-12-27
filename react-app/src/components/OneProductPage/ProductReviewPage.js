@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import { getProductReviewsThunk, deleteReviewThunk } from '../../store/review';
 import EditReviewModal from '../EditReviewModal';
+import userimg from '../../img/user.jpeg';
 import './ProductReviewPage.css';
 
 function ProductReview({ productId }) {
@@ -207,41 +208,57 @@ function ProductReview({ productId }) {
                 </div>
                 <div className='one-prod-top-line'></div>
             </div>
-            {
-                reviews.length && (
-                    <div className='one-prod-bttm-right-container'>
-                        <div>Top reviews from the United States</div>
+            {reviews.length && (
+                <div className='one-prod-bttm-right-container'>
+                    <div className='one-prod-bttm-right-container-inner'>
+                        <div className='one-prod-bttm-right-title'>Top reviews from the United States</div>
                         <div>
                             {reviews?.map(reviewE => (
                                 <div key={reviewE.id}>
-                                    <hr></hr>
-                                    <div>user logo</div>
-                                    <div>{reviewE?.user.firstname} {reviewE?.user.lastname}</div>
-                                    {user?.id == reviewE?.user.id && (
-                                        <div>
-                                            <div>
-                                                <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
-                                            </div>
-                                            <button onClick={() => handleReviewDelete(reviewE.id)}> delete review</button>
+                                    <div className='one-prod-bttm-right-l1'>
+                                        <div className='one-prod-bttm-right-user'>
+                                            <img src={userimg} id='userimg' />
+                                            <div>{reviewE?.user.firstname} {reviewE?.user.lastname}</div>
                                         </div>
-                                    )}
+
+                                        {user?.id == reviewE?.user.id && (
+                                            <div className='one-prod-bttm-right-buttons'>
+                                                <div>
+                                                    <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
+                                                </div>
+                                                <button onClick={() => handleReviewDelete(reviewE.id)} className='one-prod-bttm-right-button-del'> Delete</button>
+                                            </div>
+                                        )}
+                                    </div>
+
                                     {/* <button onClick={() => handleDelete(spot.id)}> Delete Listing </button> */}
-                                    <div>{reviewE.stars}</div>
-                                    <div>{reviewE.title}</div>
-                                    <div>Reviewed in the United States on {convertDate(reviewE.createdAt)}</div>
-                                    <div>??? Verified Purchase</div>
-                                    <div>{reviewE.review}</div>
+                                    <div className='one-prod-bttm-right-l2'>
+                                        <div className='one-prod-middle-td-star1'>
+                                            <StarRatings
+                                                rating={reviewE.stars}
+                                                starRatedColor='rgb(255, 164, 28)'
+                                                starEmptyColor='rgb(206, 212, 212)'
+                                                starDimension='18px'
+                                                starSpacing='0px'
+                                                numberOfStars={5}
+                                                name='rating'
+                                                className="one-prod-top-middle-review-star"
+                                            />
+                                        </div>
+                                        <div className='one-prod-bttm-right-reviewtitle'>{reviewE.title}</div>
+                                    </div>
+
+                                    <div className='one-prod-bttm-right-l3'>Reviewed in the United States on {convertDate(reviewE.createdAt)}</div>
+                                    {/* <div>??? Verified Purchase</div> */}
+                                    <div className='one-prod-bttm-right-l4'>{reviewE.review}</div>
                                 </div>
                             ))}
+                            <div className='one-prod-bttm-right-margin'></div>
                         </div>
-
                     </div>
-                )
-            }
-
-
+                </div>
+            )}
         </div >
-
     )
 }
 

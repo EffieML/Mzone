@@ -35,15 +35,17 @@
     margin-top: 5px;
     position: relative;
     z-index: 10;
+    right: -8px;
+    top: 2px;
 }
 
 .nav-bar1-cart-logo {
-    width: 34px;
-    height: 28px;
+    width: 46px;
+    height: 36px;
     background-color: rgb(19, 25, 33);
     position: relative;
     right: 14.5px;
-    top: -12px;
+    top: -18px;
     z-index: 3;
 }
 
@@ -51,6 +53,7 @@
     font-size: 14px;
     font-weight: bold;
     position: absolute;
-    right: 24px;
+    right: 26px;
     top: 27px;
+    z-index: 9;
 }
