@@ -40,6 +40,6 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired('User name is required.'), username_exists, Length(max=50, message='User name cannot exceed 50 characters.')])
     email = StringField(
-        'email', validators=[DataRequired('Email is required.'), useremail_exists, valid_email, Length(max=255, message='Email cannot exceed 255 characters.')])
+        'email', validators=[DataRequired('Enter your email'), useremail_exists, valid_email, Length(max=255, message='Email cannot exceed 255 characters.')])
     password = StringField(
-        'password', validators=[DataRequired('Password is required.'), Length(min=6, max=255, message='Password should be between 6 to 255 characters.')])
+        'password', validators=[DataRequired('Enter your password'), Length(min=6, max=255, message='Password should be between 6 to 255 characters.')])
