@@ -33,57 +33,82 @@ function AllOrdersPage() {
     }
 
     return (
-        <div>
-            <h1>all orders</h1>
-            <p>You can edit your ordered items or cancel your order within <span>5 hours</span> after it's placed.</p>
+        <div className='all-orders-page-container'>
+            <div className='all-orders-page-l1'>
+                <div className='all-orders-page-l1-account'>Your Account</div>
+                <div className='all-orders-page-l1-icon'>{`>`}</div>
+                <div className='all-orders-page-l1-orders'>Your Orders</div>
+            </div>
+            <h1 className='all-orders-page-title'>Your Orders</h1>
+            <div className='all-orders-page-title-order'>Orders</div>
+            <div className='all-orders-page-line'></div>
+            {/* <p>You can edit your ordered items or cancel your order within <span>5 hours</span> after it's placed.</p>
             <p>No change can be made after 5 hours of placing it.</p>
-            <p>You can always place a second order for any additional items you want.</p>
-            <div >
+            <p>You can always place a second order for any additional items you want.</p> */}
+            {orders && orders.length <= 1 && (
+                <div className='all-orders-page-num-orders'> {orders.length} order placed</div>
+            )}
+            {orders && orders.length > 1 && (
+                <div className='all-orders-page-num-orders'> {orders.length} orders placed</div>
+            )}
+            <div>
                 {orders?.map(order => (
-                    <div key={order.id}>
-                        <hr></hr>
-                        <div>
-                            <div>ORDER PLACED</div>
-                            <div>{convertDate(order.createdAt)}</div>
+                    <div key={order.id} className='all-orders-oneorder-container'>
+                        <div className='all-orders-oneorder-sec1'>
+                            <div className='all-orders-oneorder-sec1-left'>
+                                <div className='all-orders-oneorder-sec1-left1'>
+                                    <div id="title">ORDER PLACED</div>
+                                    <div id="l2">{convertDate(order.createdAt)}</div>
+                                </div>
+                                <div className='all-orders-oneorder-sec1-left2'>
+                                    <div id="title">TOTAL</div>
+                                    <div id="l2">$ {totalPrice(order.orderItems)}</div>
+                                </div>
+                                <div className='all-orders-oneorder-sec1-left3'>
+                                    <div id="title">SHIP TO</div>
+                                    <div id="l2">{order.user.firstname.toLowerCase()} {order.user.lastname.toLowerCase()}</div>
+                                </div>
+                            </div>
+                            <div className='all-orders-oneorder-sec1-right'>
+                                <div id="title">ORDER # {order.id}</div>
+                                <div>
+                                    <NavLink to={`/orders/${order.id}`}>
+                                        <button>View order details</button>
+                                    </NavLink>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <div>TOTAL</div>
-                            <div>$ {totalPrice(order.orderItems)}</div>
-                        </div>
-                        <div>
-                            <div>SHIP TO</div>
-                            <div>{order.user.firstname} {order.user.lastname}</div>
-                        </div>
-                        <div>
-                            <div>ORDER # {order.id}</div>
-                        </div>
-                        <div>
-                            <NavLink to={`/orders/${order.id}`}>
-                                <button>View order details</button>
-                            </NavLink>
-                        </div>
-                        <div>
-                            <hr></hr>
+                        <div className='all-orders-oneorder-sec2'>
                             {order?.orderItems.map(item => (
-                                <div key={item.id}>
-                                    <NavLink to={`/products/${item.product?.id}`}>
-                                        <img src={item?.product.images[0].url} alt='Preview image' />
-                                    </NavLink>
-                                    <div>{item?.product.about}</div>
-                                    <NavLink to={`/products/${item?.product.id}`}>
-                                        <button>View your item</button>
-                                    </NavLink>
-                                    <div>write a review</div>
-                                    <hr></hr>
+                                <div key={item.id} className='all-orders-oneorder-sec2-inner'>
+                                    <div className='all-orders-oneorder-sec2-left-container'>
+                                        <NavLink to={`/products/${item.product?.id}`} className='all-orders-oneorder-sec2-left'>
+                                            <img src={item?.product.images[0].url} alt='Preview image' />
+                                        </NavLink>
+                                        <div className='all-orders-oneorder-sec2-middle'>
+                                            <div id='product-name'>
+                                                <NavLink to={`/products/${item?.product.id}`}>
+                                                    {item?.product.name}
+                                                </NavLink>
+                                            </div>
+                                            <NavLink to={`/products/${item?.product.id}`}>
+                                                <button>View your item</button>
+                                            </NavLink>
+                                        </div>
+                                    </div>
+
+                                    <div className='all-orders-oneorder-sec2-right'>
+                                        <NavLink to={`/products/${item?.product.id}/addreview`}>
+                                            <button>Write a product review</button>
+                                        </NavLink>
+                                    </div>
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 ))}
             </div>
-
-        </div>
+        </div >
     )
 }
 
