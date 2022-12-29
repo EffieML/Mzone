@@ -81,6 +81,7 @@ function App() {
 
         {/* Cart components --------------------------------------------- */}
         <Route path='/cart' exact={true} >
+          <Navigation />
           <ShoppingCartPage />
         </Route>
 
