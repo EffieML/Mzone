@@ -91,6 +91,7 @@ function App() {
         </Route>
 
         <Route path='/orders' exact={true} >
+          <Navigation />
           <AllOrdersPage />
         </Route>
 

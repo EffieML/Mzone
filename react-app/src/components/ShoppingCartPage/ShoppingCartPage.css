@@ -238,7 +238,7 @@
     font-weight: bold;
 }
 
-.cart-page-container-right button {
+.active button {
     width: 258px;
     height: 29px;
     padding: 1px 6px;
@@ -248,8 +248,21 @@
     border: none;
     font-family: 'Amazon Ember', Arial, sans-serif;
     margin-top: 12px;
+    cursor: pointer;
 }
 
-.cart-page-container-right button:hover {
+.active button:hover {
     background-color: rgb(247, 202, 0);
+}
+
+.not-active button {
+    width: 258px;
+    height: 29px;
+    padding: 1px 6px;
+    background-color: #f0f2f2;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    margin-top: 12px;
 }

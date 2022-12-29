@@ -95,7 +95,16 @@ function ShoppingCartPage() {
                         {/* <NavLink>
                             <button to={`/placeorder`}>Proceed to checkout</button>
                         </NavLink> */}
-                        <button onClick={placeOrder}>Place your order</button>
+                        {cartItems.length && (
+                            <div className="active">
+                                <button onClick={placeOrder}>Place your order</button>
+                            </div>
+                        )}
+                        {!cartItems.length && (
+                            <div className="not-active">
+                                <button >Place your order</button>
+                            </div>
+                        )}
                     </div>
                 </div>
 
