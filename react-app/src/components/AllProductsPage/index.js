@@ -16,7 +16,7 @@ function AllProductsPage() {
     }, [dispatch]);
 
     const avgRating = (reviewsArr) => {
-        if (reviewsArr.length) {
+        if (reviewsArr?.length) {
             let totalRate = 0;
             for (let i = 0; i < reviewsArr.length; i++) {
                 let review = reviewsArr[i];
@@ -51,7 +51,7 @@ function AllProductsPage() {
                                         className="home-product-review-star"
                                     />
                                     {/* <div>{avgRating(product.reviews)} avg, </div> */}
-                                    <div className="home-product-review-count">{product.reviews.length}</div>
+                                    <div className="home-product-review-count">{product.reviews?.length}</div>
                                 </div>
                                 <div className='home-product-price-container'>
                                     <div className='home-product-price-small'>$</div>
