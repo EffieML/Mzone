@@ -11,7 +11,7 @@ function EditProductModal({ product, productId }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit</button>
+            <button onClick={() => setShowModal(true)}>Edit Product</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >
                     < EditProductForm product={product} productId={productId} setShowModal={setShowModal} />

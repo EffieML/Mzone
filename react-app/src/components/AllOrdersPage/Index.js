@@ -42,9 +42,6 @@ function AllOrdersPage() {
             <h1 className='all-orders-page-title'>Your Orders</h1>
             <div className='all-orders-page-title-order'>Orders</div>
             <div className='all-orders-page-line'></div>
-            {/* <p>You can edit your ordered items or cancel your order within <span>5 hours</span> after it's placed.</p>
-            <p>No change can be made after 5 hours of placing it.</p>
-            <p>You can always place a second order for any additional items you want.</p> */}
             {orders && orders.length <= 1 && (
                 <div className='all-orders-page-num-orders'> {orders.length} order placed</div>
             )}
