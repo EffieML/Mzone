@@ -56,16 +56,19 @@ function App() {
 
         {/* Review components --------------------------------------------- */}
         <Route path='/products/:productId/addreview' exact={true} >
+          <Navigation />
           <AddReviewPage />
         </Route>
 
 
         {/* Product components --------------------------------------------- */}
         <Route path='/products/current/create' exact={true}>
+          <Navigation />
           <AddProductPage />
         </Route>
 
         <Route path='/products/current' exact={true}>
+          <Navigation />
           <UserListingPage />
         </Route>
 
@@ -87,6 +90,7 @@ function App() {
 
         {/* Order components --------------------------------------------- */}
         <Route path='/orders/:orderId' >
+          <Navigation />
           <OneOrderPage />
         </Route>
 

@@ -251,6 +251,17 @@ function ProductReview({ productId }) {
                                     <div className='one-prod-bttm-right-l3'>Reviewed in the United States on {convertDate(reviewE.createdAt)}</div>
                                     {/* <div>??? Verified Purchase</div> */}
                                     <div className='one-prod-bttm-right-l4'>{reviewE.review}</div>
+
+                                    <div className='one-prod-bttm-right-l5'>
+                                        {reviewE.images?.length > 0 && (
+                                            reviewE.images.map(image => (
+                                                <div key={image.id}>
+                                                    <img src={image.url} className='one-prod-bttm-right-l5-img88' />
+                                                </div>
+                                            ))
+                                        )}
+                                        {reviewE.images.length === 0 && (<div></div>)}
+                                    </div>
                                 </div>
                             ))}
                             <div className='one-prod-bttm-right-margin'></div>
