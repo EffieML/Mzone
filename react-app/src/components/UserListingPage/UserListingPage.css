@@ -1,0 +1,116 @@
+.all-listing-page-container {
+    width: 920px;
+    margin: 8px auto 30px auto;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
+.all-listing-page-title-order {
+    font-size: 14px;
+    font-weight: bold;
+    width: 60px;
+    padding: 5px 10px;
+    margin-left: 18px;
+    /* margin-top: 18px; */
+    border-bottom: 2px solid rgb(228, 121, 17);
+}
+
+.all-listing-page-product-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.all-listing-page-product-line button {
+    padding: 0px;
+    margin-bottom: 4px;
+    width: 150px;
+    height: 24px;
+    font-size: 13px;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+
+.all-listing-page-product-line button:hover {
+    background-color: rgb(247, 202, 0);
+}
+
+.all-listing-oneprod-sec {
+    width: 882px;
+    padding: 14px 18px;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid rgb(213, 217, 217);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.all-listing-oneprod-sec-left {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.all-listing-oneprod-sec img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    padding: 0px 5px;
+}
+
+.all-listing-page-sec2-item-middle-l4 {
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+.all-listing-page-right-sec1 button {
+    padding: 0px;
+    width: 150px;
+    height: 29px;
+    font-size: 13px;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+
+.all-listing-page-right-sec1 button:hover {
+    background-color: rgb(247, 202, 0);
+}
+
+.all-listing-page-right-sec2 button {
+    padding: 0;
+    width: 150px;
+    height: 29px;
+    font-size: 13px;
+    color: #0f1111;
+    background: #FFF;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 8px;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+
+.all-listing-page-right-sec2 button:hover {
+    background: rgb(247, 250, 250);
+}
