@@ -100,7 +100,7 @@ function AddProductPage() {
                 <div className='all-orders-page-l1-account'>Your Selling Account</div>
                 <div className='all-orders-page-l1-icon'>{`>`}</div>
                 <div className='add-product-page-l1-products'>
-                    <NavLink to={`/products/current/create`}>Your Products</NavLink>
+                    <NavLink to={`/products/current`}>Your Products</NavLink>
                 </div>
                 <div className='all-orders-page-l1-icon'>{`>`}</div>
                 <div className='all-orders-page-l1-orders'>Add a Product</div>
