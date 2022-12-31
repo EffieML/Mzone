@@ -72,12 +72,14 @@
     outline: none;
     border: 1px solid rgb(231, 118, 0);
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+    background-color: rgb(247, 254, 255);
 }
 
 .add-product-page-name-container select:focus {
     outline: none;
     border: 1px solid rgb(231, 118, 0);
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+    background-color: rgb(247, 254, 255);
 }
 
 .add-product-form-img-container p {

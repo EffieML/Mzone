@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import '../EditProductModal/EditProductModal.css';
+import '../AddProductPage/AddProductPage.css';
+import './AddReviewPage.css';
 
 
 const AddReviewImgUrl = ({ images, setImages }) => {
@@ -71,26 +74,27 @@ const AddReviewImgUrl = ({ images, setImages }) => {
     }
     // console.log("addproduct images-----------", images)
     return (
-        <div>
-            <div>
+        <div className="add-review-upload-img-container">
+            <div className="edit-product-from-errors-container">
                 {showImagesErrors && urlValidationErrors.map((error, idx) => (
                     <li key={idx} className='form-errors'>{error}</li>
                 ))}
             </div>
-            <div>
+            <div className="add-product-from-upload">
                 <input
                     type="file"
                     accept="image/*"
                     onChange={updateImage}
+                    className="upload-button1"
                 />
-                <button onClick={handleSubmit}>Upload</button>
+                <button onClick={handleSubmit}>Upload Image</button>
                 {(imageLoading) && <p>Loading...</p>}
             </div>
-            <div>
+            <div className="add-product-from-img-container">
                 {urls.map((url, index) =>
-                    <div key={index}>
-                        <button onClick={() => handleRemove(url)}>X</button>
+                    <div key={index} className="edit-product-from-img-container-inner">
                         <img alt='uploaded-images' className="edit-product-img-small" src={url} />
+                        <button onClick={() => handleRemove(url)}>x</button>
                     </div>
                 )}
             </div>
