@@ -37,6 +37,12 @@
     padding-bottom: 14px;
 }
 
+.edit-product-from-img-sec p {
+    color: #007185;
+    margin: 4px 0px;
+    font-size: 12px;
+}
+
 .edit-product-from-errors-container {
     display: flex;
     flex-direction: row;
@@ -98,7 +104,7 @@
 
 .edit-product-from-upload button {
     padding: 0px;
-    width: 70px;
+    width: 100px;
     height: 26px;
     font-size: 13px;
     color: #0f1111;
