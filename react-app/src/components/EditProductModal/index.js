@@ -3,6 +3,7 @@ import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 import EditProductForm from './EditProductForm';
 
+
 function EditProductModal({ product, productId }) {
     const [showModal, setShowModal] = useState(false);
 

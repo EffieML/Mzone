@@ -101,21 +101,34 @@ function EditProductForm({ product, productId, setShowModal }) {
     }
 
     return (
-        <div>
-            <h1>Update product information</h1>
-            <div>
-                <div>management product image</div>
-                <UploadProductImg productId={productId} />
-                <hr></hr>
+        <div className='edit-product-from-container'>
+            <div className='edit-product-from-title'>
+                <div className='edit-product-from-title-inner'>
+                    Update product information
+                </div>
             </div>
 
-            <form onSubmit={editProductSubmit}>
-                <div className='add-product-form-container'>
+            <div className='edit-product-from-img-sec'>
+                <div className='edit-product-from-img-sec-title'>Update product image</div>
+                <UploadProductImg productId={productId} />
+            </div>
+            <div className='edit-product-from-line'></div>
+
+            <div className='edit-product-form-container'>
+                <form onSubmit={editProductSubmit}>
                     <ul className="form-errors">
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {errors.map((error, idx) => (
+                            <li className='edit-product-form-errors-container'>
+                                <div className='edit-product-form-errors1'>!</div>
+                                <div key={idx}>{error}</div>
+                            </li>
+                        ))}
                     </ul>
-                    <div>
-                        <label >
+                    {/* <ul className="form-errors">
+                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        </ul> */}
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Product Name
                         </label>
                         <input
@@ -125,8 +138,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Brand Name
                         </label>
                         <input
@@ -136,14 +149,13 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Category
                         </label>
                         <select
                             type="text"
                             value={category}
-                            size="3"
                             onChange={(e) => setCategory(e.target.value)}
                             required>
                             <option value="Mzone Devices" >Mzone Devices</option>
@@ -151,8 +163,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                         </select>
 
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Price
                         </label>
                         <input
@@ -165,8 +177,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Brief Description
                         </label>
                         <input
@@ -176,8 +188,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Description
                         </label>
                         <input
@@ -187,9 +199,9 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
-                            Product Dimension
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
+                            {`Product Dimension ("D x "W x "H)`}
                         </label>
                         <input
                             type="text"
@@ -198,8 +210,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Product Weight
                         </label>
                         <input
@@ -212,8 +224,8 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <label >
+                    <div className='edit-product-form-name-container'>
+                        <label className='edit-product-form-name1'>
                             Product Quantity
                         </label>
                         <input
@@ -226,16 +238,13 @@ function EditProductForm({ product, productId, setShowModal }) {
                             required
                         />
                     </div>
-                    <div>
-                        <p>Please select your image file and click "Upload" to successfully add your image one by one. </p>
-                        <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
-                        <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
-                    </div>
-                    <div>
+
+                    <div className='edit-product-form-button3-container'>
                         <button type="submit">Submit</button>
                     </div>
-                </div>
-            </form>
+
+                </form>
+            </div>
         </div>
     )
 }
