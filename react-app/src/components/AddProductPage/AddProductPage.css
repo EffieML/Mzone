@@ -1,4 +1,180 @@
+.add-product-page-container {
+    width: 920px;
+    margin: 8px auto 30px auto;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
+.add-product-page-l1-products a {
+    color: #007185;
+    text-decoration: none;
+}
+
+.add-product-page-l1-products a:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+.add-product-page-title {
+    font-size: 28px;
+    font-weight: normal;
+    margin: 16px 0px;
+    padding-bottom: 4px;
+}
+
 .add-product-form-container {
     display: flex;
     flex-direction: column;
+    width: 882px;
+    padding: 14px 18px;
+    font-size: 13px;
+    border-radius: 8px;
+    border: 1px solid rgb(213, 217, 217);
+    margin-bottom: 30px;
+
+}
+
+
+.add-product-page-name-container {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0px
+}
+
+.add-product-page-name1 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0px 0px 2px 2px;
+}
+
+.add-product-page-name-container input {
+    width: 860px;
+    height: 23px;
+    padding: 3px 7px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+
+}
+
+.add-product-page-name-container select {
+    width: 876px;
+    height: 31px;
+    padding: 3px 3px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+
+.add-product-page-name-container input:focus {
+    outline: none;
+    border: 1px solid rgb(231, 118, 0);
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.add-product-page-name-container select:focus {
+    outline: none;
+    border: 1px solid rgb(231, 118, 0);
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.add-product-form-img-container p {
+    color: #007185;
+    margin: 4px 0px;
+}
+
+.add-product-from-img-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+}
+
+.upload-button1::-webkit-file-upload-button {
+    padding: 0;
+    width: 140px;
+    height: 27px;
+    font-size: 14px;
+    color: #0f1111;
+    background: #FFF;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 8px;
+    margin-right: 8px;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.upload-button1::-webkit-file-upload-button:hover {
+    background: rgb(247, 250, 250);
+}
+
+.upload-button1 {
+    color: #0f1111;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.add-product-from-upload {
+    width: 840px;
+}
+
+.add-product-from-upload button {
+    padding: 0px;
+    width: 140px;
+    height: 26px;
+    font-size: 13px;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.add-product-from-upload button:hover {
+    background-color: rgb(247, 202, 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.add-product-form-button3-container button {
+    padding: 0px;
+    width: 840px;
+    height: 29px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    /* margin-left: 8px; */
+    margin: 10px 21px;
+}
+
+.add-product-form-container button:hover {
+    background-color: rgb(247, 202, 0);
 }

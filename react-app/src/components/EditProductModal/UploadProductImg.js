@@ -94,7 +94,7 @@ const UploadProductImg = ({ productId }) => {
                     onChange={updateImage}
                     className="upload-button"
                 />
-                <button onClick={handleSubmit}>Upload</button>
+                <button onClick={handleSubmit}>Upload Image</button>
                 {(imageLoading) && <p>Loading...</p>}
             </div>
         </div>

@@ -109,7 +109,13 @@ function EditProductForm({ product, productId, setShowModal }) {
             </div>
 
             <div className='edit-product-from-img-sec'>
-                <div className='edit-product-from-img-sec-title'>Update product image</div>
+                {/* <div className='edit-product-from-img-sec-title'>Update product image</div> */}
+                <label className='add-product-page-name1'>
+                    Update product image
+                </label>
+                <p>- Images must be .png, .jpg, .jpeg and .gif format.</p>
+                <p>- Minimum one image is required.</p>
+                <p>- Maximum five images are allowed.</p>
                 <UploadProductImg productId={productId} />
             </div>
             <div className='edit-product-from-line'></div>

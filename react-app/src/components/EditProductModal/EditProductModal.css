@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 620px;
     height: auto;
-    /* padding: 14px 18px; */
+    overflow: auto;
     background: white;
     border-radius: 12px;
     position: absolute;
@@ -35,6 +35,12 @@
 .edit-product-from-img-sec-title {
     color: #007185;
     padding-bottom: 14px;
+}
+
+.edit-product-from-img-sec p {
+    color: #007185;
+    margin: 4px 0px;
+    font-size: 12px;
 }
 
 .edit-product-from-errors-container {
@@ -98,7 +104,7 @@
 
 .edit-product-from-upload button {
     padding: 0px;
-    width: 70px;
+    width: 100px;
     height: 26px;
     font-size: 13px;
     color: #0f1111;
