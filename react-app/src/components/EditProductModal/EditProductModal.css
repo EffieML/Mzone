@@ -1,4 +1,218 @@
+.edit-product-from-container {
+    display: flex;
+    flex-direction: column;
+    width: 620px;
+    height: auto;
+    /* padding: 14px 18px; */
+    background: white;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0f1111;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.edit-product-from-title {
+    background-color: rgb(240, 242, 242);
+    padding: 14px 18px 4px 18px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-size: 20px;
+}
+
+.edit-product-from-title-inner {
+    padding: 7px 0 17px 0;
+}
+
+/* image section ------------------------------------------------- */
+.edit-product-from-img-sec {
+    padding: 6px 32px;
+}
+
+.edit-product-from-img-sec-title {
+    color: #007185;
+    padding-bottom: 14px;
+}
+
+.edit-product-from-errors-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: #c40000;
+    font-size: 12px;
+}
+
+.edit-product-from-img-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.edit-product-from-img-container-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-right: 16px;
+}
+
 .edit-product-img-small {
     width: 50px;
     height: 50px;
+    margin-right: 2px;
+}
+
+.edit-product-from-img-container button {
+    padding: 0px 4px 2px 4px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+}
+
+.upload-button::-webkit-file-upload-button {
+    padding: 0;
+    width: 100px;
+    height: 27px;
+    font-size: 13px;
+    color: #0f1111;
+    background: #FFF;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    /* margin-top: 8px; */
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.upload-button::-webkit-file-upload-button:hover {
+    background: rgb(247, 250, 250);
+}
+
+.upload-button {
+    color: #0f1111;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.edit-product-from-upload button {
+    padding: 0px;
+    width: 70px;
+    height: 26px;
+    font-size: 13px;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+.edit-product-from-upload button:hover {
+    background-color: rgb(247, 202, 0);
+}
+
+.edit-product-from-line {
+    margin: 12px 18px 6px 18px;
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+/* product info section --------------------------------------- */
+.edit-product-form-container {
+    padding: 0px 18px 14px 18px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
+.edit-product-form-errors-container {
+    display: flex;
+    flex-direction: row;
+    color: #c40000;
+    font-size: 12px;
+}
+
+.edit-product-form-errors1 {
+    padding-right: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    transform: skewX(-10deg);
+}
+
+
+.edit-product-form-name-container {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0px
+}
+
+.edit-product-form-name1 {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px 0px 2px 2px;
+}
+
+.edit-product-form-name-container input {
+    width: 540px;
+    height: 23px;
+    padding: 3px 7px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 4px;
+    /* margin-left: 20px; */
+}
+
+.edit-product-form-name-container select {
+    width: 556px;
+    height: 31px;
+    padding: 3px 3px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 4px;
+    /* margin-left: 20px; */
+}
+
+
+.edit-product-form-name-container input:focus {
+    outline: none;
+    border: 1px solid rgb(231, 118, 0);
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.edit-product-form-name-container select:focus {
+    outline: none;
+    border: 1px solid rgb(231, 118, 0);
+    box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+/* .edit-product-form-button3-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 556px;
+} */
+
+.edit-product-form-container button {
+    padding: 0px;
+    width: 540px;
+    height: 29px;
+    font-size: 14px;
+    color: #0f1111;
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(247, 202, 0);
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.5px 1.5px rgb(243, 244, 244);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    margin-left: 8px;
+    margin-top: 20px;
+}
+
+
+.edit-product-form-container button:hover {
+    background-color: rgb(247, 202, 0);
 }
