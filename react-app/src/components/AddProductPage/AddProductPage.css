@@ -1,4 +1,12 @@
+.add-product-page-container {
+    width: 920px;
+    margin: 8px auto 30px auto;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
 .add-product-form-container {
     display: flex;
     flex-direction: column;
+
 }

@@ -71,7 +71,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
     }
     // console.log("addproduct images-----------", images)
     return (
-        <div>
+        <div >
             <div>
                 {showImagesErrors && urlValidationErrors.map((error, idx) => (
                     <li key={idx} className='form-errors'>{error}</li>

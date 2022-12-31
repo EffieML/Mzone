@@ -92,7 +92,7 @@ function AddProductPage() {
     }
 
     return (
-        <div>
+        <div className='add-product-page-container'>
             <h1>Create new product</h1>
             <form onSubmit={addProductSubmit}>
                 <div className='add-product-form-container'>
