@@ -1,5 +1,5 @@
 .add-product-page-container {
-    width: 920px;
+    width: 732px;
     margin: 8px auto 30px auto;
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
@@ -25,7 +25,7 @@
 .add-product-form-container {
     display: flex;
     flex-direction: column;
-    width: 882px;
+    width: 696px;
     padding: 14px 18px;
     font-size: 13px;
     border-radius: 8px;
@@ -48,7 +48,7 @@
 }
 
 .add-product-page-name-container input {
-    width: 860px;
+    width: 682px;
     height: 23px;
     padding: 3px 7px;
     border: 1px solid rgb(148, 148, 148);
@@ -59,7 +59,7 @@
 }
 
 .add-product-page-name-container select {
-    width: 876px;
+    width: 697px;
     height: 31px;
     padding: 3px 3px;
     border: 1px solid rgb(148, 148, 148);
@@ -142,26 +142,9 @@
     background-color: rgb(247, 202, 0);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .add-product-form-button3-container button {
     padding: 0px;
-    width: 840px;
+    width: 654px;
     height: 29px;
     font-size: 15px;
     font-weight: bold;

@@ -43,6 +43,10 @@
     font-size: 12px;
 }
 
+.add-product-page-img-info {
+    padding: 6px 8px;
+}
+
 .edit-product-from-errors-container {
     display: flex;
     flex-direction: row;
@@ -68,6 +72,7 @@
     width: 50px;
     height: 50px;
     margin-right: 2px;
+    object-fit: cover;
 }
 
 .edit-product-from-img-container button {
@@ -75,6 +80,7 @@
     width: 20px;
     height: 20px;
     align-items: center;
+    cursor: pointer;
 }
 
 .upload-button::-webkit-file-upload-button {

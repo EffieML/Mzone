@@ -113,9 +113,13 @@ function EditProductForm({ product, productId, setShowModal }) {
                 <label className='add-product-page-name1'>
                     Update product image
                 </label>
-                <p>- Images must be .png, .jpg, .jpeg and .gif format.</p>
-                <p>- Minimum one image is required.</p>
-                <p>- Maximum five images are allowed.</p>
+                <div className='add-product-page-img-info'>
+                    <p>Shoppers find images more helpful than text alone. </p>
+                    <p>- Images must be .png, .jpg, .jpeg and .gif format.</p>
+                    <p>- Minimum one image is required.</p>
+                    <p>- Maximum five images are allowed.</p>
+                </div>
+
                 <UploadProductImg productId={productId} />
             </div>
             <div className='edit-product-from-line'></div>

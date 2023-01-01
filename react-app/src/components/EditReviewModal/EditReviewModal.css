@@ -1,19 +1,41 @@
-body {
-    font-family: Roboto, sans-serif
-}
-
-.review-form {
+.edit-review-form-container {
     display: flex;
     flex-direction: column;
-    width: 568px;
+    width: 620px;
     height: auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    overflow: auto;
     background: white;
     border-radius: 12px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #222222;
+    color: #0f1111;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.edit-review-from-title {
+    background-color: rgb(240, 242, 242);
+    padding: 14px 18px 4px 18px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.edit-review-from-title button {
+    cursor: pointer;
+}
+
+.edit-review-page-review-input {
+    width: 540px;
+    height: 118px;
+    padding: 5px 7px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 4px;
+    margin: 14px 14px 14px 0px;
+    font-family: 'Amazon Ember', Arial, sans-serif;
 }
