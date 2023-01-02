@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { editItemInCartThunk, deleteItemInCartThunk } from '../../store/cart';
@@ -31,7 +31,7 @@ function OneCartItem({ item }) {
         <div className='cart-one-container'>
             <div className='cart-one-img'>
                 <NavLink to={`/products/${item.product?.id}`}>
-                    <img src={item?.product.images[0].url} alt='Preview image' />
+                    <img src={item?.product.images[0].url} alt='Preview img' />
                 </NavLink>
             </div>
             <div className='cart-one-middle'>

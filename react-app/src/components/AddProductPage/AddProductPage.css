@@ -147,7 +147,6 @@
     width: 654px;
     height: 29px;
     font-size: 15px;
-    font-weight: bold;
     color: #0f1111;
     background-color: rgb(255, 216, 20);
     border: 1px solid rgb(247, 202, 0);
@@ -156,7 +155,6 @@
     cursor: pointer;
     text-decoration: none;
     font-family: 'Amazon Ember', Arial, sans-serif;
-    /* margin-left: 8px; */
     margin: 10px 21px;
 }
 

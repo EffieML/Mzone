@@ -1,7 +1,7 @@
-import { NavLink, Link, Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react';
-import { useHistory } from "react-router";
+import { useEffect } from 'react';
+// import { useHistory } from "react-router";
 import EditProductModal from '../EditProductModal';
 import { listUserProductsThunk, deleteProductThunk } from '../../store/product';
 import './UserListingPage.css';
@@ -10,8 +10,8 @@ import '../OneOrderPage/OneOrderPage.css';
 
 function UserListingPage() {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const [showModal, setShowModal] = useState(false);
+    // const history = useHistory();
+    // const [showModal, setShowModal] = useState(false);
 
     const products = useSelector(state => Object.values(state.products.allProducts))
     // console.log("userListingPage products: ", products)
@@ -25,7 +25,7 @@ function UserListingPage() {
     if (!currUser) return <Redirect to='/' />
 
     //if user don't have post spots, showing empty message
-    if (products.length == 0) return (<h2>No listings yet.</h2>);
+    if (products.length === 0) return (<h2>No listings yet.</h2>);
 
     // console.log(products)
 
@@ -70,7 +70,7 @@ function UserListingPage() {
                         <div className='all-orders-oneorder-sec2-left-container'>
                             <div>
                                 <NavLink to={`/products/${product?.id}`}>
-                                    <img className='home-product-img' src={product.images[0].url} alt='Preview image' />
+                                    <img className='home-product-img' src={product.images[0].url} alt='Preview img' />
                                 </NavLink>
                             </div>
                             <div className='all-orders-oneorder-sec2-middle'>

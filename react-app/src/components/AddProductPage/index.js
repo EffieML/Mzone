@@ -1,4 +1,4 @@
-import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { addProductThunk } from '../../store/product';
@@ -101,7 +101,7 @@ function AddProductPage() {
                 <div>
                     <div className='add-review-page-header'>
                         <div className='add-review-page-header-inner'>
-                            <img src={userimg} id='userrimg' />
+                            <img src={userimg} id='userrimg' alt='User logo' />
                             <div>{user.username}</div>
                         </div>
                     </div>

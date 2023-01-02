@@ -8,7 +8,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <a onClick={onLogout}>Sign Out</a>;
+  return (<a onClick={onLogout} id='signout' href='/'>Sign Out</a>);
 };
 
 export default LogoutButton;

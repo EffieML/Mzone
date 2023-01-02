@@ -28,7 +28,7 @@
     grid-template-columns: repeat(4, 1fr);
     max-width: 1500px;
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
-    color: black;
+    color: #0f1111;
 }
 
 .product-card {

@@ -69,7 +69,7 @@ function ShoppingCartPage() {
 
                     {cartItems && totalPrice(cartItems) >= 25 && (
                         <div className='cart-page-container-right-l1'>
-                            <img src={check} />
+                            <img src={check} alt='green check' />
                             <div className='cart-page-right-l1inner'>
                                 <div className='cart-page-right-l1inner1'>Your order qualifies for FREE Shipping.</div>
                                 <div className='cart-page-right-l1inner2'>Choose this option at checkout.</div>
@@ -78,7 +78,7 @@ function ShoppingCartPage() {
                     )}
                     {cartItems && totalPrice(cartItems) < 25 && (
                         <div className='cart-page-container-right-l1v2'>
-                            <img src={i} />
+                            <img src={i} alt='blue info' />
                             <div className='cart-page-right-l1innerv2'>
                                 <div className='cart-page-right-l1inner1v2'>Add</div>
                                 <div className='cart-page-right-l1inner2v2'>${25 - totalPrice(cartItems)}</div>

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import '../EditProductModal/EditProductModal.css';
 import '../AddProductPage/AddProductPage.css';
 import './AddReviewPage.css';
 
 
 const AddReviewImgUrl = ({ images, setImages }) => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
 

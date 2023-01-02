@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editReviewThunk } from "../../store/review";
-// import { getReviewImagesThunk } from "../../store/reviewimg";
 import UploadReviewImg from './UploadReviewImg';
 import './EditReviewModal.css';
 import '../EditProductModal/EditProductModal.css'

@@ -1,7 +1,7 @@
-import { useParams, NavLink, useHistory, Redirect } from 'react-router-dom';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
-import { getAllOrdersThunk, deleteOrderThunk, deleteOrderItemThunk } from '../../store/order';
+import { getAllOrdersThunk, deleteOrderThunk } from '../../store/order';
 import { getOneOrderThunk } from '../../store/order';
 import './OneOrderPage.css'
 
@@ -154,7 +154,7 @@ function OneOrderPage() {
                         <div key={item.id} className='one-order-page-sec2-item'>
                             <div className='one-order-page-sec2-item-leftc'>
                                 <NavLink to={`/products/${item.product?.id}`}>
-                                    <img src={item?.product.images[0].url} alt='Preview image' />
+                                    <img src={item?.product.images[0].url} alt='Preview img' />
                                 </NavLink>
                                 <div className='one-order-page-sec2-item-middle'>
                                     <div className='one-order-page-sec2-item-middle-l1'>

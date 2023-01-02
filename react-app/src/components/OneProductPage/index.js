@@ -1,4 +1,4 @@
-import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -84,7 +84,7 @@ function OneProductPage() {
                                             <div key={image.id}
                                                 className={`${selectImg === image.id && "img-list-active"}`}
                                                 onMouseOver={() => setSelectImg(image.id)}>
-                                                <img src={image.url} id='img-small40' />
+                                                <img src={image.url} id='img-small40' alt='product img' />
                                                 {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
                                             </div>
                                         ))
@@ -93,7 +93,7 @@ function OneProductPage() {
                                 <div className='one-prod-page-top-left-big'>
                                     {product.images.length && (
                                         <div className={`main-img-active-container ${selectImg === 0 && "main-img-active"}`}                                            >
-                                            <img src={product.images[0].url} id='img-big' />
+                                            <img src={product.images[0].url} id='img-big' alt='product img' />
                                             {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
                                         </div>)}
                                     {product.images.length && (
@@ -101,7 +101,7 @@ function OneProductPage() {
                                             <div key={image.id}>
                                                 <div
                                                     className={`main-img-active-container ${selectImg === image.id && "main-img-active"}`}                                            >
-                                                    <img src={image.url} id='img-big' />
+                                                    <img src={image.url} id='img-big' alt='product img' />
                                                     {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
                                                 </div>
                                             </div>
@@ -145,7 +145,7 @@ function OneProductPage() {
                                 {product.quantity > 0 && (
                                     <div className='one-prod-top-middle-instock'>In Stock.</div>
                                 )}
-                                {product.quantity == 0 && (
+                                {product.quantity === 0 && (
                                     <div className='one-prod-top-middle-outstock'>Temporarily out of stock.</div>
                                 )}
                                 <div className='one-prod-top-middle-shipfrom'>Ships from and sold by {product.user.username}.</div>
@@ -165,7 +165,7 @@ function OneProductPage() {
                                 <div className='one-prod-top-right-freedel'>FREE Returns.</div>
                                 <div className='one-prod-top-right-freedel'>FREE delivery.</div>
                                 <div className='one-prod-top-right-deliver'>
-                                    <img src={ptpin} className='one-prod-top-right-deliverlogo' />
+                                    <img src={ptpin} className='one-prod-top-right-deliverlogo' alt='location pin' />
                                     {user && user.addresses.length && (
                                         <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} - {user.addresses[0].city} {user.addresses[0].zip}</div>
                                     )}
@@ -179,7 +179,7 @@ function OneProductPage() {
                                 {product.quantity > 0 && (
                                     <div className='one-prod-top-middle-instock'>In Stock.</div>
                                 )}
-                                {product.quantity == 0 && (
+                                {product.quantity === 0 && (
                                     <div className='one-prod-top-middle-outstock'>Temporarily out of stock.</div>
                                 )}
                                 {/* <div>{product.quantity}</div> */}
@@ -187,7 +187,7 @@ function OneProductPage() {
                                     Add to Cart
                                 </button>
                                 <div className='one-prod-top-right-lockmessage-c'>
-                                    <img src={lock} id='lock' />
+                                    <img src={lock} id='lock' alt='lock' />
                                     <div className='one-prod-top-right-lockmessage'>Secure transaction</div>
                                 </div>
                                 <div className='one-prod-top-right-ship-c'>
