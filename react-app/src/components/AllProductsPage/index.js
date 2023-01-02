@@ -38,7 +38,12 @@ function AllProductsPage() {
                                 <div className='home-product-imgdiv'>
                                     <img className='home-product-img' src={product.images[0].url} alt='Preview img' />
                                 </div>
-                                <div className='home-product-name'>{product.name.slice(0, 78)} ...</div>
+                                {product.name.length > 76 && (
+                                    <div className='home-product-name'>{product.name.slice(0, 76)} ...</div>
+                                )}
+                                {product.name.length <= 76 && (
+                                    <div className='home-product-name'>{product.name}</div>
+                                )}
                                 <div className='home-product-review-container'>
                                     <StarRatings
                                         rating={avgRating(product.reviews)}
