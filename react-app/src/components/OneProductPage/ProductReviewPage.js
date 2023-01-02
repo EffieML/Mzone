@@ -1,6 +1,6 @@
-import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
 import { getProductReviewsThunk, deleteReviewThunk } from '../../store/review';
 import EditReviewModal from '../EditReviewModal';
@@ -217,11 +217,11 @@ function ProductReview({ productId }) {
                                 <div key={reviewE.id}>
                                     <div className='one-prod-bttm-right-l1'>
                                         <div className='one-prod-bttm-right-user'>
-                                            <img src={userimg} id='userimg' />
+                                            <img src={userimg} id='userimg' alt='user logo' />
                                             <div>{reviewE?.user.firstname} {reviewE?.user.lastname}</div>
                                         </div>
 
-                                        {user?.id == reviewE?.user.id && (
+                                        {user?.id === reviewE?.user.id && (
                                             <div className='one-prod-bttm-right-buttons'>
                                                 <div>
                                                     <EditReviewModal reviewE={reviewE} reviewId={reviewE.id} />
@@ -256,7 +256,7 @@ function ProductReview({ productId }) {
                                         {reviewE.images?.length > 0 && (
                                             reviewE.images.map(image => (
                                                 <div key={image.id}>
-                                                    <img src={image.url} className='one-prod-bttm-right-l5-img88' />
+                                                    <img src={image.url} className='one-prod-bttm-right-l5-img88' alt='review img' />
                                                 </div>
                                             ))
                                         )}

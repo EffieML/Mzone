@@ -58,7 +58,7 @@ const SignUpForm = () => {
     <div className='login-page-container'>
       <div className='login-page-container-inner'>
         <NavLink to={`/`}>
-          <img src={mzonelogo} className='login-page-logo' />
+          <img src={mzonelogo} className='login-page-logo' alt='mzone' />
         </NavLink>
         <div className='login-page-form-container'>
           <form onSubmit={onSignUp}>

@@ -1,4 +1,4 @@
-import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -71,7 +71,7 @@ function AddReviewPage() {
                 <div>
                     <div className='add-review-page-header'>
                         <div className='add-review-page-header-inner'>
-                            <img src={userimg} id='userrimg' />
+                            <img src={userimg} id='userrimg' alt='User logo' />
                             <div>{user.username}</div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ function AddReviewPage() {
                         <div className='add-review-page-top-sec'>
                             <h1 className='add-review-page-title'>Create Review</h1>
                             <div className='add-review-page-top-sec2'>
-                                <img src={product?.images[0].url} />
+                                <img src={product?.images[0].url} alt='product img' />
                                 <div className='add-review-page-top-sec2-title'>{product.name}</div>
                             </div>
                         </div>

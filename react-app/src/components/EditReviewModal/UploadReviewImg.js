@@ -81,7 +81,7 @@ const UploadReviewImg = ({ reviewId }) => {
             <div className="edit-product-from-img-container">
                 {images && images.map((image) =>
                     <div key={image.id} className="edit-product-from-img-container-inner">
-                        <img alt='review-image' className="edit-product-img-small" src={image.url} />
+                        <img alt='review-img' className="edit-product-img-small" src={image.url} />
                         <button onClick={() => handleReviewimgDelete(image.id)}>x</button>
                     </div>
                 )}

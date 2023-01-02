@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -36,7 +36,7 @@ function AllProductsPage() {
                         <div key={product.id} className='product-card'>
                             <NavLink to={`/products/${product?.id}`}>
                                 <div className='home-product-imgdiv'>
-                                    <img className='home-product-img' src={product.images[0].url} alt='Preview image' />
+                                    <img className='home-product-img' src={product.images[0].url} alt='Preview img' />
                                 </div>
                                 <div className='home-product-name'>{product.name.slice(0, 78)} ...</div>
                                 <div className='home-product-review-container'>
@@ -59,7 +59,7 @@ function AllProductsPage() {
                                     <div className='home-product-price-small'>{product.price.toFixed(2).split(".")[1]}</div>
                                 </div>
                                 <div className='home-product-prime-container'>
-                                    <img src={amazonPrimeLogo} className='home-product-prime' />
+                                    <img src={amazonPrimeLogo} className='home-product-prime' alt='prime logo' />
                                 </div>
                             </NavLink>
 

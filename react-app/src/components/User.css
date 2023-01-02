@@ -1,0 +1,76 @@
+body {
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
+.account-page-container {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 0px auto 0px auto;
+}
+
+.account-page-header-inner {
+    width: 972px;
+    height: 34px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 13px;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    color: #0f1111;
+}
+
+.account-page-title {
+    margin: 0px;
+    padding: 14px 0px;
+    width: 1000px;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.account-page-elem-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 1000px;
+}
+
+.account-page-elem {
+    width: 282px;
+    height: 66px;
+    padding: 14px 18px;
+    border: 1px solid rgb(213, 217, 217);
+    border-radius: 8px;
+}
+
+.account-page-elem a {
+    text-decoration: none;
+    color: #007185;
+}
+
+.account-page-elem:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.account-page-elem img {
+    width: 63px;
+    height: 63px;
+}
+
+.account-page-elem-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.account-page-elem-row2-1 {
+    color: #111111;
+    font-size: 17px;
+}
+
+.account-page-elem-row2-2 {
+    color: #565959;
+    font-size: 14px;
+    width: 200px;
+}

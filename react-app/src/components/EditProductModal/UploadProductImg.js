@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
 import { getProductImagesThunk, deleteProductImageThunk } from '../../store/productimg';
 import './EditProductModal.css';
 
@@ -82,7 +81,7 @@ const UploadProductImg = ({ productId }) => {
             <div className="edit-product-from-img-container">
                 {images.map((image) =>
                     <div key={image.id} className="edit-product-from-img-container-inner">
-                        <img alt='product-image' className="edit-product-img-small" src={image.url} />
+                        <img alt='product-img' className="edit-product-img-small" src={image.url} />
                         <button onClick={() => handleProductimgDelete(image.id)}>x</button>
                     </div>
                 )}

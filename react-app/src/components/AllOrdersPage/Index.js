@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { getAllOrdersThunk } from '../../store/order';
@@ -80,7 +80,7 @@ function AllOrdersPage() {
                                 <div key={item.id} className='all-orders-oneorder-sec2-inner'>
                                     <div className='all-orders-oneorder-sec2-left-container'>
                                         <NavLink to={`/products/${item.product?.id}`} className='all-orders-oneorder-sec2-left'>
-                                            <img src={item?.product.images[0].url} alt='Preview image' />
+                                            <img src={item?.product.images[0].url} alt='Preview img' />
                                         </NavLink>
                                         <div className='all-orders-oneorder-sec2-middle'>
                                             <div id='product-name'>

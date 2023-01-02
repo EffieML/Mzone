@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCartItemsThunk } from '../../store/cart';
@@ -31,7 +31,7 @@ function CartList() {
                         <div className='nav-bar1-cart-wrap'>
                             <div className='nav-bar1-cart-num'>0</div>
                             <div>
-                                <img src={cart} className="nav-bar1-cart-logo" />
+                                <img src={cart} className="nav-bar1-cart-logo" alt='cart' />
                             </div>
                         </div>
                         <div className='nav-bar1-cart-word'> Cart</div>
@@ -45,7 +45,7 @@ function CartList() {
                             {carts && cartTotalItems(carts) > 99 && <div className='nav-bar1-cart-num'>99+</div>}
                             {carts && cartTotalItems(carts) < 100 && <div className='nav-bar1-cart-num'>{cartTotalItems(carts)}</div>}
                             <div>
-                                <img src={cart} className="nav-bar1-cart-logo" />
+                                <img src={cart} className="nav-bar1-cart-logo" alt='cart' />
                             </div>
                         </div>
                         <div className='nav-bar1-cart-word'> Cart</div>
