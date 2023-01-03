@@ -9,13 +9,15 @@
     flex-direction: column;
     align-items: center;
     background-color: #eaeded;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
-/* .all-products-list-container {
-    background-color: #eaeded;
-    min-height: 100%;
-} */
+.all-products-carousel-container {
+    position: relative;
+}
+
+
 
 .all-products-list {
     /* display: flex;
@@ -29,6 +31,8 @@
     max-width: 1500px;
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
     color: #0f1111;
+    position: relative;
+    top: -360px;
 }
 
 .product-card {
@@ -38,10 +42,10 @@
     align-items: center;
     /* width: 375px;
     height: 500px; */
-    width: 345px;
+    width: 330px;
     height: 450px;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     background-color: white;
 }
 
@@ -50,8 +54,8 @@
 }
 
 .product-card:hover .home-product-img {
-    width: 335px;
-    height: 290px;
+    width: 325px;
+    height: 280px;
     padding: 10px;
     object-fit: cover;
 }

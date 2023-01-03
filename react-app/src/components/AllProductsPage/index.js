@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
+import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png'
 import './AllProductsPage.css'
@@ -29,7 +30,7 @@ function AllProductsPage() {
 
     return (
         <div className='all-products-container'>
-            <h1 className='title'>background image</h1>
+            <Carousel className='all-products-carousel-container' />
             <div className='all-products-list-container'>
                 <div className='all-products-list'>
                     {products?.map(product => (
@@ -38,7 +39,12 @@ function AllProductsPage() {
                                 <div className='home-product-imgdiv'>
                                     <img className='home-product-img' src={product.images[0].url} alt='Preview img' />
                                 </div>
-                                <div className='home-product-name'>{product.name.slice(0, 78)} ...</div>
+                                {product.name.length > 76 && (
+                                    <div className='home-product-name'>{product.name.slice(0, 76)} ...</div>
+                                )}
+                                {product.name.length <= 76 && (
+                                    <div className='home-product-name'>{product.name}</div>
+                                )}
                                 <div className='home-product-review-container'>
                                     <StarRatings
                                         rating={avgRating(product.reviews)}
