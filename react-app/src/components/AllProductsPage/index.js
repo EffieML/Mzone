@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
+import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png'
 import './AllProductsPage.css'
@@ -29,7 +30,7 @@ function AllProductsPage() {
 
     return (
         <div className='all-products-container'>
-            <h1 className='title'>background image</h1>
+            <Carousel className='all-products-carousel-container' />
             <div className='all-products-list-container'>
                 <div className='all-products-list'>
                     {products?.map(product => (
