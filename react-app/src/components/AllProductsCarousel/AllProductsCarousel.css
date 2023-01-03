@@ -6,24 +6,35 @@
 .carousel img {
     width: 100%;
     object-fit: cover;
+    display: block;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0));
 }
 
 .carousel button {
     background: transparent;
     border: none;
+    border-radius: 4px;
     font-size: 5rem;
-    color: #0f1111;
+    color: rgb(35, 47, 62);
     /* border: 1px solid white; */
     cursor: pointer;
     position: absolute;
     z-index: 1;
-    height: 250px;
+    height: 248px;
+    width: 80px;
+    top: 100px;
+}
+
+.carousel button:hover {
+    border: 1px solid rgba(0, 130, 150);
+    box-shadow: 0 0 0 1px white;
 
 }
 
 .carousel-button-next {
-    right: 200px;
+    position: absolute;
+    z-index: 1;
+    right: calc((100vw - 1516px)/2);
 }
 
 .carousel button:disabled {

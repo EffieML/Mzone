@@ -13,8 +13,14 @@
     align-items: center;
 }
 
-.all-orders-page-l1-account {
+.all-orders-page-l1-account a {
     color: #007185;
+    text-decoration: none;
+}
+
+.all-orders-page-l1-account a:hover {
+    color: #c45500;
+    text-decoration: underline;
 }
 
 .all-orders-page-l1-icon {

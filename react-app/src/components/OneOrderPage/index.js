@@ -83,7 +83,9 @@ function OneOrderPage() {
     return (
         <div className='one-order-page-container'>
             <div className='one-order-page-l1'>
-                <div className='one-order-page-l1-account'>Your Account</div>
+                <div className='one-order-page-l1-account'>
+                    <NavLink to={`/users/${user.id}`}> Your Account  </NavLink>
+                </div>
                 <div className='one-order-page-l1-icon'>{`>`}</div>
                 <div className='one-order-page-l1-account'>
                     <NavLink to={`/orders`}>Your Orders  </NavLink>

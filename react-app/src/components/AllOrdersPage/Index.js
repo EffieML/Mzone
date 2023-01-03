@@ -7,6 +7,7 @@ import './AllOrdersPage.css'
 
 function AllOrdersPage() {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
     const orders = useSelector(state => Object.values(state.orders.allOrders).sort((a, b) => b.id - a.id))
     // sort order decreasing
     // const sortedOrders = orders.sort((a, b) => { b.id - a.id })
@@ -35,7 +36,9 @@ function AllOrdersPage() {
     return (
         <div className='all-orders-page-container'>
             <div className='all-orders-page-l1'>
-                <div className='all-orders-page-l1-account'>Your Account</div>
+                <div className='all-orders-page-l1-account'>
+                    <NavLink to={`/users/${user.id}`}> Your Account  </NavLink>
+                </div>
                 <div className='all-orders-page-l1-icon'>{`>`}</div>
                 <div className='all-orders-page-l1-orders'>Your Orders</div>
             </div>
