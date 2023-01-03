@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { Modal } from '../../context/Modal';
 import AccountList from './AccountList';
 import OrderList from './OrderList';
 import CartList from './CartList';
@@ -15,7 +13,7 @@ import flag from '../../img/flag.png'
 import './Navigation.css';
 
 function Navigation() {
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
 
     return (
         <div className='nav-bar-container'>
@@ -24,14 +22,14 @@ function Navigation() {
                 <div className='nav-bar1-left'>
                     <div className='nav-bar1-logo'>
                         <NavLink exact to='/'>
-                            <img src={mzonelogo} className='nav-bar1-logo-img' />
+                            <img src={mzonelogo} className='nav-bar1-logo-img' alt='mzone' />
                         </NavLink>
                     </div>
                     <div className='nav-bar1-developer-container'>
                         <div className='nav-bar1-developer-name'>Developer: Ming Liu</div>
                         <a href='https://github.com/EffieML/Mzone'>
                             <div className='nav-bar1-developer-logosec'>
-                                <img src={githublogo} />
+                                <img src={githublogo} alt='github' />
                                 <div className='nav-bar1-developer-logoname'>GitHub</div>
                             </div>
                         </a>
@@ -45,7 +43,7 @@ function Navigation() {
 
                 <div className='nav-bar1-right'>
                     <div className='nav-bar1-flag-container'>
-                        <img src={flag} className='nav-bar1-flag-img' />
+                        <img src={flag} className='nav-bar1-flag-img' alt='flag' />
                         <div className='nav-bar1-flag-word' >EN</div>
                     </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import arrow from '../../img/arrow.png'
 import './AccountList.css';
@@ -79,15 +79,15 @@ function AccountList() {
                 {user && <NavLink to={`/users/${user.id}`}>
                     <div className='nav-bar1-account-1'>Hello, {name}</div>
                     <div className='nav-bar1-account-2'>
-                        <div>Account & Lists</div>
-                        <img src={arrow} className='nav-bar1-account-2-arrow' />
+                        <div className='nav-bar1-account-2-word' >Account & Lists</div>
+                        <img src={arrow} className='nav-bar1-account-2-arrow' alt='arrow' />
                     </div>
                 </NavLink>}
                 {!user && <NavLink to={`/login`} >
                     <div className='nav-bar1-account-1'>Hello, sign in</div>
                     <div className='nav-bar1-account-2'>
                         <div>Account & Lists</div>
-                        <img src={arrow} className='nav-bar1-account-2-arrow' />
+                        <img src={arrow} className='nav-bar1-account-2-arrow' alt='arrow' />
                     </div>
                 </NavLink>}
             </div>

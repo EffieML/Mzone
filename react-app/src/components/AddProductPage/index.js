@@ -1,9 +1,13 @@
-import { useParams, NavLink, Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { addProductThunk } from '../../store/product';
 import AddProductImgUrl from './AddProductImgUrl';
+import userimg from '../../img/user.jpeg';
 import './AddProductPage.css';
+import '../AllOrdersPage/AllOrdersPage.css';
+import '../OneOrderPage/OneOrderPage.css';
+import '../EditProductModal/EditProductModal.css';
 
 function AddProductPage() {
     const dispatch = useDispatch();
@@ -93,136 +97,169 @@ function AddProductPage() {
 
     return (
         <div>
-            <h1>Create new product</h1>
-            <form onSubmit={addProductSubmit}>
-                <div className='add-product-form-container'>
-                    <ul className="form-errors">
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
-                    <div>
-                        <label >
-                            Product Name
-                        </label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
+            {user && (
+                <div>
+                    <div className='add-review-page-header'>
+                        <div className='add-review-page-header-inner'>
+                            <img src={userimg} id='userrimg' alt='User logo' />
+                            <div>{user.username}</div>
+                        </div>
                     </div>
-                    <div>
-                        <label >
-                            Brand Name
-                        </label>
-                        <input
-                            type="text"
-                            value={brand}
-                            onChange={(e) => setBrand(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Category
-                        </label>
-                        <select
-                            type="text"
-                            value={category}
-                            size="3"
-                            onChange={(e) => setCategory(e.target.value)}
-                            required>
-                            <option value="Mzone Devices" >Mzone Devices</option>
-                            <option value="Mzone Home" >Mzone Home</option>
-                        </select>
+                    <div className='add-product-page-container'>
+                        <div className='all-orders-page-l1'>
+                            <div className='all-orders-page-l1-account'>Your Selling Account</div>
+                            <div className='all-orders-page-l1-icon'>{`>`}</div>
+                            <div className='add-product-page-l1-products'>
+                                <NavLink to={`/products/current`}>Your Products</NavLink>
+                            </div>
+                            <div className='all-orders-page-l1-icon'>{`>`}</div>
+                            <div className='all-orders-page-l1-orders'>Add a Product</div>
+                        </div>
+                        <h1 className='add-product-page-title'>Create new product</h1>
+                        <form onSubmit={addProductSubmit}>
+                            <div className='add-product-form-container'>
+                                <ul className="form-errors">
+                                    {errors.map((error, idx) => (
+                                        <li className='edit-product-form-errors-container'>
+                                            <div className='edit-product-form-errors1'>!</div>
+                                            <div key={idx}>{error}</div>
+                                        </li>
+                                    ))}
+                                    {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+                                </ul>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Product Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Brand Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={brand}
+                                        onChange={(e) => setBrand(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Category
+                                    </label>
+                                    <select
+                                        type="text"
+                                        value={category}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        required>
+                                        <option value="Mzone Devices" >Mzone Devices</option>
+                                        <option value="Mzone Home" >Mzone Home</option>
+                                    </select>
+
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1' >
+                                        Price
+                                    </label>
+                                    <input
+                                        type="number"
+                                        value={price}
+                                        onChange={(e) => setPrice(e.target.value)}
+                                        min="0.01"
+                                        max="9999.99"
+                                        step='0.01'
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Brief Description
+                                    </label >
+                                    <input
+                                        type="text"
+                                        value={about}
+                                        onChange={(e) => setAbout(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Description
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={detail}
+                                        onChange={(e) => setDetail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Product Dimension
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={dimension}
+                                        onChange={(e) => setDimension(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Product Weight
+                                    </label>
+                                    <input
+                                        type="number"
+                                        value={weight}
+                                        onChange={(e) => setWeight(e.target.value)}
+                                        min="0.01"
+                                        max="500"
+                                        step='0.01'
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-page-name-container'>
+                                    <label className='add-product-page-name1'>
+                                        Product Quantity
+                                    </label>
+                                    <input
+                                        type="number"
+                                        value={quantity}
+                                        onChange={(e) => setQuantity(e.target.value)}
+                                        min="1"
+                                        max="9999"
+                                        step='1'
+                                        required
+                                    />
+                                </div>
+                                <div className='add-product-form-img-container'>
+                                    <label className='add-product-page-name1'>
+                                        Upload Images
+                                    </label>
+                                    <div className='add-review-page-photo-content'>
+                                        <p>Shoppers find images more helpful than text alone. </p>
+                                        <p>- Images must be .png, .jpg, .jpeg and .gif format.</p>
+                                        <p>- Minimum one image is required.</p>
+                                        <p>- Maximum five images are allowed.</p>
+                                    </div>
+                                    <AddProductImgUrl images={images} setImages={setImages} />
+                                </div>
+                                <br></br>
+                                <div className='add-product-form-button3-container'>
+                                    <button type="submit">Add a Product</button>
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
-                    <div>
-                        <label >
-                            Price
-                        </label>
-                        <input
-                            type="number"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            min="0.01"
-                            max="9999.99"
-                            step='0.01'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Brief Description
-                        </label>
-                        <input
-                            type="text"
-                            value={about}
-                            onChange={(e) => setAbout(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Description
-                        </label>
-                        <input
-                            type="text"
-                            value={detail}
-                            onChange={(e) => setDetail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Dimension
-                        </label>
-                        <input
-                            type="text"
-                            value={dimension}
-                            onChange={(e) => setDimension(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Weight
-                        </label>
-                        <input
-                            type="number"
-                            value={weight}
-                            onChange={(e) => setWeight(e.target.value)}
-                            min="0.01"
-                            max="500"
-                            step='0.01'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Quantity
-                        </label>
-                        <input
-                            type="number"
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
-                            min="1"
-                            max="9999"
-                            step='1'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <p >Please select your image file and click "Upload" to successfully add your image one by one. </p>
-                        <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
-                        <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
-                        <AddProductImgUrl images={images} setImages={setImages} />
-                    </div>
-                    <br></br>
-                    <div>
-                        <button type="submit">Add Product</button>
-                    </div>
                 </div>
-            </form>
+            )}
 
         </div>
     )

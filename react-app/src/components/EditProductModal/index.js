@@ -3,6 +3,7 @@ import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 import EditProductForm from './EditProductForm';
 
+
 function EditProductModal({ product, productId }) {
     const [showModal, setShowModal] = useState(false);
 
@@ -11,7 +12,7 @@ function EditProductModal({ product, productId }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Edit</button>
+            <button onClick={() => setShowModal(true)}>Edit Product</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >
                     < EditProductForm product={product} productId={productId} setShowModal={setShowModal} />

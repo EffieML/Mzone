@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 117px;
+    width: 120px;
     height: 40px;
     padding: 2px 9px 10px 9px;
-    margin-left: 6px;
+    margin-left: 4px;
     border: 1px solid rgb(19, 25, 33);
 }
 
@@ -29,7 +29,12 @@
     flex-direction: row;
     font-size: 14px;
     font-weight: bold;
+    width: 123px;
 }
+
+/* .nav-bar1-account-2-word {
+    width: 130px;
+} */
 
 .nav-bar1-account-2-arrow {
     width: 8px;
@@ -113,6 +118,7 @@
     cursor: pointer;
 }
 
+
 /* user not sign in -------------------------------------- */
 .nav-bar1-account-dropdown-top {
     width: 220px;
@@ -141,6 +147,9 @@
     cursor: pointer;
 }
 
+.nav-bar1-account-dropdown-top-button:hover {
+    background: -webkit-linear-gradient(top, rgb(244, 213, 136), rgb(239, 186, 54));
+}
 
 .nav-bar1-account-dropdown-top-word {
     display: flex;

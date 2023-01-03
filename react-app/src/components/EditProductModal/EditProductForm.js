@@ -64,7 +64,7 @@ function EditProductForm({ product, productId, setShowModal }) {
         } else {
             setImg("")
         }
-    }, [dispatch, productId])
+    }, [dispatch, productId, images])
 
     if (!product) return null;
 
@@ -102,140 +102,162 @@ function EditProductForm({ product, productId, setShowModal }) {
 
     return (
         <div>
-            <h1>Update product information</h1>
-            <div>
-                <div>management product image</div>
-                <UploadProductImg productId={productId} />
-                <hr></hr>
-            </div>
-
-            <form onSubmit={editProductSubmit}>
-                <div className='add-product-form-container'>
-                    <ul className="form-errors">
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
-                    <div>
-                        <label >
-                            Product Name
-                        </label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Brand Name
-                        </label>
-                        <input
-                            type="text"
-                            value={brand}
-                            onChange={(e) => setBrand(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Category
-                        </label>
-                        <select
-                            type="text"
-                            value={category}
-                            size="3"
-                            onChange={(e) => setCategory(e.target.value)}
-                            required>
-                            <option value="Mzone Devices" >Mzone Devices</option>
-                            <option value="Mzone Home" >Mzone Home</option>
-                        </select>
-
-                    </div>
-                    <div>
-                        <label >
-                            Price
-                        </label>
-                        <input
-                            type="number"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            min="0.01"
-                            max="9999.99"
-                            step='0.01'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Brief Description
-                        </label>
-                        <input
-                            type="text"
-                            value={about}
-                            onChange={(e) => setAbout(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Description
-                        </label>
-                        <input
-                            type="text"
-                            value={detail}
-                            onChange={(e) => setDetail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Dimension
-                        </label>
-                        <input
-                            type="text"
-                            value={dimension}
-                            onChange={(e) => setDimension(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Weight
-                        </label>
-                        <input
-                            type="number"
-                            value={weight}
-                            onChange={(e) => setWeight(e.target.value)}
-                            min="0.01"
-                            max="500"
-                            step='0.01'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label >
-                            Product Quantity
-                        </label>
-                        <input
-                            type="number"
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
-                            min="1"
-                            max="9999"
-                            step='1'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <p>Please select your image file and click "Upload" to successfully add your image one by one. </p>
-                        <p>Only .png, .jpg, .jpeg and .gif files can be accepted.</p>
-                        <p>Minimum of ONE image is required. Maximum of FIVE images are allowed.</p>
-                    </div>
-                    <div>
-                        <button type="submit">Submit</button>
+            {user && (<div className='edit-product-from-container'>
+                <div className='edit-product-from-title'>
+                    <div className='edit-product-from-title-inner'>
+                        Update product information
                     </div>
                 </div>
-            </form>
+
+                <div className='edit-product-from-img-sec'>
+                    {/* <div className='edit-product-from-img-sec-title'>Update product image</div> */}
+                    <label className='add-product-page-name1'>
+                        Update product image
+                    </label>
+                    <div className='add-product-page-img-info'>
+                        <p>Shoppers find images more helpful than text alone. </p>
+                        <p>- Images must be .png, .jpg, .jpeg and .gif format.</p>
+                        <p>- Minimum one image is required.</p>
+                        <p>- Maximum five images are allowed.</p>
+                    </div>
+
+                    <UploadProductImg productId={productId} />
+                </div>
+                <div className='edit-product-from-line'></div>
+
+                <div className='edit-product-form-container'>
+                    <form onSubmit={editProductSubmit}>
+                        <ul className="form-errors">
+                            {errors.map((error, idx) => (
+                                <li className='edit-product-form-errors-container'>
+                                    <div className='edit-product-form-errors1'>!</div>
+                                    <div key={idx}>{error}</div>
+                                </li>
+                            ))}
+                        </ul>
+                        {/* <ul className="form-errors">
+                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        </ul> */}
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Product Name
+                            </label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Brand Name
+                            </label>
+                            <input
+                                type="text"
+                                value={brand}
+                                onChange={(e) => setBrand(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Category
+                            </label>
+                            <select
+                                type="text"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                required>
+                                <option value="Mzone Devices" >Mzone Devices</option>
+                                <option value="Mzone Home" >Mzone Home</option>
+                            </select>
+
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Price
+                            </label>
+                            <input
+                                type="number"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                min="0.01"
+                                max="9999.99"
+                                step='0.01'
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Brief Description
+                            </label>
+                            <input
+                                type="text"
+                                value={about}
+                                onChange={(e) => setAbout(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Description
+                            </label>
+                            <input
+                                type="text"
+                                value={detail}
+                                onChange={(e) => setDetail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                {`Product Dimension ("D x "W x "H)`}
+                            </label>
+                            <input
+                                type="text"
+                                value={dimension}
+                                onChange={(e) => setDimension(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Product Weight
+                            </label>
+                            <input
+                                type="number"
+                                value={weight}
+                                onChange={(e) => setWeight(e.target.value)}
+                                min="0.01"
+                                max="500"
+                                step='0.01'
+                                required
+                            />
+                        </div>
+                        <div className='edit-product-form-name-container'>
+                            <label className='edit-product-form-name1'>
+                                Product Quantity
+                            </label>
+                            <input
+                                type="number"
+                                value={quantity}
+                                onChange={(e) => setQuantity(e.target.value)}
+                                min="1"
+                                max="9999"
+                                step='1'
+                                required
+                            />
+                        </div>
+
+                        <div className='edit-product-form-button3-container'>
+                            <button type="submit">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>)}
+
         </div>
     )
 }

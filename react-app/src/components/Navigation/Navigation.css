@@ -5,6 +5,7 @@
     top: 0px;
     z-index: 5; */
     width: 100%;
+    /* min-width: 1500px; */
     font-family: 'Amazon Ember', Arial, sans-serif;
 }
 
@@ -128,4 +129,15 @@
 .nav-bar1-flag-word {
     font-size: 14px;
     font-weight: bold;
+}
+
+/* nav bar row2 ---------------------------------------------------------------- */
+.nav-bar-2 {
+    height: 39px;
+    background-color: #232f3e;
+    color: #ffffff;
+    padding-left: 11px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

@@ -86,11 +86,11 @@ class Product(db.Model):
             "quantity": self.quantity,
             # "createdAt": self.created_at,
             # "updatedAt": self.updated_at,
-            "user": self.user_p.to_dict_no_additions(),
+            "user": self.user_p.to_dict_addresses(),
             "carts": [cart.to_dict_no_additions() for cart in self.carts_p],
             "orderItems": [orderitem.to_dict_no_additions() for orderitem in self.order_items_p],
             "images": [image.to_dict_no_additions() for image in self.product_imgs_p],
-            "reviews": [review.to_dict_no_additions() for review in self.reviews_p],
+            "reviews": [review.to_dict_reivew_images() for review in self.reviews_p],
             "favorites": [favorite.to_dict_no_additions() for favorite in self.favorites_p],
         }
 

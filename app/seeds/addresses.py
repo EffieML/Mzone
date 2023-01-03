@@ -10,7 +10,7 @@ def seed_addresses():
         city='Seattle',
         state='Washington',
         zip='98109',
-        country='United State',
+        country='United States',
     )
 
     # user2 addresses------------------------------------------------------------------
@@ -21,7 +21,7 @@ def seed_addresses():
         city='Austin',
         state='Texas',
         zip='78732',
-        country='United State',
+        country='United States',
     )
 
     # user3 addresses------------------------------------------------------------------
@@ -32,7 +32,7 @@ def seed_addresses():
         city='Houston',
         state='Texas',
         zip='77024',
-        country='United State',
+        country='United States',
     )
 
     db.session.add(address_001)

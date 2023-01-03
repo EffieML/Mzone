@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
 import { getProductImagesThunk, deleteProductImageThunk } from '../../store/productimg';
+import './EditProductModal.css';
 
 
 const UploadProductImg = ({ productId }) => {
@@ -73,26 +73,27 @@ const UploadProductImg = ({ productId }) => {
 
     return (
         <div>
-            <div>
+            <div className="edit-product-from-errors-container">
                 {showImagesErrors && urlValidationErrors.map((error, idx) => (
                     <li key={idx} className='form-errors'>{error}</li>
                 ))}
             </div>
-            <div>
+            <div className="edit-product-from-img-container">
                 {images.map((image) =>
-                    <div key={image.id}>
-                        <button onClick={() => handleProductimgDelete(image.id)}>X</button>
-                        <img alt='product-image' className="edit-product-img-small" src={image.url} />
+                    <div key={image.id} className="edit-product-from-img-container-inner">
+                        <img alt='product-img' className="edit-product-img-small" src={image.url} />
+                        <button onClick={() => handleProductimgDelete(image.id)}>x</button>
                     </div>
                 )}
             </div>
-            <div>
+            <div className="edit-product-from-upload">
                 <input
                     type="file"
                     accept="image/*"
                     onChange={updateImage}
+                    className="upload-button"
                 />
-                <button onClick={handleSubmit}>Upload</button>
+                <button onClick={handleSubmit}>Upload Image</button>
                 {(imageLoading) && <p>Loading...</p>}
             </div>
         </div>

@@ -1,0 +1,329 @@
+.one-prod-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
+}
+
+
+.one-prod-page {
+    width: 1464px;
+    padding: 0px 18px 18px 18px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* top image info add to cart section --------------------------- */
+.one-prod-page-top {
+    display: flex;
+    flex-direction: row;
+}
+
+/* top left image section ------------------------------------- */
+.one-prod-page-top-left {
+    display: flex;
+    flex-direction: row;
+    width: 658px;
+    height: 600px;
+}
+
+.one-prod-page-top-left-small {
+    display: flex;
+    flex-direction: column;
+}
+
+#img-small40 {
+    height: 40px;
+    width: 40px;
+    border: 1px solid gray;
+    border-radius: 5%;
+    margin: 1px;
+    object-fit: cover;
+}
+
+#img-small40:hover {
+    margin: 1px;
+    border: 1px solid rgb(231, 118, 0);
+    border-radius: 5%;
+    box-shadow: 0 0 10px rgba(231, 118, 0, 0.5);
+}
+
+.main-img-active-container {
+    display: none;
+}
+
+.main-img-active {
+    display: block;
+}
+
+#img-big {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    padding-left: 10px;
+}
+
+/* top middle section ------------------------------------------------- */
+.one-prod-page-top-middle {
+    display: flex;
+    flex-direction: column;
+    width: 463px;
+    height: 600px;
+    padding-left: 20px;
+}
+
+.one-prod-top-middle-name {
+    width: 450px;
+    font-size: 24px;
+    color: #0f1111;
+}
+
+.one-prod-top-middle-brand {
+    width: 450px;
+    font-size: 14px;
+    color: #007185;
+}
+
+
+.one-prod-top-middle-review {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 335px;
+    padding: 4px 0px;
+    color: black;
+}
+
+.one-prod-top-middle-review-star .star {
+    border-color: rgb(176, 106, 0);
+    border-width: 1px;
+}
+
+.one-prod-top-middle-review-count {
+    font-size: 16px;
+    padding-left: 14px;
+    color: #007185
+}
+
+.one-prod-top-middle-line {
+    margin: 4px 0px;
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.one-prod-middle-price-container {
+    display: flex;
+    flex-direction: row;
+    width: 335px;
+    padding: 2px 0px 4px 0px;
+    color: black;
+}
+
+.one-prod-middle-price-small {
+    font-size: 13px;
+    padding-top: 4px;
+}
+
+.one-prod-middle-price-big {
+    font-size: 28px;
+    padding: 0px 1px;
+}
+
+.one-prod-top-middle-instock {
+    color: #007600;
+    font-size: 18px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-middle-outstock {
+    color: rgb(191, 71, 38);
+    font-size: 18px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-middle-shipfrom {
+    color: #0f1111;
+    font-size: 14px;
+    padding-bottom: 12px;
+}
+
+.one-prod-top-middle-about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.one-prod-top-middle-about {
+    width: 435px;
+    color: #0F1111;
+    text-indent: -20px;
+    font-size: 14px;
+    margin: 8px 0px 16px;
+}
+
+
+/* top right add to cart section ---------------------------------------- */
+.one-prod-page-top-right-container {
+    display: flex;
+    flex-direction: column;
+    width: 262px;
+    height: 600px;
+    border-radius: 8px;
+    border: 1px solid lightgrey;
+    margin-left: 20px;
+    padding: 14px 18px;
+}
+
+.one-prod-rigth-price-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+}
+
+.one-prod-top-right-freedel {
+    font-size: 14px;
+    color: #007185;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-right-deliver {
+    display: flex;
+    flex-direction: row;
+}
+
+.one-prod-top-right-deliverlogo {
+    width: 11px;
+    height: 12px;
+    margin: 2px 5px 0px 0px;
+}
+
+.one-prod-top-right-deliverloc {
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #007185
+}
+
+.one-prod-top-right-cartbutton {
+    width: 260px;
+    height: 29px;
+    color: rgb(15, 17, 17);
+    background-color: rgb(255, 216, 20);
+    border-radius: 16px;
+    border: 1px solid rgb(242, 194, 0);
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+.one-prod-top-right-cartbutton:hover {
+    background-color: rgb(247, 202, 0);
+}
+
+.one-prod-top-right-lockmessage-c {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+}
+
+.one-prod-top-right-lockmessage-c #lock {
+    width: 11.4px;
+    height: 16px;
+    margin-right: 12px;
+}
+
+.one-prod-top-right-lockmessage {
+    font-size: 14px;
+    color: #007185;
+}
+
+.one-prod-top-right-ship-c {
+    display: flex;
+    flex-direction: row;
+}
+
+.one-prod-top-right-ship-note {
+    color: #565959;
+    font-size: 12px;
+    width: 120px;
+    padding-right: 10px;
+}
+
+.one-prod-top-right-ship-seller {
+    color: #0f1111;
+    font-size: 12px;
+}
+
+.one-prod-top-right-sold-c {
+    display: flex;
+    flex-direction: row;
+    padding-top: 6px;
+}
+
+
+.one-prod-top-line {
+    margin: 30px 0px 10px 0px;
+    border-top: 1px solid rgb(204, 204, 204)
+}
+
+.one-prod-middle-title {
+    color: #CC6600;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.one-prod-middle-title2 {
+    color: #333333;
+    font-size: 16px;
+    padding: 12px 0px 10px 24px;
+}
+
+.one-prod-middle-content {
+    color: #333333;
+    font-size: 13px;
+    padding: 0px 10px 0px 36px;
+}
+
+table {
+    border-spacing: 0;
+    text-align: left;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+
+.one-prod-middle-th {
+    width: 324px;
+    padding: 7px 14px;
+    font-size: 14px;
+    color: #565959;
+    font-weight: normal;
+    background-color: #f3f3f3;
+    border-top: 0.5px solid rgb(231, 231, 231);
+    border-bottom: 0.5px solid rgb(231, 231, 231);
+}
+
+.one-prod-middle-td {
+    width: 324px;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-family: Arial;
+    color: #333333;
+    font-weight: normal;
+    background-color: white;
+    border-top: 0.5px solid rgb(231, 231, 231);
+    border-bottom: 0.5px solid rgb(231, 231, 231);
+    border-left: 1px solid rgb(231, 231, 231);
+}
+
+.one-prod-middle-td-star1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.one-prod-middle-td-star1-count {
+    font-size: 14px;
+    color: #007185;
+    padding-left: 20px;
+    padding-top: 2px;
+}

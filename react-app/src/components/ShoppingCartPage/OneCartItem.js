@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { editItemInCartThunk, deleteItemInCartThunk } from '../../store/cart';
@@ -28,49 +28,57 @@ function OneCartItem({ item }) {
     }
 
     return (
-        <div>
-            <NavLink to={`/products/${item.product?.id}`}>
-                <img src={item?.product.images[0].url} alt='Preview image' />
-            </NavLink>
-            <div>
+        <div className='cart-one-container'>
+            <div className='cart-one-img'>
                 <NavLink to={`/products/${item.product?.id}`}>
-                    {item.product.about}
+                    <img src={item?.product.images[0].url} alt='Preview img' />
                 </NavLink>
-                <div>In Stock</div>
-                <form onSubmit={updateItemQuantity}>
-                    <div className='add-product-form-container'>
-                        <ul className="form-errors">
-                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                        </ul>
-                        <div>
-                            <label >
-                                Qty:
-                            </label>
-                            <input
-                                type="number"
-                                value={quantity}
-                                onChange={(e) => setQuantity(e.target.value)}
-                                min="1"
-                                max={numItem}
-                                step='1'
-                                required
-                            />
-                        </div>
-                        <div>
-                            <button type="submit">update</button>
-                        </div>
-                    </div>
-                </form>
-                <div>
-                    <button onClick={() => dispatch(deleteItemInCartThunk(item.id))}>
-                        Delete
-                    </button>
+            </div>
+            <div className='cart-one-middle'>
+                <div className='cart-one-middle-title'>
+                    <NavLink to={`/products/${item.product?.id}`}>
+                        {item.product.about}
+                    </NavLink>
                 </div>
-                <div>${item.product.price}</div>
-                <div>
+                <div className='cart-one-middle-stock'>In Stock</div>
+                <div className='cart-one-middle-returnnote'>Eligible for FREE Shipping & FREE Returns</div>
+                <div className='cart-one-middle-update-del-container'>
+                    <form onSubmit={updateItemQuantity} >
+                        <div>
+                            <ul className="form-errors">
+                                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                            </ul>
+                            <div className='cart-one-middle-update-container'>
+                                <div className='cart-one-middle-update-box'>
+                                    {/* <label >
+                                Qty:
+                            </label> */}
+                                    <input
+                                        type="number"
+                                        value={quantity}
+                                        onChange={(e) => setQuantity(e.target.value)}
+                                        min="1"
+                                        max={numItem}
+                                        step='1'
+                                        required
+                                    />
+                                </div>
+                                <div className='cart-one-middle-update-button'>
+                                    <button type="submit">Update</button>
+                                </div>
+                            </div>
 
+                        </div>
+                    </form>
+                    <i class="a-icon" role="img" aria-label="|"></i>
+                    <div className='cart-one-middle-del-container'>
+                        <button onClick={() => dispatch(deleteItemInCartThunk(item.id))}>
+                            Delete
+                        </button>
+                    </div>
                 </div>
             </div>
+            <div className='cart-one-right-price'>${item.product.price}</div>
         </div >
     )
 }
