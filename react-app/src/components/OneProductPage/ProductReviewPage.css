@@ -1,6 +1,7 @@
 .one-prod-bttm-container {
     display: flex;
     flex-direction: row;
+    word-wrap: break-word;
 }
 
 /* left section ------------------------------------------------- */
@@ -143,6 +144,7 @@
     padding-left: 30px;
     padding-top: 20px;
     color: #0f1111;
+    word-wrap: break-word;
 }
 
 .one-prod-bttm-right-container-inner {
@@ -195,6 +197,7 @@
     padding-left: 8px;
     font-size: 14.5px;
     font-weight: bold;
+    width: 580px;
 }
 
 .one-prod-bttm-right-l3 {
