@@ -131,10 +131,10 @@ function OneProductPage() {
                                         name='rating'
                                         className="one-prod-top-middle-review-star"
                                     />
-                                    {product.reviews?.length !== 0 && (
+                                    {product.reviews?.length >= 1 && (
                                         <div className="one-prod-top-middle-review-count">{product.reviews?.length} ratings</div>
                                     )}
-                                    {product.reviews?.length === 0 && (
+                                    {product.reviews?.length <= 1 && (
                                         <div className="one-prod-top-middle-review-count">{product.reviews?.length} rating</div>
                                     )}
                                 </div>

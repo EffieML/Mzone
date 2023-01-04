@@ -16,6 +16,7 @@
 
 .one-order-page-l1-account {
     color: #007185;
+
 }
 
 .one-order-page-l1-account a {
@@ -175,6 +176,10 @@
     padding-left: 8px;
 }
 
+.one-order-page-sec2-item-middle-l1 {
+    width: 528px;
+}
+
 .one-order-page-sec2-item-middle-l1 a {
     color: #007185;
     text-decoration: none;
@@ -189,6 +194,7 @@
     font-size: 12px;
     color: #565959;
     padding: 2.5px 0px;
+    width: 528px;
 }
 
 .one-order-page-sec2-item-middle-l3 {

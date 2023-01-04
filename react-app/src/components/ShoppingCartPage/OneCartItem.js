@@ -37,7 +37,7 @@ function OneCartItem({ item }) {
             <div className='cart-one-middle'>
                 <div className='cart-one-middle-title'>
                     <NavLink to={`/products/${item.product?.id}`}>
-                        {item.product.about}
+                        {item.product.name}
                     </NavLink>
                 </div>
                 <div className='cart-one-middle-stock'>In Stock</div>

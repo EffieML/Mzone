@@ -168,7 +168,7 @@ function OneOrderPage() {
                                 <div className='one-order-page-sec2-item-middle'>
                                     <div className='one-order-page-sec2-item-middle-l1'>
                                         <NavLink to={`/products/${item.product?.id}`}>
-                                            {item?.product.about}
+                                            {item?.product.name}
                                         </NavLink>
                                     </div>
                                     <div className='one-order-page-sec2-item-middle-l2'>sold by: {item?.product.brand}</div>
