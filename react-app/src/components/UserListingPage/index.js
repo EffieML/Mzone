@@ -26,7 +26,8 @@ function UserListingPage() {
     if (!currUser) return <Redirect to='/' />
 
     //if user don't have post spots, showing empty message
-    if (products.length === 0) return (<h2>No listings yet.</h2>);
+    // if (products.length === 0) return (<h2>No listings yet.</h2>
+    // );
 
     // console.log(products)
 

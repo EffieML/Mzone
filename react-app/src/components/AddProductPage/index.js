@@ -13,6 +13,7 @@ function AddProductPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session.user);
+    const categories = ["Mzone Devices", "Mzone Home"]
 
     const [name, setName] = useState('');
     const [category, setCategory] = useState('');
@@ -32,6 +33,7 @@ function AddProductPage() {
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
+        // const errors = []
         if (images && images.length === 1) {
             setImg(images[0]);
         } else if (images && images.length === 2) {
@@ -53,19 +55,15 @@ function AddProductPage() {
             setImg4(images[3]);
             setImg5(images[4]);
         }
+        // another way to set error validation for no image input
+        // if (images.length === 0) errors.push('Minimum one image is required.')
+        // setErrors(errors)
     }, [images]);
-
-    // useEffect(() => {
-    //     dispatch(addProductThunk(productId)).then(() => setIsLoaded(true));
-    // }, [dispatch, productId]);
-
-    // if (!product) return null;
 
     const addProductSubmit = async (e) => {
         e.preventDefault();
 
         const newProduct = {
-            // seller_id: user.id,
             name,
             category,
             price,
@@ -83,14 +81,12 @@ function AddProductPage() {
         }
 
         const addedProduct = await dispatch(addProductThunk(newProduct))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
+        // console.log('addedProduct-------------------', addedProduct)
 
-        if (addedProduct) {
-            setErrors([]);
-            // setShowModal(false);
+        if (addedProduct && addedProduct.errors) {
+            setErrors(addedProduct.errors)
+        }
+        if (addedProduct && !addedProduct.errors) {
             history.push(`/products/${addedProduct.id}`)
         }
     }
@@ -122,7 +118,7 @@ function AddProductPage() {
                                     {errors.map((error, idx) => (
                                         <li className='edit-product-form-errors-container'>
                                             <div className='edit-product-form-errors1'>!</div>
-                                            <div key={idx}>{error}</div>
+                                            <div key={idx}>{error.split(':').pop()}</div>
                                         </li>
                                     ))}
                                     {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
@@ -155,11 +151,14 @@ function AddProductPage() {
                                     </label>
                                     <select
                                         type="text"
-                                        value={category}
+                                        // value={category}
                                         onChange={(e) => setCategory(e.target.value)}
                                         required>
-                                        <option value="Mzone Devices" >Mzone Devices</option>
-                                        <option value="Mzone Home" >Mzone Home</option>
+                                        <option disabled selected value={category}>-- Choose a Category --</option>
+                                        {categories.map((category) => {
+                                            return (
+                                                <option value={category}>{category}</option>)
+                                        })}
                                     </select>
 
                                 </div>
@@ -201,7 +200,7 @@ function AddProductPage() {
                                 </div>
                                 <div className='add-product-page-name-container'>
                                     <label className='add-product-page-name1'>
-                                        Product Dimension
+                                        {`Product Dimension ("D x "W x "H)`}
                                     </label>
                                     <input
                                         type="text"

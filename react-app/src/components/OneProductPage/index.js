@@ -171,10 +171,10 @@ function OneProductPage() {
                                 <div className='one-prod-top-right-freedel'>FREE delivery.</div>
                                 <div className='one-prod-top-right-deliver'>
                                     <img src={ptpin} className='one-prod-top-right-deliverlogo' alt='location pin' />
-                                    {user && user.addresses.length && (
+                                    {user && user.addresses.length > 0 && (
                                         <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} - {user.addresses[0].city} {user.addresses[0].zip}</div>
                                     )}
-                                    {user && !user.addresses.length && (
+                                    {user && user.addresses.length === 0 && (
                                         <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} </div>
                                     )}
                                     {!user && (

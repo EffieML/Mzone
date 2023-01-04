@@ -81,42 +81,46 @@ export const listUserProductsThunk = () => async (dispatch) => {
 };
 // thunk: add one product for current user
 export const addProductThunk = (product) => async (dispatch) => {
-    try {
-        // const { name, category, price, brand, about, detail, dimension, weight, quantity, img, img2, img3, img4, img5 } = product;
-        const response = await fetch('/api/products', {
-            method: 'POST',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(product)
-            // body: JSON.stringify({
-            //     name,
-            //     category,
-            //     price,
-            //     brand,
-            //     about,
-            //     detail,
-            //     dimension,
-            //     weight,
-            //     quantity,
-            //     img,
-            //     img2,
-            //     img3,
-            //     img4,
-            //     img5
-            // })
-        })
 
-        if (response.ok) {
-            const data = await response.json();
-            // console.log("store products thunk add one product step1: ", data)
-            //data is obj list {name:.., category: ..., ...}
-            //do actioin addOneProductAction to create newProduct which will generate data.id
-            dispatch(addProductAction(data));
-            // console.log("store products thunk add one product step2: ", data)
+    const response = await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(product)
+        // body: JSON.stringify({
+        //     name,
+        //     category,
+        //     price,
+        //     brand,
+        //     about,
+        //     detail,
+        //     dimension,
+        //     weight,
+        //     quantity,
+        //     img,
+        //     img2,
+        //     img3,
+        //     img4,
+        //     img5
+        // })
+    })
+    // console.log("status", response.status)
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store products thunk add one product step1: ", data)
+        //data is obj list {name:.., category: ..., ...}
+        //do actioin addOneProductAction to create newProduct which will generate data.id
+        dispatch(addProductAction(data));
+        // console.log("store products thunk add one product step2: ", data)
+        return data;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        // console.log("store products thunk add one product error: ", data)
+        // console.log("store products thunk add one product error: ", Object.values(data))
+        if (data.errors) {
             return data;
         }
-    } catch (err) {
-        console.log(err);
-        throw err;
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 // thunk: edit one product for current user
