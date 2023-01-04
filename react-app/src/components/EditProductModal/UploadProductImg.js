@@ -12,7 +12,7 @@ const UploadProductImg = ({ productId }) => {
     const [showImagesErrors, setShowImagesErrors] = useState(false);
 
     const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
-
+    const errors = []
     useEffect(() => {
         dispatch(getProductImagesThunk(productId))
     }, [dispatch, productId, image]);
@@ -22,9 +22,9 @@ const UploadProductImg = ({ productId }) => {
         e.preventDefault();
         setUrlValidationErrors([]);
 
+
         if (images.length >= 5) {
             setShowImagesErrors(true);
-            const errors = [...urlValidationErrors];
             errors.push('Maximum 5 images allowed.')
             setUrlValidationErrors(errors);
             // console.log("urlerrors==============", urlValidationErrors)
@@ -37,7 +37,7 @@ const UploadProductImg = ({ productId }) => {
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
             setImageLoading(true);
-
+            // console.log("urlerrors==============", urlValidationErrors)
             const res = await fetch(`/api/products/${productId}/addProductImg`, {
                 method: "POST",
                 body: formData,
@@ -65,10 +65,19 @@ const UploadProductImg = ({ productId }) => {
     }
 
     const handleProductimgDelete = async (productimgId) => {
-        if (window.confirm('Do you want to delete this image?')) {
-            await dispatch(deleteProductImageThunk(productimgId))
-            setUrlValidationErrors([]);
+        if (images.length === 1) {
+            setShowImagesErrors(true);
+            errors.push('Minimum 1 image is required.')
+            setUrlValidationErrors(errors);
+            // e.preventDefault();
+            // console.log("urlerrors==============", urlValidationErrors)
+        } else if (images.length > 1) {
+            if (window.confirm('Do you want to delete this image?')) {
+                await dispatch(deleteProductImageThunk(productimgId))
+                setUrlValidationErrors([]);
+            }
         }
+
     }
 
     return (

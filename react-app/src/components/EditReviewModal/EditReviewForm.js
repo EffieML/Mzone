@@ -25,15 +25,12 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
         }
 
         const editedReview = await dispatch(editReviewThunk(updateReview, reviewId))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
-
-        if (editedReview) {
+        if (editedReview && editedReview.errors) {
+            setErrors(editedReview.errors)
+        }
+        if (editedReview && !editedReview.errors) {
             setErrors([]);
             setShowModal(false);
-            // history.push(`/products/${reviewE.product.productId}`)
         }
     }
 
@@ -77,7 +74,7 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
                         {errors.map((error, idx) => (
                             <li className='edit-product-form-errors-container'>
                                 <div className='edit-product-form-errors1'>!</div>
-                                <div key={idx}>{error}</div>
+                                <div key={idx}>{error.split(':').pop()}</div>
                             </li>
                         ))}
                     </ul>

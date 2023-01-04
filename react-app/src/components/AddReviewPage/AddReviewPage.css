@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    word-wrap: break-word;
 }
 
 .add-review-page-header-inner {
@@ -64,9 +65,11 @@
     width: 622px;
     padding: 0 10px;
     /* margin-bottom: 16px; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    width: 622px;
+    word-wrap: break-word;
 }
 
 .add-review-page-line {

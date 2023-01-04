@@ -3,6 +3,15 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
 
 
+def url_verify(form, field):
+    img = field.data
+    # print('----------------img', img)
+
+    if img and not img.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.pdf')):
+        raise ValidationError(
+            'Image has invalid image type. Image must end with .jpg, .jpeg, .png, .gif, .tiff.')
+
+
 class ReviewForm(FlaskForm):
     stars = IntegerField('rating', validators=[DataRequired('Rating is required.'), NumberRange(
         min=1, max=5, message='Rating should be between 1 to 5.')])

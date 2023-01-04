@@ -20,6 +20,7 @@ import AllOrdersPage from './components/AllOrdersPage/Index';
 import OneOrderPage from './components/OneOrderPage';
 
 import AddReviewPage from './components/AddReviewPage';
+import FourOhFourPage from './components/404Page';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -100,10 +101,14 @@ function App() {
         </Route>
 
 
-
         <Route path='/' exact={true} >
           <Navigation />
           <AllProductsPage />
+        </Route>
+
+        <Route>
+          {/* <h1>THIS IS A 404</h1> */}
+          <FourOhFourPage />
         </Route>
 
       </Switch>

@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -30,7 +30,12 @@ function OneProductPage() {
             .then(() => setIsLoaded(true));
     }, [dispatch, productId]);
 
-    if (!product) return null;
+    if (!product.id) return (
+        <div className="pageNotFound">
+            <h2>404 Page, Redirecting</h2>
+            <Redirect to={"/"} />
+        </div>
+    );
 
 
     const addToCart = async (e) => {
@@ -59,7 +64,7 @@ function OneProductPage() {
     }
 
     const avgRating = (reviewsArr) => {
-        if (reviewsArr.length) {
+        if (reviewsArr?.length) {
             let totalRate = 0;
             for (let i = 0; i < reviewsArr.length; i++) {
                 let review = reviewsArr[i];
@@ -79,7 +84,7 @@ function OneProductPage() {
                         <div className='one-prod-page-top'>
                             <div className='one-prod-page-top-left'>
                                 <div className='one-prod-page-top-left-small'>
-                                    {product.images.length && (
+                                    {product.images?.length && (
                                         product.images.map(image => (
                                             <div key={image.id}
                                                 className={`${selectImg === image.id && "img-list-active"}`}
@@ -91,12 +96,12 @@ function OneProductPage() {
                                     )}
                                 </div>
                                 <div className='one-prod-page-top-left-big'>
-                                    {product.images.length && (
+                                    {product.images?.length && (
                                         <div className={`main-img-active-container ${selectImg === 0 && "main-img-active"}`}                                            >
                                             <img src={product.images[0].url} id='img-big' alt='product img' />
                                             {/* <img key={image.id} src={image.url} onError={e => e.target.src = 'https://i.imgur.com/rIUtyi2.jpg'} /> */}
                                         </div>)}
-                                    {product.images.length && (
+                                    {product.images?.length && (
                                         product.images.map(image => (
                                             <div key={image.id}>
                                                 <div
@@ -126,11 +131,11 @@ function OneProductPage() {
                                         name='rating'
                                         className="one-prod-top-middle-review-star"
                                     />
-                                    {product.reviews.length !== 0 && (
-                                        <div className="one-prod-top-middle-review-count">{product.reviews.length} ratings</div>
+                                    {product.reviews?.length >= 1 && (
+                                        <div className="one-prod-top-middle-review-count">{product.reviews?.length} ratings</div>
                                     )}
-                                    {product.reviews.length === 0 && (
-                                        <div className="one-prod-top-middle-review-count">{product.reviews.length} rating</div>
+                                    {product.reviews?.length <= 1 && (
+                                        <div className="one-prod-top-middle-review-count">{product.reviews?.length} rating</div>
                                     )}
                                 </div>
 
@@ -138,8 +143,8 @@ function OneProductPage() {
 
                                 <div className='one-prod-middle-price-container'>
                                     <div className='one-prod-middle-price-small'>$</div>
-                                    <div className='one-prod-middle-price-big'>{product.price.toFixed(2).split(".")[0]}</div>
-                                    <div className='one-prod-middle-price-small'>{product.price.toFixed(2).split(".")[1]}</div>
+                                    <div className='one-prod-middle-price-big'>{product.price?.toFixed(2).split(".")[0]}</div>
+                                    <div className='one-prod-middle-price-small'>{product.price?.toFixed(2).split(".")[1]}</div>
                                 </div>
                                 <div className='one-prod-top-middle-brand'>FREE Returns</div>
                                 {product.quantity > 0 && (
@@ -148,7 +153,7 @@ function OneProductPage() {
                                 {product.quantity === 0 && (
                                     <div className='one-prod-top-middle-outstock'>Temporarily out of stock.</div>
                                 )}
-                                <div className='one-prod-top-middle-shipfrom'>Ships from and sold by {product.user.username}.</div>
+                                <div className='one-prod-top-middle-shipfrom'>Ships from and sold by {product.user?.username}.</div>
 
                                 <div className='one-prod-top-middle-line'></div>
                                 <div className='one-prod-top-middle-about-container'>
@@ -159,17 +164,17 @@ function OneProductPage() {
                             <div className='one-prod-page-top-right-container'>
                                 <div className='one-prod-rigth-price-container'>
                                     <div className='one-prod-middle-price-small'>$</div>
-                                    <div className='one-prod-middle-price-big'>{product.price.toFixed(2).split(".")[0]}</div>
-                                    <div className='one-prod-middle-price-small'>{product.price.toFixed(2).split(".")[1]}</div>
+                                    <div className='one-prod-middle-price-big'>{product.price?.toFixed(2).split(".")[0]}</div>
+                                    <div className='one-prod-middle-price-small'>{product.price?.toFixed(2).split(".")[1]}</div>
                                 </div>
                                 <div className='one-prod-top-right-freedel'>FREE Returns.</div>
                                 <div className='one-prod-top-right-freedel'>FREE delivery.</div>
                                 <div className='one-prod-top-right-deliver'>
                                     <img src={ptpin} className='one-prod-top-right-deliverlogo' alt='location pin' />
-                                    {user && user.addresses.length && (
+                                    {user && user.addresses.length > 0 && (
                                         <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} - {user.addresses[0].city} {user.addresses[0].zip}</div>
                                     )}
-                                    {user && !user.addresses.length && (
+                                    {user && user.addresses.length === 0 && (
                                         <div className='one-prod-top-right-deliverloc'>Deliver to {user.username} </div>
                                     )}
                                     {!user && (
@@ -207,7 +212,7 @@ function OneProductPage() {
                             <div className='one-prod-middle-content'>{product.detail}</div>
                             <div className='one-prod-top-line'></div>
                             <h2 className='one-prod-middle-title'>Product information</h2>
-                            <table>
+                            <table className='one-prod-middle-table'>
                                 <tr>
                                     <th className='one-prod-middle-th'>Brand</th>
                                     <td className='one-prod-middle-td'>{product.brand}</td>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import userimg from '../img/user.jpeg';
 import yourOrders from '../img/yourOrders.png';
@@ -23,9 +23,12 @@ function User() {
   // }, [userId]);
   const user = useSelector(state => state.session.user);
 
-  if (!user) {
-    return null;
-  }
+  if (!user) return (
+    <div className="pageNotFound">
+      <h2>404 Page, Redirecting</h2>
+      <Redirect to={"/"} />
+    </div>
+  );
 
   return (
     <div>
