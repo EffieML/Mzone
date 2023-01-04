@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
+    word-wrap: break-word;
 }
 
 
@@ -78,6 +79,7 @@
     width: 450px;
     font-size: 24px;
     color: #0f1111;
+    /* word-wrap: break-word; */
 }
 
 .one-prod-top-middle-brand {
@@ -283,6 +285,8 @@
     color: #333333;
     font-size: 13px;
     padding: 0px 10px 0px 36px;
+    width: 1410px;
+
 }
 
 table {
@@ -303,6 +307,10 @@ table {
     border-bottom: 0.5px solid rgb(231, 231, 231);
 }
 
+.one-prod-middle-table {
+    width: 704px;
+}
+
 .one-prod-middle-td {
     width: 324px;
     padding: 7px 14px;
@@ -314,6 +322,12 @@ table {
     border-top: 0.5px solid rgb(231, 231, 231);
     border-bottom: 0.5px solid rgb(231, 231, 231);
     border-left: 1px solid rgb(231, 231, 231);
+}
+
+.one-prod-middle-table td {
+    max-width: 324px;
+    height: fit-content;
+    word-wrap: break-word;
 }
 
 .one-prod-middle-td-star1 {

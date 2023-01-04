@@ -212,7 +212,7 @@ function OneProductPage() {
                             <div className='one-prod-middle-content'>{product.detail}</div>
                             <div className='one-prod-top-line'></div>
                             <h2 className='one-prod-middle-title'>Product information</h2>
-                            <table>
+                            <table className='one-prod-middle-table'>
                                 <tr>
                                     <th className='one-prod-middle-th'>Brand</th>
                                     <td className='one-prod-middle-td'>{product.brand}</td>

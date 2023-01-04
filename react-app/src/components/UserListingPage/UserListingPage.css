@@ -3,6 +3,7 @@
     margin: 8px auto 30px auto;
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
+    word-wrap: break-word;
 }
 
 .all-listing-page-title-order {

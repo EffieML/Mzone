@@ -116,9 +116,9 @@ function AddProductPage() {
                             <div className='add-product-form-container'>
                                 <ul className="form-errors">
                                     {errors.map((error, idx) => (
-                                        <li className='edit-product-form-errors-container'>
+                                        <li className='edit-product-form-errors-container' key={idx}>
                                             <div className='edit-product-form-errors1'>!</div>
-                                            <div key={idx}>{error.split(':').pop()}</div>
+                                            <div>{error.split(':').pop()}</div>
                                         </li>
                                     ))}
                                     {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
@@ -132,6 +132,7 @@ function AddProductPage() {
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         required
+                                    // maxLength='255'
                                     />
                                 </div>
                                 <div className='add-product-page-name-container'>
@@ -143,6 +144,7 @@ function AddProductPage() {
                                         value={brand}
                                         onChange={(e) => setBrand(e.target.value)}
                                         required
+                                    // maxLength='255'
                                     />
                                 </div>
                                 <div className='add-product-page-name-container'>
@@ -185,6 +187,7 @@ function AddProductPage() {
                                         value={about}
                                         onChange={(e) => setAbout(e.target.value)}
                                         required
+                                    // maxLength='2000'
                                     />
                                 </div>
                                 <div className='add-product-page-name-container'>
@@ -196,6 +199,7 @@ function AddProductPage() {
                                         value={detail}
                                         onChange={(e) => setDetail(e.target.value)}
                                         required
+                                    // maxLength='2000'
                                     />
                                 </div>
                                 <div className='add-product-page-name-container'>
@@ -207,6 +211,7 @@ function AddProductPage() {
                                         value={dimension}
                                         onChange={(e) => setDimension(e.target.value)}
                                         required
+                                    // maxLength='100'
                                     />
                                 </div>
                                 <div className='add-product-page-name-container'>

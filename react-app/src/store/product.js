@@ -125,28 +125,33 @@ export const addProductThunk = (product) => async (dispatch) => {
 }
 // thunk: edit one product for current user
 export const editProductThunk = (product, productId) => async dispatch => {
-    try {
-        // console.log("products product", product)
-        // console.log("products productId", productId)
-        const response = await fetch(`/api/products/${productId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(product)
-        })
+    // console.log("products product", product)
+    // console.log("products productId", productId)
+    const response = await fetch(`/api/products/${productId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(product)
+    })
 
-        if (response.ok) {
-            const data = await response.json();
-            // console.log("store products thunk edit one product step1: ", data)
-            //data is obj list {address:.., lat: ..., ...}
-            //do actioin editOneProductAction to create newProduct which will generate data.id
-            dispatch(editProductAction(data));
-            // console.log("store products thunk edit one product step2: ", data)
-            return data
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store products thunk edit one product step1: ", data)
+        //data is obj list {address:.., lat: ..., ...}
+        //do actioin editOneProductAction to create newProduct which will generate data.id
+        dispatch(editProductAction(data));
+        // console.log("store products thunk edit one product step2: ", data)
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        // console.log("store products thunk add one product error: ", data)
+        // console.log("store products thunk add one product error: ", Object.values(data))
+        if (data.errors) {
+            return data;
         }
-    } catch (err) {
-        console.log(err);
-        throw err;
+    } else {
+        return ['An error occurred. Please try again.']
     }
+
 }
 
 // thunk: delete one product for current user

@@ -4,6 +4,7 @@
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
     font-size: 14px;
+    word-wrap: break-word;
 }
 
 .one-order-page-l1 {

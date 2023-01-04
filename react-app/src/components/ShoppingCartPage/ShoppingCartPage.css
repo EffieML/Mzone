@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-
+    word-wrap: break-word;
 }
 
 .cart-page-container-inner {

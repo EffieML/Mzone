@@ -9,8 +9,6 @@ import './EditProductModal.css'
 function EditProductForm({ product, productId, setShowModal }) {
 
     const dispatch = useDispatch();
-    // const history = useHistory();
-
     const user = useSelector(state => state.session.user);
     // const [isLoaded, setIsLoaded] = useState(false);
 
@@ -39,6 +37,7 @@ function EditProductForm({ product, productId, setShowModal }) {
     // console.log("images----------", images)
 
     useEffect(() => {
+        // const errors = []
         if (images) {
             if (images.length === 1) {
                 setImg(images[0].url)
@@ -61,8 +60,10 @@ function EditProductForm({ product, productId, setShowModal }) {
                 setImg4(images[3].url)
                 setImg5(images[4].url)
             }
-        } else {
-            setImg("")
+            // } else if (images.length === 0) {
+            //     errors.push('Minimum one image is required.')
+            //     setErrors(errors)
+            // }
         }
     }, [dispatch, productId, images])
 
@@ -89,15 +90,21 @@ function EditProductForm({ product, productId, setShowModal }) {
         }
 
         const editedProduct = await dispatch(editProductThunk(updateProduct, productId))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
-
-        if (editedProduct) {
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // })
+        if (editedProduct && editedProduct.errors) {
+            setErrors(editedProduct.errors)
+        }
+        if (editedProduct && !editedProduct.errors) {
             setErrors([]);
             setShowModal(false);
         }
+        // if (editedProduct) {
+        //     setErrors([]);
+        //     setShowModal(false);
+        // }
     }
 
     return (
@@ -129,9 +136,9 @@ function EditProductForm({ product, productId, setShowModal }) {
                     <form onSubmit={editProductSubmit}>
                         <ul className="form-errors">
                             {errors.map((error, idx) => (
-                                <li className='edit-product-form-errors-container'>
+                                <li className='edit-product-form-errors-container' key={idx}>
                                     <div className='edit-product-form-errors1'>!</div>
-                                    <div key={idx}>{error}</div>
+                                    <div>{error.split(':').pop()}</div>
                                 </li>
                             ))}
                         </ul>
@@ -147,6 +154,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
+                            // maxLength='255'
                             />
                         </div>
                         <div className='edit-product-form-name-container'>
@@ -158,6 +166,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                                 value={brand}
                                 onChange={(e) => setBrand(e.target.value)}
                                 required
+                            // maxLength='255'
                             />
                         </div>
                         <div className='edit-product-form-name-container'>
@@ -197,6 +206,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                                 value={about}
                                 onChange={(e) => setAbout(e.target.value)}
                                 required
+                            // maxLength='2000'
                             />
                         </div>
                         <div className='edit-product-form-name-container'>
@@ -208,6 +218,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                                 value={detail}
                                 onChange={(e) => setDetail(e.target.value)}
                                 required
+                            // maxLength='2000'
                             />
                         </div>
                         <div className='edit-product-form-name-container'>
@@ -219,6 +230,7 @@ function EditProductForm({ product, productId, setShowModal }) {
                                 value={dimension}
                                 onChange={(e) => setDimension(e.target.value)}
                                 required
+                            // maxLength='100'
                             />
                         </div>
                         <div className='edit-product-form-name-container'>
