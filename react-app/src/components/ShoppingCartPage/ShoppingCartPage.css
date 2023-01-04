@@ -64,10 +64,12 @@
     margin-right: 20px;
 }
 
+
 .cart-one-middle-title a {
     font-size: 18px;
     text-decoration: none;
     color: #0f1111;
+    /* width: 985px; */
 }
 
 .cart-one-middle-stock {

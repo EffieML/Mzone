@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { deleteProductImageThunk } from '../../store/productimg';
 import '../EditProductModal/EditProductModal.css';
 
 
@@ -48,7 +47,6 @@ const AddProductImgUrl = ({ images, setImages }) => {
                 setUrls(updateUrls);
                 setImages(updateUrls);
                 setImage(null);
-
             }
             else {
                 setImageLoading(false);
@@ -72,7 +70,7 @@ const AddProductImgUrl = ({ images, setImages }) => {
             setShowImagesErrors(true);
             errors.push('Minimum 1 images is required.')
             setUrlValidationErrors(errors);
-        } else if (images.length > 1) {
+        } else if (images.length > 1 && !errors.length) {
             if (window.confirm('Do you want to delete this image?')) {
                 const newUrls = urls.filter(ele => ele !== url);
                 setUrls(newUrls);
