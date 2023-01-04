@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Length, NumberRange, ValidationErro
 
 def url_verify(form, field):
     img = field.data
-    print('----------------img', img)
+    # print('----------------img', img)
 
     if not img:
         raise ValidationError('Minimum one image is required.')

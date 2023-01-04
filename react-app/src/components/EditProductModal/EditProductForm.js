@@ -31,6 +31,14 @@ function EditProductForm({ product, productId, setShowModal }) {
 
     const images = useSelector(state => Object.values(state?.productimgs.ProductAllimgs));
 
+    // useEffect(() => {
+    //     if (product) {
+    //         if (product.price) {
+    //             setPrice(product.price)
+    //         }
+    //     }
+    // }, [product.price])
+
     useEffect(() => {
         dispatch(getProductImagesThunk(product.id))
     }, [dispatch, product.id]);
@@ -90,10 +98,7 @@ function EditProductForm({ product, productId, setShowModal }) {
         }
 
         const editedProduct = await dispatch(editProductThunk(updateProduct, productId))
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        // })
+
         if (editedProduct && editedProduct.errors) {
             setErrors(editedProduct.errors)
         }
@@ -101,10 +106,6 @@ function EditProductForm({ product, productId, setShowModal }) {
             setErrors([]);
             setShowModal(false);
         }
-        // if (editedProduct) {
-        //     setErrors([]);
-        //     setShowModal(false);
-        // }
     }
 
     return (

@@ -28,14 +28,7 @@ const UploadProductImg = ({ productId }) => {
             errors.push('Maximum 5 images allowed.')
             setUrlValidationErrors(errors);
             // console.log("urlerrors==============", urlValidationErrors)
-        }
-        // else if (images.length === 1) {
-        //     setShowImagesErrors(true);
-        //     const errors = [];
-        //     errors.push('Minmum 1 images required.')
-        //     setUrlValidationErrors(errors);
-        // }
-        else {
+        } else {
             setShowImagesErrors(false);
             const formData = new FormData();
             formData.append("image", image);
@@ -44,7 +37,7 @@ const UploadProductImg = ({ productId }) => {
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
             setImageLoading(true);
-            console.log("urlerrors==============", urlValidationErrors)
+            // console.log("urlerrors==============", urlValidationErrors)
             const res = await fetch(`/api/products/${productId}/addProductImg`, {
                 method: "POST",
                 body: formData,

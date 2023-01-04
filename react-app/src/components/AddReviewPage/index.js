@@ -29,6 +29,35 @@ function AddReviewPage() {
     const [errors, setErrors] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
+    useEffect(() => {
+        // const errors = []
+        if (images && images.length === 1) {
+            setImg(images[0]);
+        } else if (images && images.length === 2) {
+            setImg(images[0]);
+            setImg2(images[1]);
+        } else if (images && images.length === 3) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+        } else if (images && images.length === 4) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+            setImg4(images[3]);
+        } else if (images && images.length >= 5) {
+            setImg(images[0]);
+            setImg2(images[1]);
+            setImg3(images[2]);
+            setImg4(images[3]);
+            setImg5(images[4]);
+        } else if (images.length === 0) {
+            setImg("")
+        }
+        // another way to set error validation for no image input
+        // if (images.length === 0) errors.push('Minimum one image is required.')
+        // setErrors(errors)
+    }, [images]);
 
     useEffect(() => {
         dispatch(listOneProductThunk(productId))
@@ -52,16 +81,22 @@ function AddReviewPage() {
         }
 
         const addedReview = await dispatch(createReviewThunk(newReview, productId))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            })
-
-        if (addedReview) {
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // })
+        if (addedReview && addedReview.errors) {
+            setErrors(addedReview.errors)
+        }
+        if (addedReview && !addedReview.errors) {
             setErrors([]);
-            // setShowModal(false);
             history.push(`/products/${productId}`)
         }
+        // if (addedReview) {
+        //     setErrors([]);
+        //     // setShowModal(false);
+        //     history.push(`/products/${productId}`)
+        // }
     }
 
 
@@ -87,7 +122,13 @@ function AddReviewPage() {
                         <form onSubmit={addReviewSubmit}>
                             <div className='add-review-form-container'>
                                 <ul className="form-errors">
-                                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                                    {errors.map((error, idx) => (
+                                        // <li key={idx}>{error}</li>
+                                        <li className='edit-product-form-errors-container' key={idx}>
+                                            <div className='edit-product-form-errors1'>!</div>
+                                            <div>{error.split(':').pop()}</div>
+                                        </li>
+                                    ))}
                                 </ul>
                                 <div className='add-review-page-rating-container'>
                                     <label className='add-review-page-rating'>

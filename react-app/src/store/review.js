@@ -73,41 +73,48 @@ export const getUserReviewsThunk = () => async (dispatch) => {
 
 // thunk: create review
 export const createReviewThunk = (review, productId) => async (dispatch) => {
-    try {
-        const response = await fetch(`/api/reviews/products/${productId}`, {
-            method: 'POST',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(review),
-        })
-        if (response.ok) {
-            const data = await response.json();
-            await dispatch(createReviewAction(data));
+
+    const response = await fetch(`/api/reviews/products/${productId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(review),
+    })
+    if (response.ok) {
+        const data = await response.json();
+        await dispatch(createReviewAction(data));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
             return data;
         }
-    } catch (err) {
-        console.log(err);
-        throw err;
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
 
+
 // thunk: edit review
 export const editReviewThunk = (reivew, reviewId) => async (dispatch) => {
-    try {
-        const response = await fetch(`/api/reviews/${reviewId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify(reivew),
-        })
-        // console.log("edit review response", response)
-        if (response.ok) {
-            const data = await response.json();
-            dispatch(editReviewAction(data));
+
+    const response = await fetch(`/api/reviews/${reviewId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(reivew),
+    })
+    // console.log("edit review response", response)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(editReviewAction(data));
+        return data
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
             return data;
         }
-    } catch (err) {
-        console.log(err);
-        throw err;
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 

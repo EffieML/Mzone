@@ -13,6 +13,8 @@ const UploadReviewImg = ({ reviewId }) => {
 
     const images = useSelector(state => Object.values(state?.reviewimgs.reviewAllimgs));
     // console.log("images----------", images)
+    const errors = []
+
     useEffect(() => {
         dispatch(getReviewImagesThunk(reviewId))
     }, [dispatch, reviewId, image]);
@@ -24,7 +26,6 @@ const UploadReviewImg = ({ reviewId }) => {
 
         if (images.length >= 5) {
             setShowImagesErrors(true);
-            const errors = [...urlValidationErrors];
             errors.push('Maximum 5 images allowed.')
             setUrlValidationErrors(errors);
             // console.log("urlerrors==============", urlValidationErrors)
