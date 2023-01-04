@@ -57,7 +57,7 @@ const LoginForm = () => {
               {errors.map((error, ind) => (
                 <div className='login-page-form-errors-container'>
                   <div className='login-page-form-errors1'>!</div>
-                  <div key={ind}>{error}</div>
+                  <div key={ind}>{error.split(':').pop()}</div>
                 </div>
               ))}
             </div>

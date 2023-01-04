@@ -23,6 +23,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Re-enter password field must be the same as the Password field"])
     }
   };
 
@@ -67,7 +69,7 @@ const SignUpForm = () => {
               {errors.map((error, ind) => (
                 <div className='login-page-form-errors-container'>
                   <div className='login-page-form-errors1'>!</div>
-                  <div key={ind}>{error}</div>
+                  <div key={ind}>{error.split(':').pop()}</div>
                 </div>
               ))}
             </div>
@@ -101,7 +103,7 @@ const SignUpForm = () => {
             <div className='login-page-form-email-container'>
               <label className='login-page-form-email1'>Email</label>
               <input
-                type='text'
+                type='email'
                 name='email'
                 onChange={updateEmail}
                 value={email}

@@ -3,6 +3,8 @@
     flex-direction: column;
     width: 620px;
     height: auto;
+    min-height: fit-content;
+    max-height: 100vh;
     overflow: auto;
     background: white;
     border-radius: 12px;

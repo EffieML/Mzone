@@ -1,4 +1,4 @@
-import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { useParams, NavLink, useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getAllOrdersThunk, deleteOrderThunk } from '../../store/order';
@@ -23,7 +23,14 @@ function OneOrderPage() {
         dispatch(getOneOrderThunk(orderId));
     }, [dispatch, orderId]);
 
-    if (!orderItems) { return null }
+    if (!orderItems) return (
+        <div className="pageNotFound">
+            <h2>404 Page, Redirecting</h2>
+            <Redirect to={"/"} />
+        </div>
+    );
+
+
 
     const convertDate = (orderTimeGMT) => {
         const date = new Date(orderTimeGMT);
