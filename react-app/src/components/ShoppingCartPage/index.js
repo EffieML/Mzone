@@ -35,6 +35,7 @@ function ShoppingCartPage() {
             let item = cartItems[i];
             price += item.quantity * item.product.price;
         }
+        price = price.toFixed(2)
         return price;
     }
 

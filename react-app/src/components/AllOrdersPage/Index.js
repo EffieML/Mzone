@@ -30,6 +30,7 @@ function AllOrdersPage() {
             let item = orderItems[i];
             price += item.quantity * item.product.price;
         }
+        price = price.toFixed(2);
         return price;
     }
 
@@ -72,9 +73,11 @@ function AllOrdersPage() {
                             <div className='all-orders-oneorder-sec1-right'>
                                 <div id="title">ORDER # {order.id}</div>
                                 <div>
-                                    <NavLink to={`/orders/${order.id}`}>
-                                        <button>View order details</button>
-                                    </NavLink>
+                                    {order?.id && (
+                                        <NavLink to={`/orders/${order.id}`}>
+                                            <button>View order details</button>
+                                        </NavLink>
+                                    )}
                                 </div>
                             </div>
                         </div>

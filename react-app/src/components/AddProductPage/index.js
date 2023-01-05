@@ -84,15 +84,15 @@ function AddProductPage() {
         }
 
         const addedProduct = await dispatch(addProductThunk(newProduct))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // });
         // console.log('addedProduct-------------------', addedProduct)
 
-        // if (addedProduct && addedProduct.errors) {
-        //     setErrors(addedProduct.errors)
-        // }
+        if (addedProduct && addedProduct.errors) {
+            setErrors(addedProduct.errors)
+        }
         if (addedProduct && !addedProduct.errors) {
             setErrors([]);
             history.push(`/products/${addedProduct.id}`)
@@ -111,7 +111,9 @@ function AddProductPage() {
                     </div>
                     <div className='add-product-page-container'>
                         <div className='all-orders-page-l1'>
-                            <div className='all-orders-page-l1-account'>Your Selling Account</div>
+                            <div className='all-orders-page-l1-account'>
+                                <NavLink to={`/users/${user.id}`}> Your Selling Account </NavLink>
+                            </div>
                             <div className='all-orders-page-l1-icon'>{`>`}</div>
                             <div className='add-product-page-l1-products'>
                                 <NavLink to={`/products/current`}>Your Products</NavLink>

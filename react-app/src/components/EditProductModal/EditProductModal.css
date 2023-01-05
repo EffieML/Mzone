@@ -17,12 +17,33 @@
     font-size: 14px;
 }
 
+.edit-product-from-container::-webkit-scrollbar {
+    width: 6px;
+    size: 5px;
+}
+
+.edit-product-from-container::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: rgb(169, 183, 184);
+    border-radius: 10px;
+}
+
+.edit-product-from-container::-webkit-scrollbar-track {
+    /* Background */
+    background: rgb(46, 51, 56);
+    border-radius: 10px;
+    margin-block: 3px;
+}
+
 .edit-product-from-title {
     background-color: rgb(240, 242, 242);
     padding: 14px 18px 4px 18px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .edit-product-from-title-inner {
