@@ -32,15 +32,13 @@ class ProductForm(FlaskForm):
         min=1, max=2000, message='Detail should be between 1 to 2000 characters.')])
     dimension = StringField('dimension', validators=[DataRequired('Dimension is required.'), Length(
         min=1, max=100, message='Dimension should be between 1 to 100 characters.')])
-    # weight = FloatField('weight', validators=[DataRequired('Weight is required.'), NumberRange(
-    #     min=0.01, max=500, message='Weight should be between 0.01 to 500 pounds.')])
-    weight = FloatField('weight', validators=[
-                        DataRequired('Weight is required.')])
+    weight = FloatField('weight', validators=[DataRequired('Weight is required.'), NumberRange(
+        min=0.01, max=500, message='Weight should be between 0.01 to 500 pounds.')])
     quantity = IntegerField('quantity', validators=[DataRequired('Quantity is required.'), NumberRange(
         min=1, max=9999, message='Quantity should be between 1 to 9999.')])
 
-    # img = StringField('img', validators=[DataRequired(
-    #     'One product image is required.'), url_verify])
+    img = StringField('img', validators=[DataRequired(
+        'One product image is required.'), url_verify])
     img = StringField('img', validators=[url_verify])
     img2 = StringField('img2')
     img3 = StringField('img3')

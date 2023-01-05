@@ -23,7 +23,7 @@ function OneOrderPage() {
         dispatch(getOneOrderThunk(orderId));
     }, [dispatch, orderId]);
 
-    if (!orderItems) return (
+    if (!orderId && orderItems) return (
         <div className="pageNotFound">
             <h2>404 Page, Redirecting</h2>
             <Redirect to={"/"} />
@@ -43,10 +43,11 @@ function OneOrderPage() {
 
     const totalPrice = (orderItems) => {
         let price = 0;
-        for (let i = 0; i < orderItems.length; i++) {
+        for (let i = 0; i < orderItems?.length; i++) {
             let item = orderItems[i];
             price += item.quantity * item.product.price;
         }
+        price = price.toFixed(2);
         return price;
     }
 

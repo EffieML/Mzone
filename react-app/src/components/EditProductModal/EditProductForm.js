@@ -115,6 +115,9 @@ function EditProductForm({ product, productId, setShowModal }) {
                     <div className='edit-product-from-title-inner'>
                         Update product information
                     </div>
+                    <div onClick={() => setShowModal(false)} className='edit-product-from-title-inner'>
+                        <button>x</button>
+                    </div>
                 </div>
 
                 <div className='edit-product-from-img-sec'>
