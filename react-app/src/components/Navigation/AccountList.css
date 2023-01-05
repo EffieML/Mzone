@@ -118,6 +118,19 @@
     cursor: pointer;
 }
 
+.navbar-signout {
+    color: #444444;
+    text-decoration: none;
+    font-size: 13px;
+    padding-bottom: 7px;
+    padding-top: 4px;
+}
+
+.navbar-signout:hover {
+    text-decoration: underline;
+    color: rgb(228, 121, 17);
+    cursor: pointer;
+}
 
 /* user not sign in -------------------------------------- */
 .nav-bar1-account-dropdown-top {

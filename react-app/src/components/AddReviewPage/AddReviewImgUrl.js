@@ -70,10 +70,10 @@ const AddReviewImgUrl = ({ images, setImages }) => {
         // setImages(newUrls);
         // setUrlValidationErrors([]);
         if (window.confirm('Do you want to delete this image?')) {
-            console.log('urls--------------', urls)
-            console.log('url--------------', url)
+            // console.log('urls--------------', urls)
+            // console.log('url--------------', url)
             const newUrls = urls.filter(ele => ele !== url);
-            console.log('newUrls--------------', newUrls)
+            // console.log('newUrls--------------', newUrls)
             setUrls(newUrls);
             setImages(newUrls);
             // errors = [];
