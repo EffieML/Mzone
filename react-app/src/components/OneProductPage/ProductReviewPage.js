@@ -202,9 +202,15 @@ function ProductReview({ productId }) {
                 <div className='one-prod-bttm-left2'>
                     <div className='one-prod-bttm-left2-title'>Review this product</div>
                     <div className='one-prod-bttm-left2-p'>Share your thoughts with other customers</div>
-                    <NavLink to={`/products/${productId}/addreview`}>
-                        <button className='one-prod-bttm-left2-button'>Write a customer review</button>
-                    </NavLink>
+                    {user ? (
+                        <NavLink to={`/products/${productId}/addreview`}>
+                            <button className='one-prod-bttm-left2-button'>Write a customer review</button>
+                        </NavLink>
+                    ) : (
+                        <NavLink to={`/login`}>
+                            <button className='one-prod-bttm-left2-button'>Write a customer review</button>
+                        </NavLink>
+                    )}
                 </div>
                 <div className='one-prod-top-line'></div>
             </div>

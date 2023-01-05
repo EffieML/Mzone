@@ -3,6 +3,8 @@
     flex-direction: column;
     width: 620px;
     height: auto;
+    min-height: fit-content;
+    max-height: 100vh;
     overflow: auto;
     background: white;
     border-radius: 12px;
@@ -13,6 +15,24 @@
     color: #0f1111;
     font-family: 'Amazon Ember', Arial, sans-serif;
     font-size: 14px;
+}
+
+.edit-review-form-container::-webkit-scrollbar {
+    width: 6px;
+    size: 5px;
+}
+
+.edit-review-form-container::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: rgb(169, 183, 184);
+    border-radius: 10px;
+}
+
+.edit-review-form-container::-webkit-scrollbar-track {
+    /* Background */
+    background: rgb(46, 51, 56);
+    border-radius: 10px;
+    margin-block: 3px;
 }
 
 .edit-review-from-title {
