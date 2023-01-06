@@ -32,9 +32,9 @@ function Carousel() {
                 &lt;
             </button>
 
-            <NavLink to={links[currentImageIndex]}>
-                <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
-            </NavLink>
+            {/* <NavLink to={links[currentImageIndex]}> */}
+            <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
+            {/* </NavLink> */}
 
             <button onClick={nextImage} className='carousel-button-next'>
                 &gt;

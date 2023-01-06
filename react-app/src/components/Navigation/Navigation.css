@@ -57,6 +57,14 @@
     border: 1px solid rgb(19, 25, 33);
 }
 
+.nav-bar1-developer-container-row2 {
+    width: 145.75px;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .nav-bar1-developer-container a {
     color: white;
     text-decoration: none;
@@ -78,7 +86,7 @@
 }
 
 .nav-bar1-developer-logoname {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 }
 
@@ -90,10 +98,12 @@
 
 /* nav bar middle section ------------------------------------------- */
 .nav-bar1-middle {
+    width: calc(100vw - 700px);
     display: flex;
     flex-direction: row;
-    width: calc(100vw -300px - 400px);
     align-items: center;
+    justify-content: center;
+    color: grey
 }
 
 /* nav bar rigth section ------------------------------------------- */
@@ -132,12 +142,17 @@
 }
 
 /* nav bar row2 ---------------------------------------------------------------- */
-.nav-bar-2 {
+.nav-bar-2-container {
     height: 39px;
     background-color: #232f3e;
-    color: #ffffff;
+    color: grey;
     padding-left: 11px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
+
+/* .nav-bar-2 {
+
+} */

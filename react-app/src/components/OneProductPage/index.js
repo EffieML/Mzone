@@ -33,10 +33,9 @@ function OneProductPage() {
     if (!product.id) return (
         <div className="pageNotFound">
             <h2>404 Page, Redirecting</h2>
-            <Redirect to={"/"} />
+            <Redirect to={`/`} />
         </div>
     );
-
 
     const addToCart = async (e) => {
         e.preventDefault();
@@ -131,7 +130,7 @@ function OneProductPage() {
                                         name='rating'
                                         className="one-prod-top-middle-review-star"
                                     />
-                                    {product.reviews?.length >= 1 && (
+                                    {product.reviews?.length > 1 && (
                                         <div className="one-prod-top-middle-review-count">{product.reviews?.length} ratings</div>
                                     )}
                                     {product.reviews?.length <= 1 && (
