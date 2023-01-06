@@ -9,6 +9,7 @@ import CartList from './CartList';
 // import AddNewSpotForm from '../AddNewSpotModal/AddNewSpotForm';
 import mzonelogo from '../../img/mzonelogo.png'
 import githublogo from '../../img/githublogo.png'
+import linkedin from '../../img/linkedin.jpg'
 import flag from '../../img/flag.png'
 import './Navigation.css';
 
@@ -27,19 +28,26 @@ function Navigation() {
                     </div>
                     <div className='nav-bar1-developer-container'>
                         <div className='nav-bar1-developer-name'>Developer: Ming Liu</div>
-                        <a href='https://github.com/EffieML/Mzone'>
-                            <div className='nav-bar1-developer-logosec'>
-                                <img src={githublogo} alt='github' />
-                                <div className='nav-bar1-developer-logoname'>GitHub</div>
-                            </div>
-                        </a>
-
+                        <div className='nav-bar1-developer-container-row2'>
+                            <a href='https://github.com/EffieML/Mzone'>
+                                <div className='nav-bar1-developer-logosec'>
+                                    <img src={githublogo} alt='github' />
+                                    <div className='nav-bar1-developer-logoname'>GitHub</div>
+                                </div>
+                            </a>
+                            <a href='https://www.linkedin.com/in/ming-liu-86611695/'>
+                                <div className='nav-bar1-developer-logosec'>
+                                    <img src={linkedin} alt='linkedin' />
+                                    <div className='nav-bar1-developer-logoname'>LinkedIn</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {/* <div>select your address section</div> */}
-                <div className='nav-bar1-middle'>
+                {/* <div className='nav-bar1-middle'>
                     <div>search section</div>
-                </div>
+                </div> */}
 
                 <div className='nav-bar1-right'>
                     <div className='nav-bar1-flag-container'>
@@ -61,8 +69,10 @@ function Navigation() {
                 </div>
 
             </nav>
-            <nav className='nav-bar-2'>
-                <div>second row different category</div>
+            <nav className='nav-bar-2-container'>
+                <div className='nav-bar-2'>
+                    <div>different categories feature will be implement in the future</div>
+                </div>
             </nav>
         </div>
     )
