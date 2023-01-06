@@ -1,7 +1,8 @@
 import { NavLink, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllOrdersThunk } from '../../store/order';
+import LoadingPage from '../LoadingPage/index.js';
 import './AllOrdersPage.css'
 
 
@@ -11,9 +12,11 @@ function AllOrdersPage() {
     const orders = useSelector(state => Object.values(state.orders.allOrders).sort((a, b) => b.id - a.id))
     // sort order decreasing
     // const sortedOrders = orders.sort((a, b) => { b.id - a.id })
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(getAllOrdersThunk());
+        dispatch(getAllOrdersThunk())
+            .then(() => setIsLoaded(true));
     }, [dispatch]);
 
     if (!user) return (
@@ -31,7 +34,6 @@ function AllOrdersPage() {
         return `${month} ${day}, ${yr}`;
     }
 
-
     const totalPrice = (orderItems) => {
         let price = 0;
         for (let i = 0; i < orderItems.length; i++) {
@@ -44,7 +46,8 @@ function AllOrdersPage() {
 
     return (
         <>
-            {user && (
+            {!isLoaded && <LoadingPage />}
+            {isLoaded && user && (
                 <div className='all-orders-page-container'>
                     <div className='all-orders-page-l1'>
                         <div className='all-orders-page-l1-account'>

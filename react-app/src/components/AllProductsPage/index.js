@@ -4,7 +4,14 @@ import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
-import amazonPrimeLogo from '../../img/amazonPrimeLogo.png'
+import LoadingPage from '../LoadingPage/index.js';
+import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
+// for product Carousel -----------------------
+import alexa1 from '../../img/homepage_carousel/alexa1.png';
+import echoauto from '../../img/homepage_carousel/echo_auto.png';
+import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
+import echoshow5kids from '../../img/homepage_carousel/echo_show5_kids.png';
+import '../AllProductsCarousel/AllProductsCarousel.css'
 import './AllProductsPage.css'
 
 function AllProductsPage() {
@@ -13,10 +20,32 @@ function AllProductsPage() {
     // console.log("allProductsPage products: ", products)
     const [isLoaded, setIsLoaded] = useState(false);
 
+    // for product Carousel -----------------------
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const images = [alexa1, echoauto, echoshow5kids, kidtablet];
+    const links = ['/products/1', '/products', '/products', '/products']
+
+
     useEffect(() => {
         dispatch(listAllProductsThunk())
             .then(() => setIsLoaded(true));
     }, [dispatch]);
+
+
+    // for product Carousel -----------------------
+    function previousImage() {
+        setCurrentImageIndex(currentImageIndex - 1);
+        if (currentImageIndex === 0) {
+            setCurrentImageIndex(images.length - 1);
+        }
+    }
+
+    function nextImage() {
+        setCurrentImageIndex(currentImageIndex + 1);
+        if (currentImageIndex === images.length - 1) {
+            setCurrentImageIndex(0);
+        }
+    }
 
     const avgRating = (reviewsArr) => {
         if (reviewsArr?.length) {
@@ -31,10 +60,25 @@ function AllProductsPage() {
     }
 
     return (
+        // <>
+        //     {!isLoaded && <LoadingPage />}
+        // </>
         <>
-            {isLoaded && (
+            {!isLoaded ? <LoadingPage /> : (<div>
                 <div className='all-products-container'>
-                    <Carousel className='all-products-carousel-container' />
+                    {/* Carousel ---------------------------------------------------------------------- */}
+                    {/* <Carousel className='all-products-carousel-container' /> */}
+                    <div className="carousel">
+                        <button onClick={previousImage} >
+                            &lt;
+                        </button>
+                        {/* <NavLink to={links[currentImageIndex]}> */}
+                        <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
+                        {/* </NavLink> */}
+                        <button onClick={nextImage} className='carousel-button-next'>
+                            &gt;
+                        </button>
+                    </div>
                     <div className='all-products-list-container'>
                         <div className='all-products-list'>
                             {products?.map(product => (
@@ -79,7 +123,8 @@ function AllProductsPage() {
                         </div>
                     </div>
                 </div>
-            )}
+            </div>)
+            }
         </>
     )
 }

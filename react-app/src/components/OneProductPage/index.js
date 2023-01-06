@@ -5,6 +5,7 @@ import StarRatings from 'react-star-ratings';
 import { listOneProductThunk } from '../../store/product';
 import { addItemToCartThunk } from '../../store/cart';
 import ProductReview from './ProductReviewPage';
+import LoadingPage from '../LoadingPage/index.js';
 import ptpin from '../../img/ptpin.png';
 import lock from '../../img/lock.png';
 import './OneProductPage.css';
@@ -77,7 +78,7 @@ function OneProductPage() {
 
     return (
         <div className='one-prod-page-container'>
-            {isLoaded && (
+            {isLoaded ? (
                 <div className='one-prod-page'>
                     <div key={product.id}>
                         <div className='one-prod-page-top'>
@@ -260,7 +261,7 @@ function OneProductPage() {
                         <div> <ProductReview reviews={reviews} productId={product.id} /></div>
                     </div>
                 </div>
-            )}
+            ) : <LoadingPage />}
 
         </div>
     )
