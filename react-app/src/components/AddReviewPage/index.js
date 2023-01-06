@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -64,7 +64,19 @@ function AddReviewPage() {
             .then(() => setIsLoaded(true));
     }, [dispatch, productId]);
 
-    if (!product) return null;
+    if (!product) return (
+        <div className="pageNotFound">
+            <h2>404 Page, Redirecting</h2>
+            <Redirect to={"/"} />
+        </div>
+    );
+
+    if (!user) return (
+        <div className="pageNotFound">
+            <h2>404 Page, Redirecting</h2>
+            <Redirect to={"/"} />
+        </div>
+    );
 
     const addReviewSubmit = async (e) => {
         e.preventDefault();
@@ -101,40 +113,42 @@ function AddReviewPage() {
 
 
     return (
-        <div>
-            {isLoaded && (
+        <>
+            {user && (
                 <div>
-                    <div className='add-review-page-header'>
-                        <div className='add-review-page-header-inner'>
-                            <img src={userimg} id='userrimg' alt='User logo' />
-                            <div>{user.username}</div>
-                        </div>
-                    </div>
-                    <div className='add-review-page-container'>
-                        <div className='add-review-page-top-sec'>
-                            <h1 className='add-review-page-title'>Create Review</h1>
-                            <div className='add-review-page-top-sec2'>
-                                <img src={product?.images[0].url} alt='product img' />
-                                <div className='add-review-page-top-sec2-title'>{product.name}</div>
+                    {isLoaded && (
+                        <div>
+                            <div className='add-review-page-header'>
+                                <div className='add-review-page-header-inner'>
+                                    <img src={userimg} id='userrimg' alt='User logo' />
+                                    <div>{user.username}</div>
+                                </div>
                             </div>
-                        </div>
-                        <div className='add-review-page-line'></div>
-                        <form onSubmit={addReviewSubmit}>
-                            <div className='add-review-form-container'>
-                                <ul className="form-errors">
-                                    {errors.map((error, idx) => (
-                                        // <li key={idx}>{error}</li>
-                                        <li className='edit-product-form-errors-container' key={idx}>
-                                            <div className='edit-product-form-errors1'>!</div>
-                                            <div>{error.split(':').pop()}</div>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className='add-review-page-rating-container'>
-                                    <label className='add-review-page-rating'>
-                                        Overall rating
-                                    </label>
-                                    {/* <input
+                            <div className='add-review-page-container'>
+                                <div className='add-review-page-top-sec'>
+                                    <h1 className='add-review-page-title'>Create Review</h1>
+                                    <div className='add-review-page-top-sec2'>
+                                        <img src={product?.images[0].url} alt='product img' />
+                                        <div className='add-review-page-top-sec2-title'>{product.name}</div>
+                                    </div>
+                                </div>
+                                <div className='add-review-page-line'></div>
+                                <form onSubmit={addReviewSubmit}>
+                                    <div className='add-review-form-container'>
+                                        <ul className="form-errors">
+                                            {errors.map((error, idx) => (
+                                                // <li key={idx}>{error}</li>
+                                                <li className='edit-product-form-errors-container' key={idx}>
+                                                    <div className='edit-product-form-errors1'>!</div>
+                                                    <div>{error.split(':').pop()}</div>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className='add-review-page-rating-container'>
+                                            <label className='add-review-page-rating'>
+                                                Overall rating
+                                            </label>
+                                            {/* <input
                                              type="number"
                                              value={stars}
                                              onChange={(e) => setStars(e.target.value)}
@@ -143,45 +157,45 @@ function AddReviewPage() {
                                              step='1'
                                              required
                                          /> */}
-                                    <StarRatings
-                                        rating={stars}
-                                        starRatedColor='rgb(255, 164, 28)'
-                                        starEmptyColor='rgb(206, 212, 212)'
-                                        numberOfStars={5}
-                                        name='rating'
-                                        changeRating={setStars}
-                                        starDimension="32px"
-                                        starSpacing="0px"
-                                    />
-                                </div>
-                                <div className='add-review-page-line'></div>
-                                <div className='add-review-page-headline-container'>
-                                    <label className='add-review-page-headline'>
-                                        Add a headline
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="What's most important to know?"
-                                        value={title}
-                                        onChange={(e) => setTitle(e.target.value)}
-                                        required
-                                        className='add-review-page-headline-input'
-                                    />
-                                </div>
-                                <div className='add-review-page-line'></div>
-                                <div className='add-review-page-photo-container'>
+                                            <StarRatings
+                                                rating={stars}
+                                                starRatedColor='rgb(255, 164, 28)'
+                                                starEmptyColor='rgb(206, 212, 212)'
+                                                numberOfStars={5}
+                                                name='rating'
+                                                changeRating={setStars}
+                                                starDimension="32px"
+                                                starSpacing="0px"
+                                            />
+                                        </div>
+                                        <div className='add-review-page-line'></div>
+                                        <div className='add-review-page-headline-container'>
+                                            <label className='add-review-page-headline'>
+                                                Add a headline
+                                            </label>
+                                            <input
+                                                type="text"
+                                                placeholder="What's most important to know?"
+                                                value={title}
+                                                onChange={(e) => setTitle(e.target.value)}
+                                                required
+                                                className='add-review-page-headline-input'
+                                            />
+                                        </div>
+                                        <div className='add-review-page-line'></div>
+                                        <div className='add-review-page-photo-container'>
 
-                                    <label className='add-review-page-photo'>
-                                        Add a photo
-                                    </label>
-                                    <div className='add-review-page-photo-content'>
-                                        <p>Shoppers find images more helpful than text alone. </p>
-                                        <p> - Images must be .png, .jpg, .jpeg and .gif format.</p>
-                                        <p> - Minimum one image is required.</p>
-                                        <p> - Maximum five images are allowed.</p>
-                                    </div>
-                                    <AddReviewImgUrl images={images} setImages={setImages} />
-                                    {/* <div>
+                                            <label className='add-review-page-photo'>
+                                                Add a photo
+                                            </label>
+                                            <div className='add-review-page-photo-content'>
+                                                <p>Shoppers find images more helpful than text alone. </p>
+                                                <p> - Images must be .png, .jpg, .jpeg and .gif format.</p>
+                                                <p> - Minimum one image is required.</p>
+                                                <p> - Maximum five images are allowed.</p>
+                                            </div>
+                                            <AddReviewImgUrl images={images} setImages={setImages} />
+                                            {/* <div>
                                          <label >
                                              Product Image
                                          </label>
@@ -231,34 +245,37 @@ function AddReviewPage() {
                                              onChange={(e) => setImg5(e.target.value)}
                                          />
                                      </div> */}
-                                </div>
-                                <div className='add-review-page-line'></div>
-                                <div className='add-review-page-review-container'>
-                                    <label className='add-review-page-headline'>
-                                        Add a written review
-                                    </label>
-                                    <textarea
-                                        type="text"
-                                        placeholder="What did you like or dislike? What did you use this porduct for?"
-                                        value={review}
-                                        onChange={(e) => setReview(e.target.value)}
-                                        required
-                                        className='add-review-page-review-input'
-                                    />
-                                </div>
-                                <div className='add-review-page-line'></div>
-                                <div className='add-review-page-submit-container'>
-                                    <div>
-                                        <button type="submit">Submit</button>
+                                        </div>
+                                        <div className='add-review-page-line'></div>
+                                        <div className='add-review-page-review-container'>
+                                            <label className='add-review-page-headline'>
+                                                Add a written review
+                                            </label>
+                                            <textarea
+                                                type="text"
+                                                placeholder="What did you like or dislike? What did you use this porduct for?"
+                                                value={review}
+                                                onChange={(e) => setReview(e.target.value)}
+                                                required
+                                                className='add-review-page-review-input'
+                                            />
+                                        </div>
+                                        <div className='add-review-page-line'></div>
+                                        <div className='add-review-page-submit-container'>
+                                            <div>
+                                                <button type="submit">Submit</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    )}
+
                 </div>
             )}
+        </>
 
-        </div>
 
     )
 

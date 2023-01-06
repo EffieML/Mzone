@@ -33,10 +33,9 @@ function OneProductPage() {
     if (!product.id) return (
         <div className="pageNotFound">
             <h2>404 Page, Redirecting</h2>
-            <Redirect to={"/"} />
+            <Redirect to={`/`} />
         </div>
     );
-
 
     const addToCart = async (e) => {
         e.preventDefault();
