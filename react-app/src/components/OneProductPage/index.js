@@ -30,7 +30,7 @@ function OneProductPage() {
             .then(() => setIsLoaded(true));
     }, [dispatch, productId]);
 
-    if (!product.id) return (
+    if (isLoaded && !product?.id) return (
         <div className="pageNotFound">
             <h2>404 Page, Redirecting</h2>
             <Redirect to={`/`} />
