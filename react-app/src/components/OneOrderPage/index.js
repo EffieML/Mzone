@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getAllOrdersThunk, deleteOrderThunk } from '../../store/order';
 import { getOneOrderThunk } from '../../store/order';
+import LoadingPage from '../LoadingPage/index.js';
 import './OneOrderPage.css'
 
 function OneOrderPage() {
@@ -20,7 +21,8 @@ function OneOrderPage() {
 
 
     useEffect(() => {
-        dispatch(getOneOrderThunk(orderId));
+        dispatch(getOneOrderThunk(orderId))
+            .then(() => setIsLoaded(true));
     }, [dispatch, orderId]);
 
     if (!orderId && orderItems) return (
@@ -96,7 +98,8 @@ function OneOrderPage() {
 
     return (
         <>
-            {user && (
+            {!isLoaded && <LoadingPage />}
+            {isLoaded && user && (
                 <div className='one-order-page-container'>
                     <div className='one-order-page-l1'>
                         <div className='one-order-page-l1-account'>
