@@ -223,6 +223,10 @@
     background-color: rgb(247, 202, 0);
 }
 
+.one-prod-top-right-cartbutton:active {
+    background-color: rgb(255, 164, 28);
+}
+
 .one-prod-top-right-lockmessage-c {
     display: flex;
     flex-direction: row;

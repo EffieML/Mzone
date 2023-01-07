@@ -42,8 +42,9 @@ function CartList() {
                 <NavLink to={`/cart`}>
                     <div className='nav-bar1-cart-container-inner'>
                         <div className='nav-bar1-cart-wrap'>
-                            {carts && cartTotalItems(carts) > 99 && <div className='nav-bar1-cart-num'>99+</div>}
-                            {carts && cartTotalItems(carts) < 100 && <div className='nav-bar1-cart-num'>{cartTotalItems(carts)}</div>}
+                            {carts && cartTotalItems(carts) > 99 && <div className='nav-bar1-cart-num3'>99+</div>}
+                            {carts && cartTotalItems(carts) >= 10 && cartTotalItems(carts) < 100 && <div className='nav-bar1-cart-num2'>{cartTotalItems(carts)}</div>}
+                            {carts && cartTotalItems(carts) < 10 && <div className='nav-bar1-cart-num'>{cartTotalItems(carts)}</div>}
                             <div>
                                 <img src={cart} className="nav-bar1-cart-logo" alt='cart' />
                             </div>

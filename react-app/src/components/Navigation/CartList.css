@@ -39,6 +39,30 @@
     top: 2px;
 }
 
+.nav-bar1-cart-num2 {
+    color: #f08804;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 10;
+    right: -2.5px;
+    top: 2px;
+}
+
+.nav-bar1-cart-num3 {
+    color: #f08804;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 5px;
+    position: relative;
+    z-index: 10;
+    right: -2px;
+    top: -2px;
+}
+
 .nav-bar1-cart-logo {
     width: 46px;
     height: 36px;
