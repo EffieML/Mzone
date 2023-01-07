@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import { useDispatch } from "react-redux";
+import { listOneProductThunk } from '../../store/product';
 import { editReviewThunk } from "../../store/review";
 import UploadReviewImg from './UploadReviewImg';
 import './EditReviewModal.css';
@@ -31,6 +32,7 @@ function EditReviewForm({ reviewE, reviewId, setShowModal }) {
         if (editedReview && !editedReview.errors) {
             setErrors([]);
             setShowModal(false);
+            await dispatch(listOneProductThunk(reviewE.productId))
         }
     }
 

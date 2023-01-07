@@ -20,7 +20,7 @@ def seed_order_items():
     # order id 2, oi id 3
     order_item_003 = Order_Item(
         order_id=2,
-        product_id=3,
+        product_id=9,
         quantity=1
     )
 

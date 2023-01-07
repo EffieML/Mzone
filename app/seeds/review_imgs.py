@@ -10,21 +10,36 @@ def seed_review_imgs():
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/1/1.jpg',
     )
 
-    # review id 3 coffee table----------------------
+    # review id 2 echo show kid----------------------
     # img id 2
-    review003_img001 = Review_Img(
-        review_id=3,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/3/1.jpg',
+    review002_img001 = Review_Img(
+        review_id=2,
+        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/2/1.jpg',
     )
+
     # img id 3
-    review003_img002 = Review_Img(
-        review_id=3,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/3/2.jpg',
+    review002_img002 = Review_Img(
+        review_id=2,
+        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/2/2.jpg',
+    )
+
+    # review id 4 coffee table----------------------
+    # img id 4
+    review004_img001 = Review_Img(
+        review_id=4,
+        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/4/1.jpg',
+    )
+    # img id 5
+    review004_img002 = Review_Img(
+        review_id=4,
+        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/review_imgs/4/2.jpg',
     )
 
     db.session.add(review001_img001)
-    db.session.add(review003_img001)
-    db.session.add(review003_img002)
+    db.session.add(review002_img001)
+    db.session.add(review002_img002)
+    db.session.add(review004_img001)
+    db.session.add(review004_img002)
 
     db.session.commit()
 
