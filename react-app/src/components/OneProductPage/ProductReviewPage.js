@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
+import { listOneProductThunk } from '../../store/product';
 import { getProductReviewsThunk, deleteReviewThunk } from '../../store/review';
 import EditReviewModal from '../EditReviewModal';
 import userimg from '../../img/user.jpeg';
@@ -36,6 +37,7 @@ function ProductReview({ productId }) {
     const handleReviewDelete = async (reviewId) => {
         if (window.confirm('Do you want to delete this review?')) {
             await dispatch(deleteReviewThunk(reviewId))
+            await dispatch(listOneProductThunk(productId))
         }
     }
 
