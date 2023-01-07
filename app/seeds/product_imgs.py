@@ -31,16 +31,16 @@ def seed_product_imgs():
         product_id=1,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/1_echodot5/5.jpg',
     )
-    # img id 6
-    product001_img006 = Product_Img(
-        product_id=1,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/1_echodot5/6.jpg',
-    )
-    # img id 7
-    product001_img007 = Product_Img(
-        product_id=1,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/1_echodot5/7.jpg',
-    )
+    # # img id 6
+    # product001_img006 = Product_Img(
+    #     product_id=1,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/1_echodot5/6.jpg',
+    # )
+    # # img id 7
+    # product001_img007 = Product_Img(
+    #     product_id=1,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/1_echodot5/7.jpg',
+    # )
 
     # product id 2 echo show----------------------
     # img id 8
@@ -68,16 +68,16 @@ def seed_product_imgs():
         product_id=2,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/2_echoshow15/5.jpg',
     )
-    # img id 13
-    product002_img006 = Product_Img(
-        product_id=2,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/2_echoshow15/6.jpg',
-    )
-    # img id 14
-    product002_img007 = Product_Img(
-        product_id=2,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/2_echoshow15/7.jpg',
-    )
+    # # img id 13
+    # product002_img006 = Product_Img(
+    #     product_id=2,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/2_echoshow15/6.jpg',
+    # )
+    # # img id 14
+    # product002_img007 = Product_Img(
+    #     product_id=2,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/2_echoshow15/7.jpg',
+    # )
 
     # product id 3 echo auto----------------------
     # img id 15
@@ -105,16 +105,16 @@ def seed_product_imgs():
         product_id=3,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/3_echoauto/5.jpg',
     )
-    # img id 20
-    product003_img006 = Product_Img(
-        product_id=3,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/3_echoauto/6.jpg',
-    )
-    # img id 21
-    product003_img007 = Product_Img(
-        product_id=3,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/3_echoauto/7.jpg',
-    )
+    # # img id 20
+    # product003_img006 = Product_Img(
+    #     product_id=3,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/3_echoauto/6.jpg',
+    # )
+    # # img id 21
+    # product003_img007 = Product_Img(
+    #     product_id=3,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/3_echoauto/7.jpg',
+    # )
 
 
 # product id 4 echo show kids----------------------
@@ -143,16 +143,16 @@ def seed_product_imgs():
         product_id=4,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/4_echoshowkids/5.jpg',
     )
-    # img id 27
-    product004_img006 = Product_Img(
-        product_id=4,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/4_echoshowkids/6.jpg',
-    )
-    # img id 28
-    product004_img007 = Product_Img(
-        product_id=4,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/4_echoshowkids/7.jpg',
-    )
+    # # img id 27
+    # product004_img006 = Product_Img(
+    #     product_id=4,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/4_echoshowkids/6.jpg',
+    # )
+    # # img id 28
+    # product004_img007 = Product_Img(
+    #     product_id=4,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/4_echoshowkids/7.jpg',
+    # )
 
 # product id 5 fire tablet 10----------------------
     # img id 29
@@ -180,16 +180,16 @@ def seed_product_imgs():
         product_id=5,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/5_firetablet10/1.jpg',
     )
-    # img id 34
-    product005_img006 = Product_Img(
-        product_id=5,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/5_firetablet10/6.jpg',
-    )
-    # img id 35
-    product005_img007 = Product_Img(
-        product_id=5,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/5_firetablet10/7.jpg',
-    )
+    # # img id 34
+    # product005_img006 = Product_Img(
+    #     product_id=5,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/5_firetablet10/6.jpg',
+    # )
+    # # img id 35
+    # product005_img007 = Product_Img(
+    #     product_id=5,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/5_firetablet10/7.jpg',
+    # )
 
     # product id 6 halo fitness ----------------------
     # img id 36
@@ -217,11 +217,11 @@ def seed_product_imgs():
         product_id=6,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/6_halofitness/5.jpg',
     )
-    # img id 41
-    product006_img006 = Product_Img(
-        product_id=6,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/6_halofitness/6.jpg',
-    )
+    # # img id 41
+    # product006_img006 = Product_Img(
+    #     product_id=6,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/6_halofitness/6.jpg',
+    # )
 
     # product id 7 fire tablet kid----------------------
     # img id 42
@@ -249,16 +249,16 @@ def seed_product_imgs():
         product_id=7,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/7_firetabletkid/5.jpg',
     )
-    # img id 47
-    product007_img006 = Product_Img(
-        product_id=7,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/7_firetabletkid/6.jpg',
-    )
-    # img id 48
-    product007_img007 = Product_Img(
-        product_id=7,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/7_firetabletkid/7.jpg',
-    )
+    # # img id 47
+    # product007_img006 = Product_Img(
+    #     product_id=7,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/7_firetabletkid/6.jpg',
+    # )
+    # # img id 48
+    # product007_img007 = Product_Img(
+    #     product_id=7,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/7_firetabletkid/7.jpg',
+    # )
 
     # product id 8 soap dispenser----------------------
     # img id 49
@@ -286,11 +286,11 @@ def seed_product_imgs():
         product_id=8,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/8_soapdispenser/5.jpg',
     )
-    # img id 54
-    product008_img006 = Product_Img(
-        product_id=8,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/8_soapdispenser/6.jpg',
-    )
+    # # img id 54
+    # product008_img006 = Product_Img(
+    #     product_id=8,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/8_soapdispenser/6.jpg',
+    # )
 
     # mzone home------------------------------------------------------------------
     # product id 9 coffee table----------------------
@@ -319,16 +319,16 @@ def seed_product_imgs():
         product_id=9,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/3_coffetable/5.jpg',
     )
-    # img id 60
-    product009_img006 = Product_Img(
-        product_id=9,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/3_coffetable/6.jpg',
-    )
-    # img id 61
-    product009_img007 = Product_Img(
-        product_id=9,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/3_coffetable/7.jpg',
-    )
+    # # img id 60
+    # product009_img006 = Product_Img(
+    #     product_id=9,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/3_coffetable/6.jpg',
+    # )
+    # # img id 61
+    # product009_img007 = Product_Img(
+    #     product_id=9,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/3_coffetable/7.jpg',
+    # )
 
     # product id 10 TV stand----------------------
     # img id 62
@@ -356,94 +356,94 @@ def seed_product_imgs():
         product_id=10,
         url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/4_tvstand/5.jpg',
     )
-    # img id 67
-    product010_img006 = Product_Img(
-        product_id=10,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/4_tvstand/6.jpg',
-    )
-    # img id 68
-    product010_img007 = Product_Img(
-        product_id=10,
-        url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/4_tvstand/7.jpg',
-    )
+    # # img id 67
+    # product010_img006 = Product_Img(
+    #     product_id=10,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/4_tvstand/6.jpg',
+    # )
+    # # img id 68
+    # product010_img007 = Product_Img(
+    #     product_id=10,
+    #     url='https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/4_tvstand/7.jpg',
+    # )
 
     db.session.add(product001_img001)
     db.session.add(product001_img002)
     db.session.add(product001_img003)
     db.session.add(product001_img004)
     db.session.add(product001_img005)
-    db.session.add(product001_img006)
-    db.session.add(product001_img007)
+    # db.session.add(product001_img006)
+    # db.session.add(product001_img007)
 
     db.session.add(product002_img001)
     db.session.add(product002_img002)
     db.session.add(product002_img003)
     db.session.add(product002_img004)
     db.session.add(product002_img005)
-    db.session.add(product002_img006)
-    db.session.add(product002_img007)
+    # db.session.add(product002_img006)
+    # db.session.add(product002_img007)
 
     db.session.add(product003_img001)
     db.session.add(product003_img002)
     db.session.add(product003_img003)
     db.session.add(product003_img004)
     db.session.add(product003_img005)
-    db.session.add(product003_img006)
-    db.session.add(product003_img007)
+    # db.session.add(product003_img006)
+    # db.session.add(product003_img007)
 
     db.session.add(product004_img001)
     db.session.add(product004_img002)
     db.session.add(product004_img003)
     db.session.add(product004_img004)
     db.session.add(product004_img005)
-    db.session.add(product004_img006)
-    db.session.add(product004_img007)
+    # db.session.add(product004_img006)
+    # db.session.add(product004_img007)
 
     db.session.add(product005_img001)
     db.session.add(product005_img002)
     db.session.add(product005_img003)
     db.session.add(product005_img004)
     db.session.add(product005_img005)
-    db.session.add(product005_img006)
-    db.session.add(product005_img007)
+    # db.session.add(product005_img006)
+    # db.session.add(product005_img007)
 
     db.session.add(product006_img001)
     db.session.add(product006_img002)
     db.session.add(product006_img003)
     db.session.add(product006_img004)
     db.session.add(product006_img005)
-    db.session.add(product006_img006)
+    # db.session.add(product006_img006)
 
     db.session.add(product007_img001)
     db.session.add(product007_img002)
     db.session.add(product007_img003)
     db.session.add(product007_img004)
     db.session.add(product007_img005)
-    db.session.add(product007_img006)
-    db.session.add(product007_img007)
+    # db.session.add(product007_img006)
+    # db.session.add(product007_img007)
 
     db.session.add(product008_img001)
     db.session.add(product008_img002)
     db.session.add(product008_img003)
     db.session.add(product008_img004)
     db.session.add(product008_img005)
-    db.session.add(product008_img006)
+    # db.session.add(product008_img006)
 
     db.session.add(product009_img001)
     db.session.add(product009_img002)
     db.session.add(product009_img003)
     db.session.add(product009_img004)
     db.session.add(product009_img005)
-    db.session.add(product009_img006)
-    db.session.add(product009_img007)
+    # db.session.add(product009_img006)
+    # db.session.add(product009_img007)
 
     db.session.add(product010_img001)
     db.session.add(product010_img002)
     db.session.add(product010_img003)
     db.session.add(product010_img004)
     db.session.add(product010_img005)
-    db.session.add(product010_img006)
-    db.session.add(product010_img007)
+    # db.session.add(product010_img006)
+    # db.session.add(product010_img007)
 
     db.session.commit()
 
