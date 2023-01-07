@@ -22,7 +22,7 @@ def seed_carts():
     # cart id 3
     cart_003 = Cart(
         user_id=3,
-        product_id=3,
+        product_id=9,
         quantity=1,
     )
 
