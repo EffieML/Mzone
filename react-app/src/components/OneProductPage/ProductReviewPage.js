@@ -216,7 +216,7 @@ function ProductReview({ productId }) {
                 </div>
                 <div className='one-prod-top-line'></div>
             </div>
-            {reviews.length && (
+            {reviews.length > 0 && (
                 <div className='one-prod-bttm-right-container'>
                     <div className='one-prod-bttm-right-container-inner'>
                         <div className='one-prod-bttm-right-title'>Top reviews from the United States</div>
