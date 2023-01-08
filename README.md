@@ -19,8 +19,27 @@ Mzone is clone of Amazon, which is an ecommerce platform that sells many product
 ![Render](https://img.shields.io/badge/Render-12100E?style=for-the-badge&logo=Render)
 
 
+## Major Features
+### Main page
+<img width="1534" alt="01_homepage" src="https://user-images.githubusercontent.com/103289506/211177170-5af42bcf-ebb3-469a-acf1-64c731baa583.PNG">
+#### Login by clicking on the 'sign in' button located on the top right . You can also sign up by following the Login button then clicking the 'Create account' link located at the bottom of the form.
+### Login and Signup
+<img width="1544" alt="02_login" src="https://user-images.githubusercontent.com/103289506/211177194-83011fca-6ae1-4c52-a829-4fb54dbf695d.PNG">
+<img width="1545" alt="02_signup" src="https://user-images.githubusercontent.com/103289506/211177197-1e52d9a2-bc68-474a-a08a-f4b19256d609.PNG">
+#### After log in, you will be redirect to Mzone main page where you can explore all the listed products
+### Product detail page
+<img width="1536" alt="03_oneprod1" src="https://user-images.githubusercontent.com/103289506/211177214-f5609886-b8c9-4176-a628-69b0332a98b5.PNG">
+<img width="1535" alt="03_oneprod2" src="https://user-images.githubusercontent.com/103289506/211177215-91a9eab1-d256-48ff-a5b7-6631a19388cc.PNG">
 
 
+### Home page
+### Home page
+### Home page
+
+### Home page
+### Home page
+### Home page
+### Home page
 
 
 
