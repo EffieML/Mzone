@@ -20,26 +20,53 @@ Mzone is clone of Amazon, which is an ecommerce platform that sells many product
 
 
 ## Major Features
-### Main page
+### Main Page
 <img width="1534" alt="01_homepage" src="https://user-images.githubusercontent.com/103289506/211177170-5af42bcf-ebb3-469a-acf1-64c731baa583.PNG">
+
+### Login and Signup 
 #### Login by clicking on the 'sign in' button located on the top right . You can also sign up by following the Login button then clicking the 'Create account' link located at the bottom of the form.
-### Login and Signup
+#### After log in, you will be redirect to Mzone main page where you can explore all the listed products
 <img width="1544" alt="02_login" src="https://user-images.githubusercontent.com/103289506/211177194-83011fca-6ae1-4c52-a829-4fb54dbf695d.PNG">
 <img width="1545" alt="02_signup" src="https://user-images.githubusercontent.com/103289506/211177197-1e52d9a2-bc68-474a-a08a-f4b19256d609.PNG">
-#### After log in, you will be redirect to Mzone main page where you can explore all the listed products
-### Product detail page
+
+### Product Detail Page
+#### On the product detail page, you can click the 'Add to Cart' button to add it to your shopping cart. You can also leave a review for this product which located at left of the bottom review section. For the reviews you wrote, you can use the 'edit' or 'delete' button next to your review to make additional changes. 
 <img width="1536" alt="03_oneprod1" src="https://user-images.githubusercontent.com/103289506/211177214-f5609886-b8c9-4176-a628-69b0332a98b5.PNG">
 <img width="1535" alt="03_oneprod2" src="https://user-images.githubusercontent.com/103289506/211177215-91a9eab1-d256-48ff-a5b7-6631a19388cc.PNG">
 
+### Shopping Cart Page
+#### You can view all the items you added to shopping cart, then click the 'Place your order' button to place an order. Once the order has been created, your shopping cart will be set to empty. 
+<img width="1536" alt="04_shoppingcart" src="https://user-images.githubusercontent.com/103289506/211180972-90f73732-ca77-4ff8-bd73-2160cd0b88ff.PNG">
 
-### Home page
-### Home page
-### Home page
+### Order Detail Page
+#### After you place the order, you will be redirect to your order detail page. You can view all the purchased items and using the 'Write review' button to leave a comment. You can also chose to cancel your order within one hour after the purchase, the 'Cancel order' button located at the top right of the page. 
+<img width="1546" alt="05_oneOrder" src="https://user-images.githubusercontent.com/103289506/211181045-effab1fd-9507-41e2-93d4-4d36f5d2e66e.PNG">
 
-### Home page
-### Home page
-### Home page
-### Home page
+### Add Review Page
+#### To leave a review, you have options to post up to 5 images. 
+<img width="1547" alt="06_createReview" src="https://user-images.githubusercontent.com/103289506/211181171-311ed223-4bf1-4504-ac12-924e9b4112a8.PNG">
+
+### Edit Review page
+#### On the product page, for your own reviews, you can use the 'edit' or 'delete' button next to your review to make additional changes.
+<img width="1535" alt="07_editReview" src="https://user-images.githubusercontent.com/103289506/211181191-bb4230a3-7195-41d9-8604-ff7d3a5ba736.PNG">
+
+### User Account page
+#### On the navigation bar, by clicking the account & Lists, user can visit their account page. It contains all the user's orders and their inventory list.
+<img width="1547" alt="08_accoutPage" src="https://user-images.githubusercontent.com/103289506/211181325-40f01515-e710-42ce-8f53-91964150d3e4.PNG">
+
+### User's Orders Page
+<img width="1548" alt="09_allOrders" src="https://user-images.githubusercontent.com/103289506/211181329-1c671fc0-892a-4a91-9b27-d9e24b862639.PNG">
+
+### User's Inventory Page
+#### Under user's inventory page, you can post new product, edit or delete your existing posts. 
+<img width="1548" alt="09_allProdsSell" src="https://user-images.githubusercontent.com/103289506/211181333-cea1be5b-dbfe-4a46-bc23-1f389ff06e1a.PNG">
+
+### Post New Selling Product
+#### To post a product, you need to post minimum one valid image (max 5 images), and fill out all form properly. 
+<img width="1547" alt="10_addNewProd" src="https://user-images.githubusercontent.com/103289506/211181361-0223cdf2-406b-4e6b-8749-232ae57a9328.PNG">
+
+### Edit Selling Product
+<img width="1550" alt="11_editProd" src="https://user-images.githubusercontent.com/103289506/211181371-7c1f8481-f5a4-49bf-a871-594edc107591.PNG">
 
 
 
@@ -47,29 +74,21 @@ Mzone is clone of Amazon, which is an ecommerce platform that sells many product
 
 
 
-This is the starter for the Flask React project.
-
+Below is the starter for the Flask React project.
 ## Getting started
 1. Clone this repository (only this branch)
-
 2. Install dependencies
-
       ```bash
       pipenv install -r requirements.txt
       ```
-
 3. Create a **.env** file based on the example with proper settings for your
    development environment
-
 4. Make sure the SQLite3 database connection URL is in the **.env** file
-
 5. This starter organizes all tables inside the `flask_schema` schema, defined
    by the `SCHEMA` environment variable.  Replace the value for
    `SCHEMA` with a unique name, **making sure you use the snake_case
    convention**.
-
 6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
    ```bash
    pipenv shell
    ```
@@ -85,111 +104,6 @@ This is the starter for the Flask React project.
    ```bash
    flask run
    ```
-
 7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
 
-## Deployment through Render.com
-
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
-
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
-
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
-
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
-
-### Part A: Configure the Start and Build Commands
-
-Start by giving your application a name.
-
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
-
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
-
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
-
-For your Flask project, enter the following command into the Build field, all in
-one line:
-
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
-
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
-
-Now, add your start command in the Start field:
-
-```shell
-# start script
-gunicorn app:app
-```
-
-_If you are using websockets, use the following start command instead for increased performance:_
-
-`gunicorn --worker-class eventlet -w 1 app:app`
-
-### Part B: Add the Environment Variables
-
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
-
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
-
-Add the following keys and values in the Render GUI form:
-
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
-
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
