@@ -139,6 +139,19 @@ def seed_products():
         quantity=10,
     )
 
+    # product_011 = Product(
+    #     seller_id=2,
+    #     name='COZAYH Modern TV Stand Entertainment Cabinet, Console with a Natural Wood Finish and Matte Accents with Storage Doors for Living Media Room, Length: 47" x Width: 16" x Height: 22", Oak/Black',
+    #     category='Mzone Home',
+    #     price=178.19,
+    #     brand='Cozayh',
+    #     about='Mina is a unique and modern TV stand with its rattan details of texture on its cabinet doors that gives this entertainment console a sleek boho-chic design.',
+    #     detail="The Mina TV stand, or entertainment cabinet, offers hidden storage as well as beauty and warmth. Mina's open shelving makes room for your stereo, or gaming system, with conveniently located cable management to run cords in the back of the unit. The cabinet doors feature adjustable shelves so you can create just the right amount of space that best suits your needs. The rattan details on the front doors, give this media console table a unique boho-chic design.",
+    #     dimension='47"D x 16"W x 22"H',
+    #     weight=57,
+    #     quantity=10,
+    # )
+
     db.session.add(product_001)
     db.session.add(product_002)
     db.session.add(product_003)
