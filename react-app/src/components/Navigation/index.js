@@ -15,6 +15,10 @@ import './Navigation.css';
 
 function Navigation() {
     // const user = useSelector(state => state.session.user);
+    const category_map = {
+        'mdevices': 'Mzone Devices',
+        'home': 'Mzone Home',
+    }
 
     return (
         <div className='nav-bar-container'>
@@ -71,7 +75,11 @@ function Navigation() {
             </nav>
             <nav className='nav-bar-2-container'>
                 <div className='nav-bar-2'>
-                    <div>different categories feature will be implement in the future</div>
+                    <NavLink to='/products' >All Products</NavLink>
+                    <NavLink to='/products/categories/mdevices' >Mzone Devices</NavLink>
+                    <NavLink to='/products/categories/home' >Mzone Home</NavLink>
+                    <NavLink to='/products/categories/mdevices' >Mzone Devices</NavLink>
+                    <NavLink to='/products/categories/home' >Mzone Home</NavLink>
                 </div>
             </nav>
         </div>

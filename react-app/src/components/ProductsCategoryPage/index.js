@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
@@ -6,24 +6,28 @@ import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import LoadingPage from '../LoadingPage/index.js';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
-// for product Carousel -----------------------
+// for product category -----------------------
 import alexa1 from '../../img/homepage_carousel/alexa1.png';
 import echoauto from '../../img/homepage_carousel/echo_auto.png';
 import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
 import echoshow5kids from '../../img/homepage_carousel/echo_show5_kids.png';
 import '../AllProductsCarousel/AllProductsCarousel.css'
-import './AllProductsPage.css'
+import '../AllProductsPage/AllProductsPage.css'
 
-function AllProductsPage() {
+function ProductsCategoryPage() {
+    const category_map = {
+        'mdevices': 'Mzone Devices',
+        'home': 'Mzone Home',
+    }
     const dispatch = useDispatch();
-    const products = useSelector(state => Object.values(state.products.allProducts))
-    // console.log("allProductsPage products: ", products)
+    const { category } = useParams();
+    const products = useSelector(state => Object.values(state.products.allProducts));
+    const categoryProducts = products.filter(product => product?.category == category_map[category]);
     const [isLoaded, setIsLoaded] = useState(false);
 
     // for product Carousel -----------------------
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [alexa1, echoauto, echoshow5kids, kidtablet];
-    const links = ['/products/1', '/products/3', '/products/4', '/products/7']
+    const links = ['/products/1', '/products', '/products', '/products']
 
 
     useEffect(() => {
@@ -31,21 +35,6 @@ function AllProductsPage() {
             .then(() => setIsLoaded(true));
     }, [dispatch]);
 
-
-    // for product Carousel -----------------------
-    function previousImage() {
-        setCurrentImageIndex(currentImageIndex - 1);
-        if (currentImageIndex === 0) {
-            setCurrentImageIndex(images.length - 1);
-        }
-    }
-
-    function nextImage() {
-        setCurrentImageIndex(currentImageIndex + 1);
-        if (currentImageIndex === images.length - 1) {
-            setCurrentImageIndex(0);
-        }
-    }
 
     const avgRating = (reviewsArr) => {
         if (reviewsArr?.length) {
@@ -66,22 +55,12 @@ function AllProductsPage() {
         <>
             {!isLoaded ? <LoadingPage /> : (<div>
                 <div className='all-products-container'>
-                    {/* Carousel ---------------------------------------------------------------------- */}
-                    {/* <Carousel className='all-products-carousel-container' /> */}
                     <div className="carousel">
-                        <button onClick={previousImage} >
-                            &lt;
-                        </button>
-                        <NavLink to={links[currentImageIndex]}>
-                            <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
-                        </NavLink>
-                        <button onClick={nextImage} className='carousel-button-next'>
-                            &gt;
-                        </button>
+                        <img src={images[0]} alt={`Image`} />
                     </div>
                     <div className='all-products-list-container'>
                         <div className='all-products-list'>
-                            {products?.map(product => (
+                            {categoryProducts?.map(product => (
                                 <div key={product.id} className='product-card'>
                                     <NavLink to={`/products/${product?.id}`}>
                                         <div className='home-product-imgdiv'>
@@ -129,4 +108,4 @@ function AllProductsPage() {
     )
 }
 
-export default AllProductsPage;
+export default ProductsCategoryPage;
