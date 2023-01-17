@@ -1,0 +1,121 @@
+.title {
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(4, 5, 5);
+}
+
+.all-sproducts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eaeded;
+    min-height: 100vh;
+    height: 100%;
+    word-wrap: break-word;
+}
+
+.all-sproducts-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1500px;
+    font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
+    color: #0f1111;
+    margin-top: 40px;
+
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 330px;
+    height: 450px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.product-card:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+.product-card:hover .home-product-img {
+    width: 325px;
+    height: 280px;
+    padding: 10px;
+    object-fit: cover;
+}
+
+.product-card a {
+    text-decoration: none;
+}
+
+.home-product-imgdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 310px;
+}
+
+.home-product-img {
+    width: 310px;
+    height: 270px;
+    padding: 10px;
+    object-fit: cover;
+}
+
+.home-product-name {
+    color: black;
+    width: 335px;
+    padding: 10px 20px 5px 20px;
+}
+
+.home-product-review-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 335px;
+    padding: 2px 20px;
+    color: black;
+}
+
+.home-product-review-star .star {
+    border-color: rgb(176, 106, 0);
+    border-width: 1px;
+}
+
+.home-product-review-count {
+    font-size: 14px;
+    padding-left: 4px;
+}
+
+.home-product-price-container {
+    display: flex;
+    flex-direction: row;
+    width: 335px;
+    padding: 2px 20px 2px 20px;
+    color: black;
+}
+
+.home-product-price-small {
+    font-size: 12px;
+    padding-top: 4px;
+}
+
+.home-product-price-big {
+    font-size: 24px;
+    padding: 0px 1px;
+}
+
+.home-product-prime-container {
+    width: 335px;
+    padding: 0px 15px;
+
+}
+
+.home-product-prime {
+    /* height: 20px; */
+    width: 60px;
+}

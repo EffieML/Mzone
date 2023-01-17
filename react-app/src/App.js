@@ -13,6 +13,7 @@ import AddProductPage from './components/AddProductPage';
 import UserListingPage from './components/UserListingPage';
 import OneProductPage from './components/OneProductPage';
 import ProductsCategoryPage from './components/ProductsCategoryPage';
+import ProductsBySearch from './components/ProductsBySearch';
 import AllProductsPage from './components/AllProductsPage';
 
 import ShoppingCartPage from './components/ShoppingCartPage';
@@ -82,6 +83,11 @@ function App() {
         <Route path='/products/categories/:category' exact={true} >
           <Navigation />
           <ProductsCategoryPage />
+        </Route>
+
+        <Route path='/products/search/:searchTerm' exact={true} >
+          <Navigation />
+          <ProductsBySearch />
         </Route>
 
         <Route path='/products' exact={true} >
