@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import AccountList from './AccountList';
 import OrderList from './OrderList';
 import CartList from './CartList';
+import Search from '../Search'
 // import LoginFormModal from '../LoginFormModal';
 // import SignupFormModal from '../SignupFormModal';
 // import AddNewSpotModal from '../AddNewSpotModal/index.js';
@@ -49,9 +50,9 @@ function Navigation() {
                     </div>
                 </div>
                 {/* <div>select your address section</div> */}
-                {/* <div className='nav-bar1-middle'>
-                    <div>search section</div>
-                </div> */}
+                <div className='nav-bar1-middle'>
+                    <div><Search /></div>
+                </div>
 
                 <div className='nav-bar1-right'>
                     <div className='nav-bar1-flag-container'>
