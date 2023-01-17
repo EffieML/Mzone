@@ -13,6 +13,7 @@ function Search() {
     const [showMenu, setShowMenu] = useState(false);
     const [searchResult, setSearchResult] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isFocus, setIsFocus] = useState(false);
 
     const products = useSelector(state => Object.values(state.products.allProducts));
     const searchRef = useRef(null);
@@ -78,14 +79,16 @@ function Search() {
     return (
         <div className="nav-search-bar" ref={searchRef}>
             <div className="nav-search-bar-c">
-                <div className="search-left-c">All</div>
-                <form onSubmit={handleSearch} className="product-search-form">
+                <form onSubmit={handleSearch} className={`product-search-form ${isFocus ? 'focused' : ''}`}>
+                    <div className="search-left-c">All</div>
                     <input
                         type="text"
                         className="product-search"
                         onChange={(e) => setSearchTerm(e.target.value)}
                         value={searchTerm}
                         maxLength='100'
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
                     />
                     <div className="search-icon-c">
                         <button type='submit'><img className="search-icon" src={searchpic} /></button>
