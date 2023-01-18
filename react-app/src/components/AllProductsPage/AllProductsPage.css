@@ -22,12 +22,6 @@
 
 
 .all-products-list {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    width: auto; */
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     max-width: 1500px;
@@ -42,8 +36,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* width: 375px;
-    height: 500px; */
     width: 330px;
     height: 450px;
     padding: 10px;
