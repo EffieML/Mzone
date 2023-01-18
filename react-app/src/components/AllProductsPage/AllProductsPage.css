@@ -12,6 +12,7 @@
     min-height: 100vh;
     height: 100%;
     word-wrap: break-word;
+    width: 100vw;
 }
 
 .all-products-carousel-container {
