@@ -1,51 +1,50 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import LoadingPage from '../LoadingPage/index.js';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
-// for product Carousel -----------------------
-import alexa1 from '../../img/homepage_carousel/alexa1.png';
-import echoauto from '../../img/homepage_carousel/echo_auto.png';
-import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
-import echoshow5kids from '../../img/homepage_carousel/echo_show5_kids.png';
-import '../AllProductsCarousel/AllProductsCarousel.css'
-import './AllProductsPage.css'
 
-function AllProductsPage() {
+import './ProductsBySearch.css'
+
+function ProductsBySearch() {
+
     const dispatch = useDispatch();
-    const products = useSelector(state => Object.values(state.products.allProducts))
-    // console.log("allProductsPage products: ", products)
+    const { searchTerm } = useParams();
+    console.log("searchTerm", searchTerm);
+    const [searchResult, setSearchResult] = useState([]);
+    const products = useSelector(state => Object.values(state.products?.allProducts));
     const [isLoaded, setIsLoaded] = useState(false);
-
-    // for product Carousel -----------------------
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const images = [alexa1, echoauto, echoshow5kids, kidtablet];
-    const links = ['/products/1', '/products/3', '/products/4', '/products/7']
-
 
     useEffect(() => {
         dispatch(listAllProductsThunk())
             .then(() => setIsLoaded(true));
-    }, [dispatch]);
+    }, [dispatch, searchTerm]);
 
-
-    // for product Carousel -----------------------
-    function previousImage() {
-        setCurrentImageIndex(currentImageIndex - 1);
-        if (currentImageIndex === 0) {
-            setCurrentImageIndex(images.length - 1);
+    useEffect(() => {
+        if (searchTerm.length) {
+            setSearchResult(filterProducts(searchTerm));
+            console.log("searchResult", searchResult)
+        } else {
+            setSearchResult([]);
         }
+    }, [dispatch, searchTerm]);
+
+    const filterProducts = (keyword) => {
+        const st = [];
+        for (let i = 0; i < products.length; i++) {
+            let product = products[i];
+            let name = product.name;
+            let category = product.category;
+            if (name.toLowerCase().includes(keyword.toLowerCase()) ||
+                category.toLowerCase().includes(keyword.toLowerCase())) {
+                st.push(product)
+            }
+        }
+        return st;
     }
 
-    function nextImage() {
-        setCurrentImageIndex(currentImageIndex + 1);
-        if (currentImageIndex === images.length - 1) {
-            setCurrentImageIndex(0);
-        }
-    }
 
     const avgRating = (reviewsArr) => {
         if (reviewsArr?.length) {
@@ -64,24 +63,11 @@ function AllProductsPage() {
         //     {!isLoaded && <LoadingPage />}
         // </>
         <>
-            {!isLoaded ? <LoadingPage /> : (<div>
-                <div className='all-products-container'>
-                    {/* Carousel ---------------------------------------------------------------------- */}
-                    {/* <Carousel className='all-products-carousel-container' /> */}
-                    <div className="carousel">
-                        <button onClick={previousImage} >
-                            &lt;
-                        </button>
-                        <NavLink to={links[currentImageIndex]}>
-                            <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
-                        </NavLink>
-                        <button onClick={nextImage} className='carousel-button-next'>
-                            &gt;
-                        </button>
-                    </div>
-                    <div className='all-products-list-container'>
-                        <div className='all-products-list'>
-                            {products?.map(product => (
+            {(isLoaded && searchResult) ? (<div>
+                <div className='all-sproducts-container'>
+                    <div className='all-sproducts-list-container'>
+                        <div className='all-sproducts-list'>
+                            {searchResult?.map(product => (
                                 <div key={product.id} className='product-card'>
                                     <NavLink to={`/products/${product?.id}`}>
                                         <div className='home-product-imgdiv'>
@@ -123,10 +109,10 @@ function AllProductsPage() {
                         </div>
                     </div>
                 </div>
-            </div>)
+            </div>) : <LoadingPage />
             }
         </>
     )
 }
 
-export default AllProductsPage;
+export default ProductsBySearch;
