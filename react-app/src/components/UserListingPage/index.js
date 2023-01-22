@@ -16,6 +16,7 @@ function UserListingPage() {
     // const [showModal, setShowModal] = useState(false);
 
     const products = useSelector(state => Object.values(state.products.allProducts))
+    // console.log('PRODUCTS-----------------', products)
     // console.log("userListingPage products: ", products)
     const currUser = useSelector(state => state.session.user)
     const [isLoaded, setIsLoaded] = useState(false);
@@ -32,12 +33,11 @@ function UserListingPage() {
     // if (products.length === 0) return (<h2>No listings yet.</h2>
     // );
 
-    // console.log(products)
+
 
     const handleDelete = async (productId) => {
         if (window.confirm('Do you want to delete this product?')) {
             await dispatch(deleteProductThunk(productId))
-            // .then(() => history.push('/spots/current'))
         }
     }
 

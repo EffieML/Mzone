@@ -250,3 +250,13 @@ def upload_product_image(productId):
     db.session.add(productimg)
     db.session.commit()
     return productimg.to_dict()
+
+
+@product_routes.route('/search/<keyword>')
+def search_products(keyword):
+    """
+    get all products by search
+    """
+    # products = Product.query.filter(Product.name.like(f"%{keyword}%")).all()
+    products = Product.query.all()
+    return {'products': [product.to_dict() for product in products]}

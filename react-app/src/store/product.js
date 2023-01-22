@@ -5,6 +5,7 @@ const ADD_ONE_PRODUCT = 'products/addOneProduct';
 // const ADD_SPOT_IMAGE = 'spots/addSpotImage';
 const EDIT_ONE_PRODUCT = 'products/editOneProduct';
 const DELETE_ONE_PRODUCT = 'products/deleteOneProduct';
+const SEARCH_PRODUCTS = 'products/searchProducts';
 
 
 //todo: define action creators
@@ -46,6 +47,13 @@ const deleteProductAction = (productId) => {
     }
 }
 
+//action: search products
+const searchProductsAction = (products) => {
+    return {
+        type: SEARCH_PRODUCTS,
+        products
+    }
+}
 
 //todo: thunks section
 // thunk: get all products
@@ -172,11 +180,21 @@ export const deleteProductThunk = (productId) => async dispatch => {
     }
 }
 
+// thunk: search products
+export const searchProductsThunk = (keyword) => async (dispatch) => {
+    const response = await fetch(`/api/products/search/${keyword}`);
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store products thunk products data: ", data)
+        dispatch(searchProductsAction(data.products));
+        return data;
+    }
+};
 
 
 
 //todo: reducer stuff
-const initialState = { allProducts: {}, singleProduct: {} };
+const initialState = { allProducts: {}, singleProduct: {}, searchProducts: {} };
 
 const productsReducer = (state = initialState, action) => {
     let newState = {};
@@ -219,6 +237,14 @@ const productsReducer = (state = initialState, action) => {
             delete newState.allProducts[action.productId];
             // console.log('singleProduct and action product id: ', newState.singleProduct.id, action.productId)
             if (action.productId === newState.singleProduct.id) { newState.singleProduct = {} }
+            return newState;
+
+        case SEARCH_PRODUCTS:
+            let searchProducts = {}
+            action.products.forEach(product => { searchProducts[product.id] = product });
+            newState = { ...state };
+            newState.searchProducts = searchProducts;
+            // console.log("newState", newState)
             return newState;
 
         default:
