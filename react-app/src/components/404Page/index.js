@@ -13,5 +13,4 @@ function FourOhFourPage() {
     )
 }
 
-
 export default FourOhFourPage
