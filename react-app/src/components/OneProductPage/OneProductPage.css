@@ -4,6 +4,8 @@
     align-items: center;
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
     word-wrap: break-word;
+    height: 100%;
+    margin-bottom: 80px;
 }
 
 

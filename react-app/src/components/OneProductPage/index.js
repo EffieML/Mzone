@@ -213,46 +213,48 @@ function OneProductPage() {
                             <div className='one-prod-top-line'></div>
                             <h2 className='one-prod-middle-title'>Product information</h2>
                             <table className='one-prod-middle-table'>
-                                <tr>
-                                    <th className='one-prod-middle-th'>Brand</th>
-                                    <td className='one-prod-middle-td'>{product.brand}</td>
-                                </tr>
-                                <tr>
-                                    <th className='one-prod-middle-th'>Product Dimensions</th>
-                                    <td className='one-prod-middle-td'>{product.dimension}</td>
-                                </tr>
-                                <tr>
-                                    <th className='one-prod-middle-th'>Item weight</th>
-                                    <td className='one-prod-middle-td'>{product.weight}</td>
-                                </tr>
-                                <tr>
-                                    <th className='one-prod-middle-th'>Domestic Shipping</th>
-                                    <td className='one-prod-middle-td'>Item can be shipped within U.S.</td>
-                                </tr>
-                                <tr>
-                                    <th className='one-prod-middle-th'>Customer Reviews</th>
-                                    <td className='one-prod-middle-td'>
-                                        <div className='one-prod-middle-td-star1'>
-                                            <StarRatings
-                                                rating={avgRating(product.reviews)}
-                                                starRatedColor='rgb(255, 164, 28)'
-                                                starEmptyColor='rgb(206, 212, 212)'
-                                                starDimension='16px'
-                                                starSpacing='0px'
-                                                numberOfStars={5}
-                                                name='rating'
-                                                className="one-prod-top-middle-review-star"
-                                            />
-                                            {product.reviews.length !== 0 && (
-                                                <div className="one-prod-middle-td-star1-count">{product.reviews.length} ratings</div>
-                                            )}
-                                            {product.reviews.length === 0 && (
-                                                <div className="one-prod-middle-td-star1-count">{product.reviews.length} rating</div>
-                                            )}
-                                        </div>
-                                        <div className='one-prod-middle-td-star2'>{avgRating(product.reviews)} out of 5 stars</div>
-                                    </td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th className='one-prod-middle-th'>Brand</th>
+                                        <td className='one-prod-middle-td'>{product.brand}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className='one-prod-middle-th'>Product Dimensions</th>
+                                        <td className='one-prod-middle-td'>{product.dimension}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className='one-prod-middle-th'>Item weight</th>
+                                        <td className='one-prod-middle-td'>{product.weight}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className='one-prod-middle-th'>Domestic Shipping</th>
+                                        <td className='one-prod-middle-td'>Item can be shipped within U.S.</td>
+                                    </tr>
+                                    <tr>
+                                        <th className='one-prod-middle-th'>Customer Reviews</th>
+                                        <td className='one-prod-middle-td'>
+                                            <div className='one-prod-middle-td-star1'>
+                                                <StarRatings
+                                                    rating={avgRating(product.reviews)}
+                                                    starRatedColor='rgb(255, 164, 28)'
+                                                    starEmptyColor='rgb(206, 212, 212)'
+                                                    starDimension='16px'
+                                                    starSpacing='0px'
+                                                    numberOfStars={5}
+                                                    name='rating'
+                                                    className="one-prod-top-middle-review-star"
+                                                />
+                                                {product.reviews.length !== 0 && (
+                                                    <div className="one-prod-middle-td-star1-count">{product.reviews.length} ratings</div>
+                                                )}
+                                                {product.reviews.length === 0 && (
+                                                    <div className="one-prod-middle-td-star1-count">{product.reviews.length} rating</div>
+                                                )}
+                                            </div>
+                                            <div className='one-prod-middle-td-star2'>{avgRating(product.reviews)} out of 5 stars</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
 

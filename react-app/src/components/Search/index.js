@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { listAllProductsThunk } from '../../store/product';
+import { searchProductsThunk } from '../../store/product';
 import searchpic from '../../img/search.png';
 import './Search.css';
 
@@ -15,7 +15,7 @@ function Search() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
 
-    const products = useSelector(state => Object.values(state.products.allProducts));
+    const products = useSelector(state => Object.values(state.products.searchProducts));
     const searchRef = useRef(null);
 
     const handleClickOutside = (e) => {
@@ -35,7 +35,7 @@ function Search() {
     }, [searchTerm]);
 
     useEffect(() => {
-        dispatch(listAllProductsThunk())
+        dispatch(searchProductsThunk())
             .then(() => setIsLoaded(true));
     }, [dispatch]);
 

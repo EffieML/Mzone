@@ -2,7 +2,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import { listAllProductsThunk } from '../../store/product';
+import { searchProductsThunk } from '../../store/product';
 import LoadingPage from '../LoadingPage/index.js';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
 
@@ -14,11 +14,11 @@ function ProductsBySearch() {
     const { searchTerm } = useParams();
     console.log("searchTerm", searchTerm);
     const [searchResult, setSearchResult] = useState([]);
-    const products = useSelector(state => Object.values(state.products?.allProducts));
+    const products = useSelector(state => Object.values(state.products?.searchProducts));
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(listAllProductsThunk())
+        dispatch(searchProductsThunk())
             .then(() => setIsLoaded(true));
     }, [dispatch, searchTerm]);
 
