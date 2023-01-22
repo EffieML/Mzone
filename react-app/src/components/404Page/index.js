@@ -1,9 +1,9 @@
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import React from "react";
 import "./PageNotFound.css"
 
 function FourOhFourPage() {
-    const history = useHistory()
+    // const history = useHistory()
     return (
         <div className="pageNotFound">
             {/* <h1>Page not found</h1> */}
@@ -12,6 +12,5 @@ function FourOhFourPage() {
         </div>
     )
 }
-
 
 export default FourOhFourPage

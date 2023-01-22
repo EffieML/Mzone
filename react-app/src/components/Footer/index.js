@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
 import mzonelogo from '../../img/mzonelogo.png'
 import githublogo from '../../img/githublogo.png'
 import linkedin from '../../img/linkedin.jpg'

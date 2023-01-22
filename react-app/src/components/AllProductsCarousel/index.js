@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import alexa1 from '../../img/homepage_carousel/alexa1.png';
 import echoauto from '../../img/homepage_carousel/echo_auto.png';
 import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
@@ -9,7 +9,7 @@ import './AllProductsCarousel.css'
 function Carousel() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [alexa1, echoauto, echoshow5kids, kidtablet];
-    const links = ['/products/1', '/products', '/products', '/products']
+    // const links = ['/products/1', '/products', '/products', '/products']
 
     function previousImage() {
         setCurrentImageIndex(currentImageIndex - 1);
@@ -33,7 +33,7 @@ function Carousel() {
             </button>
 
             {/* <NavLink to={links[currentImageIndex]}> */}
-            <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
+            <img src={images[currentImageIndex]} alt={`Img ${currentImageIndex + 1}`} />
             {/* </NavLink> */}
 
             <button onClick={nextImage} className='carousel-button-next'>
