@@ -16,7 +16,7 @@ function OneOrderPage() {
     const orderItems = useSelector(state => state.orders?.singleOrder.orderItems);
     // console.log("order", order);
     // console.log("orderitem", orderItems.length)
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
 

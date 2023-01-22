@@ -25,7 +25,7 @@ function ProductsBySearch() {
     useEffect(() => {
         if (searchTerm.length) {
             setSearchResult(filterProducts(searchTerm));
-            console.log("searchResult", searchResult)
+            // console.log("searchResult", searchResult)
         } else {
             setSearchResult([]);
         }
