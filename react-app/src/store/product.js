@@ -6,6 +6,7 @@ const ADD_ONE_PRODUCT = 'products/addOneProduct';
 const EDIT_ONE_PRODUCT = 'products/editOneProduct';
 const DELETE_ONE_PRODUCT = 'products/deleteOneProduct';
 const SEARCH_PRODUCTS = 'products/searchProducts';
+const SEARCH_PRODUCTS2 = 'products/searchProducts2';
 
 
 //todo: define action creators
@@ -51,6 +52,14 @@ const deleteProductAction = (productId) => {
 const searchProductsAction = (products) => {
     return {
         type: SEARCH_PRODUCTS,
+        products
+    }
+}
+
+//action: search products
+const searchProductsAction2 = (products) => {
+    return {
+        type: SEARCH_PRODUCTS2,
         products
     }
 }
@@ -191,10 +200,20 @@ export const searchProductsThunk = (keyword) => async (dispatch) => {
     }
 };
 
+// thunk: search products
+export const searchProductsThunk2 = (keyword) => async (dispatch) => {
+    const response = await fetch(`/api/products/search2/${keyword}`);
+    if (response.ok) {
+        const data = await response.json();
+        // console.log("store products thunk products data: ", data)
+        dispatch(searchProductsAction2(data.products));
+        return data;
+    }
+};
 
 
 //todo: reducer stuff
-const initialState = { allProducts: {}, singleProduct: {}, searchProducts: {} };
+const initialState = { allProducts: {}, singleProduct: {}, searchProducts: {}, searchProducts2: {} };
 
 const productsReducer = (state = initialState, action) => {
     let newState = {};
@@ -244,6 +263,14 @@ const productsReducer = (state = initialState, action) => {
             action.products.forEach(product => { searchProducts[product.id] = product });
             newState = { ...state };
             newState.searchProducts = searchProducts;
+            // console.log("newState", newState)
+            return newState;
+
+        case SEARCH_PRODUCTS2:
+            let searchProducts2 = {}
+            action.products.forEach(product => { searchProducts2[product.id] = product });
+            newState = { ...state };
+            newState.searchProducts2 = searchProducts2;
             // console.log("newState", newState)
             return newState;
 
