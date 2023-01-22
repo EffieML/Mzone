@@ -12,7 +12,7 @@ function ProductsBySearch() {
 
     const dispatch = useDispatch();
     const { searchTerm } = useParams();
-    console.log("searchTerm", searchTerm);
+    // console.log("searchTerm", searchTerm);
     const [searchResult, setSearchResult] = useState([]);
     const products = useSelector(state => Object.values(state.products?.searchProducts));
     const [isLoaded, setIsLoaded] = useState(false);
