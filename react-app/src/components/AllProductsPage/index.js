@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import Carousel from '../AllProductsCarousel';
+// import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import LoadingPage from '../LoadingPage/index.js';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
@@ -73,7 +73,7 @@ function AllProductsPage() {
                             &lt;
                         </button>
                         <NavLink to={links[currentImageIndex]}>
-                            <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex + 1}`} />
+                            <img src={images[currentImageIndex]} alt={`Img ${currentImageIndex + 1}`} />
                         </NavLink>
                         <button onClick={nextImage} className='carousel-button-next'>
                             &gt;

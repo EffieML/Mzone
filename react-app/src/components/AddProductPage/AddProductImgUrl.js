@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import '../EditProductModal/EditProductModal.css';
 
 
 const AddProductImgUrl = ({ images, setImages }) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
 
