@@ -270,5 +270,9 @@ def search_products2(searchTerm):
     """
     get all products by search
     """
-    products = Product.query.filter(Product.name.like(f"%{searchTerm}%")).all()
+    from sqlalchemy import func
+    searchTerm = searchTerm.lower()
+    products = Product.query.filter(func.lower(
+        Product.name).like(f"%{searchTerm}%")).all()
+    # products = Product.query.filter(Product.name.like(f"%{searchTerm}%")).all()
     return {'products': [product.to_dict() for product in products]}
