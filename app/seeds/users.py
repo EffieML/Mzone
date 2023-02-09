@@ -4,6 +4,7 @@ from datetime import datetime
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
+    # mzone basic category
     mzone = User(
         firstname='Mzone',
         lastname='Ecommerce',
@@ -13,6 +14,37 @@ def seed_users():
         # created_at=datetime.now(),
         # updated_at=datetime.now(),
     )
+    # mzone home category
+    robert = User(
+        firstname='Robert',
+        lastname='Smith',
+        username='Robert',
+        email='robert@aa.io',
+        password='password',
+    )
+    oliver = User(
+        firstname='Oliver',
+        lastname='Hunter',
+        username='Oliver',
+        email='oliver@aa.io',
+        password='password',
+    )
+    # computer category
+    david = User(
+        firstname='David',
+        lastname='Brown',
+        username='David',
+        email='david@aa.io',
+        password='password',
+    )
+    sarah = User(
+        firstname='Sarah',
+        lastname='Johnson',
+        username='Sarah',
+        email='sarah@aa.io',
+        password='password',
+    )
+    # pets category
     james = User(
         firstname='James',
         lastname='Nathan',
@@ -33,6 +65,10 @@ def seed_users():
     )
 
     db.session.add(mzone)
+    db.session.add(robert)
+    db.session.add(oliver)
+    db.session.add(david)
+    db.session.add(sarah)
     db.session.add(james)
     db.session.add(marnie)
     db.session.commit()
