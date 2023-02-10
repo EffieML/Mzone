@@ -4,11 +4,52 @@ from datetime import datetime
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
+    # mzone basic category
     mzone = User(
         firstname='Mzone',
         lastname='Ecommerce',
         username='Mzone',
         email='mzone@aa.io',
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
+    )
+    # mzone home category
+    robert = User(
+        firstname='Robert',
+        lastname='Smith',
+        username='Robert',
+        email='robert@aa.io',
+        password='password',
+    )
+    oliver = User(
+        firstname='Oliver',
+        lastname='Hunter',
+        username='Oliver',
+        email='oliver@aa.io',
+        password='password',
+    )
+    # computer category
+    david = User(
+        firstname='David',
+        lastname='Brown',
+        username='David',
+        email='david@aa.io',
+        password='password',
+    )
+    sarah = User(
+        firstname='Sarah',
+        lastname='Johnson',
+        username='Sarah',
+        email='sarah@aa.io',
+        password='password',
+    )
+    # pets category
+    marnie = User(
+        firstname='Marnie',
+        lastname='Jones',
+        username='Marnie',
+        email='marnie@aa.io',
         password='password',
         # created_at=datetime.now(),
         # updated_at=datetime.now(),
@@ -22,19 +63,15 @@ def seed_users():
         # created_at=datetime.now(),
         # updated_at=datetime.now(),
     )
-    marnie = User(
-        firstname='Marnie',
-        lastname='Jones',
-        username='Marnie',
-        email='marnie@aa.io',
-        password='password',
-        # created_at=datetime.now(),
-        # updated_at=datetime.now(),
-    )
 
     db.session.add(mzone)
-    db.session.add(james)
+    db.session.add(robert)
+    db.session.add(oliver)
+    db.session.add(david)
+    db.session.add(sarah)
     db.session.add(marnie)
+    db.session.add(james)
+
     db.session.commit()
 
 

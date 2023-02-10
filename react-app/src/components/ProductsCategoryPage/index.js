@@ -13,12 +13,27 @@ import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
 import echoshow5kids from '../../img/homepage_carousel/echo_show5_kids.png';
 import '../AllProductsCarousel/AllProductsCarousel.css'
 import '../AllProductsPage/AllProductsPage.css'
+import './ProductsCategoryPage.css'
 
 function ProductsCategoryPage() {
     const category_map = {
         'mdevices': 'Mzone Devices',
         'home': 'Mzone Home',
+        'computer': 'Mzone Computer',
+        'pet': 'Mzone Pets',
     }
+    const category_img = {
+        'mdevices': 'https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/background.jpeg',
+        'home': "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/background_entrytable.jpg",
+        'computer': "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/3_computer/monitor_background.jpg",
+        'pet': "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/4_pet_supplies/background.jpg",
+    }
+    // const category_img = {
+    //     'mdevices': alexa1,
+    //     'home': echoauto,
+    //     'computer': echoshow5kids,
+    //     'pet': kidtablet,
+    // }
     const dispatch = useDispatch();
     const { category } = useParams();
     const products = useSelector(state => Object.values(state.products.allProducts));
@@ -26,8 +41,12 @@ function ProductsCategoryPage() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     // for product Carousel -----------------------
-    const images = [alexa1, echoauto, echoshow5kids, kidtablet];
-    const links = ['/products/1', '/products', '/products', '/products']
+    // const images = [alexa1, echoauto, echoshow5kids, kidtablet];
+    // const images = ['https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/background.jpeg',
+    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/background_entrytable.jpg",
+    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/3_computer/monitor_background.jpg",
+    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/4_pet_supplies/background.jpg"];
+    // const links = ['/products/1', '/products', '/products', '/products']
 
 
     useEffect(() => {
@@ -55,11 +74,12 @@ function ProductsCategoryPage() {
         <>
             {!isLoaded ? <LoadingPage /> : (<div>
                 <div className='all-products-container'>
-                    <div className="carousel">
-                        <img src={images[0]} alt={`Image`} />
+                    <div className="carousel2">
+                        <img src={category_img[category]} alt={`Image`} />
+                        {/* <img src={images[0]} alt={`Image`} /> */}
                     </div>
                     <div className='all-products-list-container'>
-                        <div className='all-products-list'>
+                        <div className='category-products-list'>
                             {categoryProducts?.map(product => (
                                 <div key={product.id} className='product-card'>
                                     <NavLink to={`/products/${product?.id}`}>

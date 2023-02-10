@@ -16,10 +16,10 @@ import './Navigation.css';
 
 function Navigation() {
     // const user = useSelector(state => state.session.user);
-    const category_map = {
-        'mdevices': 'Mzone Devices',
-        'home': 'Mzone Home',
-    }
+    // const category_map = {
+    //     'mdevices': 'Mzone Devices',
+    //     'home': 'Mzone Home',
+    // }
 
     return (
         <div className='nav-bar-container'>
@@ -79,8 +79,8 @@ function Navigation() {
                     <NavLink to='/products' >All Products</NavLink>
                     <NavLink to='/products/categories/mdevices' >Mzone Devices</NavLink>
                     <NavLink to='/products/categories/home' >Mzone Home</NavLink>
-                    <NavLink to='/products/categories/mdevices' >Mzone Devices</NavLink>
-                    <NavLink to='/products/categories/home' >Mzone Home</NavLink>
+                    <NavLink to='/products/categories/computer' >Mzone Computers</NavLink>
+                    <NavLink to='/products/categories/pet' >Mzone Pets</NavLink>
                 </div>
             </nav>
         </div>
