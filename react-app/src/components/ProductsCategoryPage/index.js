@@ -6,11 +6,6 @@ import Carousel from '../AllProductsCarousel';
 import { listAllProductsThunk } from '../../store/product';
 import LoadingPage from '../LoadingPage/index.js';
 import amazonPrimeLogo from '../../img/amazonPrimeLogo.png';
-// for product category -----------------------
-import alexa1 from '../../img/homepage_carousel/alexa1.png';
-import echoauto from '../../img/homepage_carousel/echo_auto.png';
-import kidtablet from '../../img/homepage_carousel/kid_tablet.png';
-import echoshow5kids from '../../img/homepage_carousel/echo_show5_kids.png';
 import '../AllProductsCarousel/AllProductsCarousel.css'
 import '../AllProductsPage/AllProductsPage.css'
 import './ProductsCategoryPage.css'
@@ -28,26 +23,12 @@ function ProductsCategoryPage() {
         'computer': "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/3_computer/monitor_background.jpg",
         'pet': "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/4_pet_supplies/background.jpg",
     }
-    // const category_img = {
-    //     'mdevices': alexa1,
-    //     'home': echoauto,
-    //     'computer': echoshow5kids,
-    //     'pet': kidtablet,
-    // }
+
     const dispatch = useDispatch();
     const { category } = useParams();
     const products = useSelector(state => Object.values(state.products.allProducts));
     const categoryProducts = products.filter(product => product?.category == category_map[category]);
     const [isLoaded, setIsLoaded] = useState(false);
-
-    // for product Carousel -----------------------
-    // const images = [alexa1, echoauto, echoshow5kids, kidtablet];
-    // const images = ['https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/1_mzone_device/background.jpeg',
-    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/2_mzone_home/background_entrytable.jpg",
-    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/3_computer/monitor_background.jpg",
-    //     "https://mingprojectawsbucket.s3.amazonaws.com/seed/product_imgs/4_pet_supplies/background.jpg"];
-    // const links = ['/products/1', '/products', '/products', '/products']
-
 
     useEffect(() => {
         dispatch(listAllProductsThunk())
@@ -76,7 +57,6 @@ function ProductsCategoryPage() {
                 <div className='all-products-container'>
                     <div className="carousel2">
                         <img src={category_img[category]} alt={`Image`} />
-                        {/* <img src={images[0]} alt={`Image`} /> */}
                     </div>
                     <div className='all-products-list-container'>
                         <div className='category-products-list'>
@@ -115,7 +95,6 @@ function ProductsCategoryPage() {
                                             <img src={amazonPrimeLogo} className='home-product-prime' alt='prime logo' />
                                         </div>
                                     </NavLink>
-
                                     {/* <div>add to cart</div> */}
                                 </div>
                             ))}
