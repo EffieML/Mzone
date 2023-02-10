@@ -9,17 +9,14 @@
     flex-direction: column;
     align-items: center;
     background-color: #eaeded;
-    min-height: 100vh;
-    height: 100%;
     word-wrap: break-word;
     width: 100vw;
+    min-height: calc(100vh - 179px);
 }
 
 .all-products-carousel-container {
     position: relative;
 }
-
-
 
 .all-products-list {
     display: grid;
@@ -29,6 +26,8 @@
     color: #0f1111;
     position: relative;
     top: -360px;
+    height: auto;
+    min-height: calc(100vh - 179px);
 }
 
 .product-card {

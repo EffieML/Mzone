@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     width: 1000px;
     margin: 0px auto 0px auto;
+    min-height: calc(100vh - 179px);
 }
 
 .account-page-header-inner {

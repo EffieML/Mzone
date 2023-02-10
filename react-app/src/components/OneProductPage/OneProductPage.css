@@ -5,9 +5,9 @@
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
     word-wrap: break-word;
     height: 100%;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+    min-height: calc(100vh - 187px)
 }
-
 
 .one-prod-page {
     width: 1464px;
@@ -346,4 +346,8 @@ table {
     color: #007185;
     padding-left: 20px;
     padding-top: 2px;
+}
+
+.one-prod-bttm-review {
+    height: fit-content;
 }
