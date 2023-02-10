@@ -45,20 +45,20 @@ def seed_users():
         password='password',
     )
     # pets category
-    james = User(
-        firstname='James',
-        lastname='Nathan',
-        username='James',
-        email='james@aa.io',
-        password='password',
-        # created_at=datetime.now(),
-        # updated_at=datetime.now(),
-    )
     marnie = User(
         firstname='Marnie',
         lastname='Jones',
         username='Marnie',
         email='marnie@aa.io',
+        password='password',
+        # created_at=datetime.now(),
+        # updated_at=datetime.now(),
+    )
+    james = User(
+        firstname='James',
+        lastname='Nathan',
+        username='James',
+        email='james@aa.io',
         password='password',
         # created_at=datetime.now(),
         # updated_at=datetime.now(),
@@ -69,8 +69,9 @@ def seed_users():
     db.session.add(oliver)
     db.session.add(david)
     db.session.add(sarah)
-    db.session.add(james)
     db.session.add(marnie)
+    db.session.add(james)
+
     db.session.commit()
 
 

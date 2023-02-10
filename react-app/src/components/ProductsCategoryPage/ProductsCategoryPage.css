@@ -1,0 +1,21 @@
+.carousel2 {
+    display: relative;
+    width: 1500px;
+}
+
+.carousel2 img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+}
+
+.category-products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1500px;
+    font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
+    color: #0f1111;
+    position: relative;
+    top: -50px;
+}
