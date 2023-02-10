@@ -53,9 +53,11 @@ function Search() {
             let name = product.name;
             // let about = product.about;
             let category = product.category;
-            if (name.toLowerCase().includes(keyword.toLowerCase()) ||
+            if (name.toLowerCase().includes(keyword.toLowerCase())
+                // ||
                 // about.toLowerCase().includes(keyword.toLowerCase()) ||
-                category.toLowerCase().includes(keyword.toLowerCase())) {
+                // category.toLowerCase().includes(keyword.toLowerCase())
+            ) {
                 st.push(product)
             }
         }
