@@ -1,9 +1,10 @@
 .all-orders-page-container {
     width: 920px;
-    margin: 8px auto 30px auto;
+    margin: 8px auto 0 auto;
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
     word-wrap: break-word;
+    min-height: calc(100vh - 187px);
 }
 
 .all-orders-page-l1 {

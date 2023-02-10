@@ -34,6 +34,7 @@
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
     padding: 20px 18px 0px;
+    min-height: calc(100vh - 253px);
 }
 
 .add-review-page-top-sec {
@@ -64,16 +65,11 @@
     font-size: 14px;
     width: 622px;
     padding: 0 10px;
-    /* margin-bottom: 16px; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* align-items: center; */
     width: 622px;
     word-wrap: break-word;
 }
 
 .add-review-page-line {
-    /* margin: 12px 18px 6px 18px; */
     border-top: 1px solid rgb(221, 221, 221);
     margin: 0px 14px;
 }
@@ -84,20 +80,17 @@
     padding: 0 14px 14px 14px;
     width: 704px;
     height: 68px;
-
 }
 
 .add-review-page-rating {
     font-size: 18px;
     font-weight: bold;
     margin: 0px 0px 8px;
-
 }
 
 .add-review-page-headline-container {
     display: flex;
     flex-direction: column;
-    /* padding: 14px; */
     width: 704px;
     height: 111px;
 }
@@ -108,7 +101,6 @@
     font-size: 18px;
     font-weight: bold;
     padding: 14px 14px 0px;
-
 }
 
 .add-review-page-headline-input {
@@ -159,9 +151,7 @@
 .add-review-page-review-container {
     display: flex;
     flex-direction: column;
-    /* padding: 14px; */
     width: 704px;
-    /* height: 111px; */
 }
 
 .add-review-page-review-input {
@@ -172,7 +162,6 @@
     border-radius: 4px;
     margin: 14px 14px 24px 14px;
     font-family: 'Amazon Ember', Arial, sans-serif;
-
 }
 
 .add-review-page-review-input:focus {

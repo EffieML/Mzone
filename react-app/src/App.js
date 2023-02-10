@@ -47,21 +47,26 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
+
         <ProtectedRoute path='/users/:userId' exact={true} >
           <Navigation />
           <User />
+          <Footer />
         </ProtectedRoute>
 
         {/* Review components --------------------------------------------- */}
         <Route path='/products/:productId/addreview' exact={true} >
           <Navigation />
           <AddReviewPage />
+          <Footer />
         </Route>
 
 
@@ -69,28 +74,31 @@ function App() {
         <Route path='/products/current/create' exact={true}>
           <Navigation />
           <AddProductPage />
+          <Footer />
         </Route>
 
         <Route path='/products/current' exact={true}>
           <Navigation />
           <UserListingPage />
-          {/* <Footer /> */}
+          <Footer />
         </Route>
 
         <Route path='/products/:productId' exact={true} >
           <Navigation />
           <OneProductPage />
-          {/* <Footer /> */}
+          <Footer />
         </Route>
 
         <Route path='/products/categories/:category' exact={true} >
           <Navigation />
           <ProductsCategoryPage />
+          <Footer />
         </Route>
 
         <Route path='/products/search/:searchTerm' exact={true} >
           <Navigation />
           <ProductsBySearch />
+          <Footer />
         </Route>
 
         <Route path='/products' exact={true} >
@@ -103,19 +111,21 @@ function App() {
         <Route path='/cart' exact={true} >
           <Navigation />
           <ShoppingCartPage />
+          <Footer />
         </Route>
 
         {/* Order components --------------------------------------------- */}
         <Route path='/orders/:orderId' >
           <Navigation />
           <OneOrderPage />
+          <Footer />
         </Route>
 
         <Route path='/orders' exact={true} >
           <Navigation />
           <AllOrdersPage />
+          <Footer />
         </Route>
-
 
         <Route path='/' exact={true} >
           <Navigation />
