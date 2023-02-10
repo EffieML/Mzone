@@ -260,7 +260,7 @@ function OneProductPage() {
 
                         <div className='one-prod-top-line'></div>
 
-                        <div> <ProductReview reviews={reviews} productId={product.id} /></div>
+                        <div className='one-prod-bttm-review'> <ProductReview reviews={reviews} productId={product.id} /></div>
                     </div>
                 </div>
             ) : <LoadingPage />}

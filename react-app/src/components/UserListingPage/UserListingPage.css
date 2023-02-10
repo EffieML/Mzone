@@ -4,6 +4,7 @@
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
     word-wrap: break-word;
+    min-height: calc(100vh - 217px);
 }
 
 .all-listing-page-title-order {
@@ -12,7 +13,6 @@
     width: 60px;
     padding: 5px 10px;
     margin-left: 18px;
-    /* margin-top: 18px; */
     border-bottom: 2px solid rgb(228, 121, 17);
 }
 

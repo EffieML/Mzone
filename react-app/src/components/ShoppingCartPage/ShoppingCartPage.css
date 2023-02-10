@@ -2,8 +2,8 @@
     background-color: rgb(234, 237, 237);
     display: flex;
     justify-content: center;
-    height: 100vh;
     word-wrap: break-word;
+    min-height: calc(100vh - 179px);
 }
 
 .cart-page-container-inner {
@@ -23,7 +23,6 @@
     margin-bottom: 20px;
     margin-right: 20px;
     background-color: white;
-    /* height: auto; */
 }
 
 .cart-page-container-left-title {
@@ -69,7 +68,6 @@
     font-size: 18px;
     text-decoration: none;
     color: #0f1111;
-    /* width: 985px; */
 }
 
 .cart-one-middle-stock {
@@ -136,7 +134,6 @@
 }
 
 .a-icon {
-    /* display: inline-block; */
     margin: 72px 14px 0;
     width: 1px;
     background-color: #ddd;

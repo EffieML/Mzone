@@ -1,10 +1,11 @@
 .one-order-page-container {
     width: 920px;
-    margin: 8px auto 30px auto;
+    margin: 8px auto 0px auto;
     font-family: 'Amazon Ember', Arial, sans-serif;
     color: #0f1111;
     font-size: 14px;
     word-wrap: break-word;
+    min-height: calc(100vh - 187px);
 }
 
 .one-order-page-l1 {
