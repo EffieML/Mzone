@@ -10,13 +10,11 @@ function OneOrderPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { orderId } = useParams();
-    // console.log("orderId", orderId);
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders?.singleOrder);
     const orderItems = useSelector(state => state.orders?.singleOrder.orderItems);
-    // console.log("order", order);
-    // console.log("orderitem", orderItems.length)
-    // const [errors, setErrors] = useState([]);
+    // console.log("order-----------", order);
+    // console.log("orderitem-------------", orderItems)
     const [isLoaded, setIsLoaded] = useState(false);
 
 
@@ -67,22 +65,8 @@ function OneOrderPage() {
         // console.log("date0", date);
         date.setHours(date.getHours() + 1);
         // console.log("date", date, "current", new Date());
-        // console.log(date > new Date());
         return date > new Date()
     }
-
-    //can't remove single item in order ------------------------------------
-    // const cancelOrderItem = async (e, item) => {
-    //     e.preventDefault();
-    //     if (window.confirm('Do you want to remove this item from order?')) {
-    //         const data = await dispatch(deleteOrderItemThunk(item.id))
-    //         if (data) {
-    //             setErrors(data);
-    //         } else {
-    //             setErrors([])
-    //         }
-    //     }
-    // };
 
     const cancelOrder = async (e) => {
         e.preventDefault();
@@ -92,8 +76,6 @@ function OneOrderPage() {
                 .then(() => history.push('/orders'))
         }
     };
-
-
 
 
     return (
@@ -171,7 +153,6 @@ function OneOrderPage() {
                             <div className='one-order-page-sec1-summary-title oneline'>
                                 <div >Grand Total:</div>
                                 <div>{totalPrice(orderItems) >= 25 ? `$${totalPrice(orderItems)}` : `$${totalPrice(orderItems) + 5}`}</div>
-                                {/* <div>${orderItems ? totalPrice(orderItems) : 0.00}</div> */}
                             </div>
                         </div>
                     </div>
@@ -203,20 +184,6 @@ function OneOrderPage() {
                                                 </NavLink>
                                             </div>
                                         </div>
-
-                                        {/* {orderTimeAdd1(order?.createdAt) ? (
-                                <div>
-                                    <button onClick={cancelOrderItem(item)}>
-                                        Remove item
-                                    </button>
-                                </div>
-                            ) : (
-                                <div>
-                                    <button onClick={() => alert('Order can only be cancelled within 1 hour after purchase.')}>
-                                        can't Remove item
-                                    </button>
-                                </div>
-                            )} */}
                                     </div>
                                     <div className='one-order-page-sec2-item-right'>
                                         <NavLink to={`/products/${item?.product.id}/addreview`}>
