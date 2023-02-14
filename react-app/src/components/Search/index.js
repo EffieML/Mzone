@@ -51,12 +51,7 @@ function Search() {
         for (let i = 0; i < products.length; i++) {
             let product = products[i];
             let name = product.name;
-            // let about = product.about;
-            let category = product.category;
             if (name.toLowerCase().includes(keyword.toLowerCase())
-                // ||
-                // about.toLowerCase().includes(keyword.toLowerCase()) ||
-                // category.toLowerCase().includes(keyword.toLowerCase())
             ) {
                 st.push(product)
             }
@@ -102,7 +97,6 @@ function Search() {
                 <div className='search-bar-drop-down'>
                     {searchResult.map((product) => (
                         <NavLink key={product.id} onClick={() => setSearchTerm("")} to={`/products/${product.id}`} className='search-dropdown-products'>
-                            {/* <img className='search-dropdown-product-img' src={product.images[0].url} alt='search-product-display' /> */}
                             {product.name.length <= 200 ? (
                                 <p className='search-dropdown-product-name'>{product.name}</p>
                             ) : (

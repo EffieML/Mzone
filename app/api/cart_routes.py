@@ -27,14 +27,14 @@ def add_cart_item(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         product_quantity = Product.query.get(id).quantity
-        print(product_quantity)
+        # print(product_quantity)
 
         cart_item = Cart.query.filter(
             Cart.product_id == id,
             Cart.user_id == current_user.id
         ).first()
-        #  can use first or one_or_none
-        print(cart_item)
+        #  can use .first or one_or_none
+        # print(cart_item)
 
         if cart_item:
             if cart_item.quantity + form.data['quantity'] <= product_quantity:
