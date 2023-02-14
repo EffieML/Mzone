@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-// import { useDispatch } from 'react-redux';
 import '../EditProductModal/EditProductModal.css';
 
 
 const AddProductImgUrl = ({ images, setImages }) => {
-    // const dispatch = useDispatch();
+
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
 
@@ -19,13 +18,11 @@ const AddProductImgUrl = ({ images, setImages }) => {
 
         if (images.length >= 5) {
             setShowImagesErrors(true);
-            // const errors = [...urlValidationErrors];
             errors.push('Maximum 5 images allowed.')
             setUrlValidationErrors(errors);
         } else {
             setUrlValidationErrors([]);
             setShowImagesErrors(true);
-            // setShowImagesErrors(false);
             const formData = new FormData();
             formData.append("image", image);
             // console.log("formData image-=-----------------", image)
@@ -75,7 +72,6 @@ const AddProductImgUrl = ({ images, setImages }) => {
                 const newUrls = urls.filter(ele => ele !== url);
                 setUrls(newUrls);
                 setImages(newUrls);
-                // errors = [];
                 setUrlValidationErrors([]);
             }
         }
@@ -105,7 +101,6 @@ const AddProductImgUrl = ({ images, setImages }) => {
                     <div key={index} className="edit-product-from-img-container-inner">
                         <img alt='uploaded-images' className="edit-product-img-small" src={url} />
                         <button onClick={() => handleRemove(url)}>x</button>
-                        {/* <button onClick={() => handleProductimgDelete(image.id)}>x</button> */}
                     </div>
                 )}
             </div>
