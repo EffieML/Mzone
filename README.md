@@ -21,57 +21,64 @@
 
 
 ## Major Features
-### Main Page
-<img width="1534" alt="01_homepage" src="https://user-images.githubusercontent.com/103289506/211177170-5af42bcf-ebb3-469a-acf1-64c731baa583.PNG">
+### Home Page
+#### All Products Page
+<img width="1378" alt="01_homepage" src="https://user-images.githubusercontent.com/103289506/219184160-87b4a232-a74c-4a46-a2ef-cd4cabae8a97.PNG">
+#### Products by Category Page
+<img width="1414" alt="02_categorypage" src="https://user-images.githubusercontent.com/103289506/219184988-8bedf3ee-ae0d-4b9c-b57c-99f6ff795d73.PNG">
+#### Search
+<img width="1414" alt="03_search_nav" src="https://user-images.githubusercontent.com/103289506/219185182-11c73a33-a146-4dfd-99d4-0206216f695f.PNG">
 
 ### Login and Signup 
 #### Login by clicking on the 'sign in' button located on the top right . You can also sign up by following the Login button then clicking the 'Create account' link located at the bottom of the form.
 #### After log in, you will be redirect to Mzone main page where you can explore all the listed products
-<img width="1544" alt="02_login" src="https://user-images.githubusercontent.com/103289506/211177194-83011fca-6ae1-4c52-a829-4fb54dbf695d.PNG">
-<img width="1545" alt="02_signup" src="https://user-images.githubusercontent.com/103289506/211177197-1e52d9a2-bc68-474a-a08a-f4b19256d609.PNG">
+<img width="1426" alt="04_login" src="https://user-images.githubusercontent.com/103289506/219185789-fc25bf73-64a8-4c10-a88d-028ae336df1c.PNG">
+<img width="1426" alt="05_signup" src="https://user-images.githubusercontent.com/103289506/219185845-c287e484-fa7f-47a4-8374-9b5e7eff0534.PNG">
 
 ### Product Detail Page
 #### On the product detail page, you can click the 'Add to Cart' button to add it to your shopping cart. You can also leave a review for this product which located at left of the bottom review section. For the reviews you wrote, you can use the 'edit' or 'delete' button next to your review to make additional changes. 
 <img width="1536" alt="03_oneprod1" src="https://user-images.githubusercontent.com/103289506/211177214-f5609886-b8c9-4176-a628-69b0332a98b5.PNG">
 <img width="1535" alt="03_oneprod2" src="https://user-images.githubusercontent.com/103289506/211177215-91a9eab1-d256-48ff-a5b7-6631a19388cc.PNG">
+![06_oneprod](https://user-images.githubusercontent.com/103289506/219186844-57bf0844-c867-4a3d-ab25-2b3bcbb8f725.png)
 
-### Shopping Cart Page
-#### You can view all the items you added to shopping cart, then click the 'Place your order' button to place an order. Once the order has been created, your shopping cart will be set to empty. 
-<img width="1536" alt="04_shoppingcart" src="https://user-images.githubusercontent.com/103289506/211180972-90f73732-ca77-4ff8-bd73-2160cd0b88ff.PNG">
-
-### Order Detail Page
-#### After you place the order, you will be redirect to your order detail page. You can view all the purchased items and using the 'Write review' button to leave a comment. You can also chose to cancel your order within one hour after the purchase, the 'Cancel order' button located at the top right of the page. 
-<img width="1546" alt="05_oneOrder" src="https://user-images.githubusercontent.com/103289506/211181045-effab1fd-9507-41e2-93d4-4d36f5d2e66e.PNG">
-
-### Add Review Page
-#### To leave a review, you have options to post up to 5 images. 
-<img width="1547" alt="06_createReview" src="https://user-images.githubusercontent.com/103289506/211181171-311ed223-4bf1-4504-ac12-924e9b4112a8.PNG">
-
-### Edit Review page
-#### On the product page, for your own reviews, you can use the 'edit' or 'delete' button next to your review to make additional changes.
-<img width="1535" alt="07_editReview" src="https://user-images.githubusercontent.com/103289506/211181191-bb4230a3-7195-41d9-8604-ff7d3a5ba736.PNG">
 
 ### User Account page
 #### On the navigation bar, by clicking the account & Lists, user can visit their account page. It contains all the user's orders and their inventory list.
-<img width="1547" alt="08_accoutPage" src="https://user-images.githubusercontent.com/103289506/211181325-40f01515-e710-42ce-8f53-91964150d3e4.PNG">
-
-### User's Orders Page
-<img width="1548" alt="09_allOrders" src="https://user-images.githubusercontent.com/103289506/211181329-1c671fc0-892a-4a91-9b27-d9e24b862639.PNG">
-
+![11_account](https://user-images.githubusercontent.com/103289506/219186941-4d5499c7-9a7a-4ba7-b07f-29c8a4cc6261.jpeg)
 ### User's Inventory Page
 #### Under user's inventory page, you can post new product, edit or delete your existing posts. 
-<img width="1548" alt="09_allProdsSell" src="https://user-images.githubusercontent.com/103289506/211181333-cea1be5b-dbfe-4a46-bc23-1f389ff06e1a.PNG">
+![13_userProduct](https://user-images.githubusercontent.com/103289506/219187311-40c5e453-08e3-4d26-b06f-9696ba3fee8a.jpeg)
 
 ### Post New Selling Product
 #### To post a product, you need to post minimum one valid image (max 5 images), and fill out all form properly. 
-<img width="1547" alt="10_addNewProd" src="https://user-images.githubusercontent.com/103289506/211181361-0223cdf2-406b-4e6b-8749-232ae57a9328.PNG">
+![14_addProd](https://user-images.githubusercontent.com/103289506/219187407-43117e95-6023-40a1-ab3d-2a6c44c443fa.jpeg)
+
 
 ### Edit Selling Product
-<img width="1550" alt="11_editProd" src="https://user-images.githubusercontent.com/103289506/211181371-7c1f8481-f5a4-49bf-a871-594edc107591.PNG">
+![15_editProd](https://user-images.githubusercontent.com/103289506/219187508-6e3928ba-d8cb-452b-ab5e-d1ee33d2135f.jpeg)
 
 
+### Shopping Cart Page
+#### You can view all the items you added to shopping cart, then click the 'Place your order' button to place an order. Once the order has been created, your shopping cart will be set to empty. 
+![07_shoppingcart](https://user-images.githubusercontent.com/103289506/219187783-131ba795-a3b5-41f6-aa68-ef78455fb9e6.jpeg)
 
 
+### Order Detail Page
+#### After you place the order, you will be redirect to your order detail page. You can view all the purchased items and using the 'Write review' button to leave a comment. You can also chose to cancel your order within one hour after the purchase, the 'Cancel order' button located at the top right of the page. 
+![08_orderdetailpage](https://user-images.githubusercontent.com/103289506/219188017-598dd9a7-b3a2-4281-9dbe-b52f99f39ee3.jpeg)
+
+### User's Orders Page
+![12_orderpage](https://user-images.githubusercontent.com/103289506/219188196-6d66d63b-7d44-440c-b480-79807e67b6c5.jpeg)
+
+
+### Add Review Page
+#### To leave a review, you have options to post up to 5 images. 
+![09_addreview](https://user-images.githubusercontent.com/103289506/219188358-9e8726eb-ee84-4754-9984-2cf1d8942bed.jpeg)
+
+
+### Edit Review page
+#### On the product page, for your own reviews, you can use the 'edit' or 'delete' button next to your review to make additional changes.
+![10_editreview](https://user-images.githubusercontent.com/103289506/219188483-76fbb1ed-66ab-4254-b52a-b89af34b8a18.jpeg)
 
 
 Below is the starter for the Flask React project.
