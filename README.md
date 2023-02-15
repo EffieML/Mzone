@@ -1,6 +1,6 @@
 # Welcome to Mzone! (Flask React Project)
 
-#### Mzone is inspired Amazon, which is an ecommerce platform that sells many product lines. 
+#### Mzone is inspired by Amazon, which is an ecommerce platform that sells many product lines. 
 #### The purpose of this website is strictly for academic or research-related activities.
 
 ## [Mzone live link](https://aa-mzone.onrender.com)
@@ -68,6 +68,8 @@
 
 ### Edit Selling Product
 <img width="1550" alt="11_editProd" src="https://user-images.githubusercontent.com/103289506/211181371-7c1f8481-f5a4-49bf-a871-594edc107591.PNG">
+
+
 
 
 
