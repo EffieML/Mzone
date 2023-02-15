@@ -24,8 +24,10 @@
 ### Home Page
 #### All Products Page
 <img width="1378" alt="01_homepage" src="https://user-images.githubusercontent.com/103289506/219184160-87b4a232-a74c-4a46-a2ef-cd4cabae8a97.PNG">
+
 #### Products by Category Page
 <img width="1414" alt="02_categorypage" src="https://user-images.githubusercontent.com/103289506/219184988-8bedf3ee-ae0d-4b9c-b57c-99f6ff795d73.PNG">
+
 #### Search
 <img width="1414" alt="03_search_nav" src="https://user-images.githubusercontent.com/103289506/219185182-11c73a33-a146-4dfd-99d4-0206216f695f.PNG">
 
@@ -37,9 +39,8 @@
 
 ### Product Detail Page
 #### On the product detail page, you can click the 'Add to Cart' button to add it to your shopping cart. You can also leave a review for this product which located at left of the bottom review section. For the reviews you wrote, you can use the 'edit' or 'delete' button next to your review to make additional changes. 
-<img width="1536" alt="03_oneprod1" src="https://user-images.githubusercontent.com/103289506/211177214-f5609886-b8c9-4176-a628-69b0332a98b5.PNG">
-<img width="1535" alt="03_oneprod2" src="https://user-images.githubusercontent.com/103289506/211177215-91a9eab1-d256-48ff-a5b7-6631a19388cc.PNG">
-![06_oneprod](https://user-images.githubusercontent.com/103289506/219186844-57bf0844-c867-4a3d-ab25-2b3bcbb8f725.png)
+![06_oneprod](https://user-images.githubusercontent.com/103289506/219192276-66106679-a1a5-446a-9a32-ce14767af2c1.jpeg)
+
 
 
 ### User Account page
@@ -78,7 +79,8 @@
 
 ### Edit Review page
 #### On the product page, for your own reviews, you can use the 'edit' or 'delete' button next to your review to make additional changes.
-![10_editreview](https://user-images.githubusercontent.com/103289506/219188483-76fbb1ed-66ab-4254-b52a-b89af34b8a18.jpeg)
+<img width="1383" alt="15_editreview" src="https://user-images.githubusercontent.com/103289506/219192650-ac292efe-f198-4372-9345-7e996c8df37f.PNG">
+
 
 
 Below is the starter for the Flask React project.
