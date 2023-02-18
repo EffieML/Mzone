@@ -34,13 +34,13 @@ function Navigation() {
                     <div className='nav-bar1-developer-container'>
                         <div className='nav-bar1-developer-name'>Developer: Ming Liu</div>
                         <div className='nav-bar1-developer-container-row2'>
-                            <a href='https://github.com/EffieML/Mzone'>
+                            <a href='https://github.com/EffieML/Mzone' target="_blank">
                                 <div className='nav-bar1-developer-logosec'>
                                     <img src={githublogo} alt='github' />
                                     <div className='nav-bar1-developer-logoname'>GitHub</div>
                                 </div>
                             </a>
-                            <a href='https://www.linkedin.com/in/ming-liu-86611695/'>
+                            <a href='https://www.linkedin.com/in/effie-liu-b57372261/' target="_blank">
                                 <div className='nav-bar1-developer-logosec'>
                                     <img src={linkedin} alt='linkedin' />
                                     <div className='nav-bar1-developer-logoname'>LinkedIn</div>
