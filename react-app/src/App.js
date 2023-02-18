@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Academic from './components/auth/Academic';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import Navigation from './components/Navigation';
@@ -43,6 +44,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
+      <Academic />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
