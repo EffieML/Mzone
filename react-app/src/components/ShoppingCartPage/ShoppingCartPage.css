@@ -267,6 +267,7 @@
 @media (max-width: 1650px) {
     .cart-page-container-inner {
         width: 1400px;
+        /* padding-left: 40px; */
     }
 
     .cart-page-container-left {

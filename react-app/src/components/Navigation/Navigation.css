@@ -156,7 +156,6 @@
     justify-content: space-around;
     max-width: 1200px;
     margin: auto;
-
 }
 
 .nav-bar-2 a {
@@ -173,4 +172,16 @@
 .nav-bar-2 a:hover {
     border: 1px solid white;
     border-radius: 2px;
+}
+
+@media (max-width: 1650px) {
+    .nav-bar-container {
+        width: 100vw;
+        min-width: 800px;
+    }
+
+    .nav-bar-1 {
+        width: 100vw;
+        min-width: 800px;
+    }
 }

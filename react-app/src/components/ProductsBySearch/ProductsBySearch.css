@@ -21,7 +21,6 @@
     font-family: 'Amazon Ember', 'Ember', Arial, sans-serif;
     color: #0f1111;
     margin-top: 40px;
-
 }
 
 .product-card {
@@ -112,10 +111,17 @@
 .home-product-prime-container {
     width: 335px;
     padding: 0px 15px;
-
 }
 
 .home-product-prime {
     /* height: 20px; */
     width: 60px;
+}
+
+@media (max-width: 1650px) {
+    .all-sproducts-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1360px;
+    }
 }
