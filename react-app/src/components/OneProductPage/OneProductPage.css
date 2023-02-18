@@ -23,7 +23,6 @@
 .one-prod-page-top {
     display: flex;
     flex-direction: row;
-
 }
 
 /* top left image section ------------------------------------- */
@@ -359,6 +358,7 @@ table {
     .one-prod-page-top {
         width: 1380px;
         margin: 0 auto;
+        height: 550px;
     }
 
     #img-big {
@@ -379,5 +379,13 @@ table {
     .one-prod-bttm-review {
         width: 1370px;
         padding-left: 10px;
+    }
+
+    .one-prod-middle-content {
+        width: 1270px;
+    }
+
+    .one-prod-page-top-right-container {
+        height: 500px;
     }
 }
