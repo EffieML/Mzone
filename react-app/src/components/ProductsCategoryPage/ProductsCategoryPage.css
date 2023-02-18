@@ -19,3 +19,17 @@
     position: relative;
     top: -50px;
 }
+
+@media (max-width: 1650px) {
+    .carousel2 {
+        max-width: 1130px;
+    }
+
+    .category-products-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1360px;
+        position: relative;
+        top: -40px;
+    }
+}

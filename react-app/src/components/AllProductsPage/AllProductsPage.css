@@ -118,10 +118,19 @@
 .home-product-prime-container {
     width: 335px;
     padding: 0px 15px;
-
 }
 
 .home-product-prime {
     /* height: 20px; */
     width: 60px;
+}
+
+@media (max-width: 1650px) {
+    .all-products-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1360px;
+        position: relative;
+        top: -260px;
+    }
 }

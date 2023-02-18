@@ -2,13 +2,20 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    /* min-width: 800px; */
+    min-width: 800px;
     font-family: 'Amazon Ember', Arial, sans-serif;
     background-color: #131921;
     height: 80px;
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+@media (max-width: 1650px) {
+    .footer-container {
+        width: 100vw;
+        min-width: 800px;
+    }
 }
 
 .footer-container-inner {
