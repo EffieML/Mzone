@@ -24,7 +24,7 @@ def get_one_order(order_id):
     get one order by id
     """
     order = Order.query.get(order_id)
-    print("order-----------------", order)
+    # print("order-----------------", order)
     return order.to_dict()
     # if order:
     #     print("order-----------------", order.to_dict())
@@ -42,13 +42,13 @@ def checkout_create_order():
     new_order = Order(
         user_id=current_user.id,
     )
-    print('python new order', new_order)
+    # print('python new order', new_order)
     db.session.add(new_order)
     db.session.commit()
 
     # add all cart items as order items
     cart_items = Cart.query.filter(Cart.user_id == current_user.id)
-    print("cart item", cart_items)
+    # print("cart item", cart_items)
     for item in cart_items:
         order_item = Order_Item(
             order_id=new_order.id,
