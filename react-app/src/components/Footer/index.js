@@ -42,8 +42,12 @@ function Footer() {
                         </div>
                     </a>
                 </div>
-
+                <div className='acad-container'>
+                    <div className='acad-inner'>Inspired by Amazon</div>
+                    <div className='acad-inner'>Academic Use Only</div>
+                </div>
             </div>
+
         </div>
     )
 

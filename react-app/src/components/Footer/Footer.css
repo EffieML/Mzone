@@ -19,7 +19,7 @@
 }
 
 .footer-container-inner {
-    width: 800px;
+    width: 900px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -102,4 +102,13 @@
     font-size: 18px;
     font-weight: bold;
     color: #fd9800;
+}
+
+.acad-container {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(255, 153, 0);
+    padding: 4px;
+    border: 1px solid rgb(255, 153, 0);
+    border-radius: 6px;
 }
